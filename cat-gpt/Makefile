@@ -1,12 +1,26 @@
+CXXFLAGS:= @etc/cxxflags
+LDFLAGS:= @etc/ldflags
+LDLIBES:= @etc/libs
+CXX:=$(shell cat etc/cxx)
+LIST:=$(shell git ls-files)
 
-CXXFLAGS:= -ggdb3 
-LDFLAGS:= -Wl,--verbose
-LDLIBES:= -lcurl -lboost_program_options
+all: cat-gpt ../cat-gpt.tar
 
-%.i: %.cc
-	g++ -o $@ $< $(CXXFLAGS) -E
+tar: ../cat-gpt.tar
 
-cat-gpt: cat-gpt.cc
-	@echo test
-	g++ -o $@ $< $(CXXFLAGS) $(LDFLAGS) $(LDLIBES)
+
+../cat-gpt.tar: $(LIST)
+	tar -cf ../cat-gpt.tar -C .. cat-gpt $(git ls-files)
+
+%.i: %.cc etc/cxxflags
+	$(CXX) -o $@ $< $(CXXFLAGS) -E
+
+%.o: %.i etc/cxxflags
+	$(CXX) -o $@ $< $(CXXFLAGS) -c
+
+%.o: %.S etc/cxxflags
+	$(CXX) -o $@ $< $(CXXFLAGS) -S
+
+cat-gpt: cat-gpt.o
+	$(CXX) -o $@ $< $(CXXFLAGS) $(LDFLAGS) $(LDLIBES)
 
