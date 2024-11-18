@@ -1,0 +1,59 @@
+# workflow:
+#   rules:
+#     - if: $CI_PIPELINE_SOURCE == "web"
+
+image: python:3.11-slim
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - apt-get update && apt-get install -y git
+  - python --version ; pip --version  # For debugging
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - cd devai-cli/src
+  - pip install -r requirements.txt
+  - pip install --editable .
+  - cd ../..
+  - export GOOGLE_CLOUD_CREDENTIALS=$(echo $GOOGLE_CLOUD_CREDENTIALS)
+
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - echo $(pwd)
+    - export PROJECT_ID=$(echo $PROJECT_ID)
+    - export LOCATION=$(echo $LOCATION)
+
+    - export LANGCHAIN_TRACING_V2=$(echo $LANGCHAIN_TRACING_V2)
+    - export LANGCHAIN_ENDPOINT=$(echo $LANGCHAIN_ENDPOINT)
+    - export LANGCHAIN_API_KEY=$(echo $LANGCHAIN_API_KEY)
+
+    - export JIRA_API_TOKEN=$(echo $JIRA_API_TOKEN)
+    - export JIRA_USERNAME=$(echo $JIRA_USERNAME)
+    - export JIRA_INSTANCE_URL=$(echo $JIRA_INSTANCE_URL)
+    - export JIRA_PROJECT_KEY=$(echo $JIRA_PROJECT_KEY)
+    - export JIRA_CLOUD=true
+
+    - export GITLAB_PERSONAL_ACCESS_TOKEN=$(echo $GITLAB_PERSONAL_ACCESS_TOKEN)
+    - export GITLAB_URL=$(echo $GITLAB_URL)
+    - export GITLAB_REPOSITORY=$(echo $GITLAB_REPOSITORY)
+    - export GITLAB_BRANCH=$(echo $GITLAB_BRANCH)
+    - export GITLAB_BASE_BRANCH=$(echo $GITLAB_BASE_BRANCH)
+
+    - export GOOGLE_CLOUD_CREDENTIALS=$(echo $GOOGLE_CLOUD_CREDENTIALS)
+    - echo $GOOGLE_CLOUD_CREDENTIALS > service-account-key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS="service-account-key.json"
+
+    - devai review testcoverage -c ./sample-app/src
+    - devai review blockers -c ./sample-app/pom.xml
+    - devai review code -c ./sample-app/src/main/java/anthos/samples/bankofanthos/balancereader
+    - devai review performance -c ./sample-app/src/main/java/anthos/samples/bankofanthos/balancereader
+    - devai review security -c ./sample-app/src/main/java/anthos/samples/bankofanthos/balancereader
