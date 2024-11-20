@@ -1,20 +1,63 @@
 #include <iostream>
+#include <fcntl.h>
+#include <sys/mman.h>
 #include <string>
 #include <sstream>
 #include <curl/curl.h>
+#include <filesystem>
 #include <nlohmann/json.hpp>
 #include <boost/program_options.hpp>
 
 using json = nlohmann::json;
 using namespace std;
+using namespace std::filesystem;
 namespace po = boost::program_options;
+
+void pexit(int code, const string &m1) __attribute__((__noreturn__));
+void pexit(int code, const string &m1){
+  perror(m1.c_str());
+  exit(code);
+};
+int xopenat(int dirfd, const char *pathname, int flags, mode_t mode=0) {
+  int fd=openat(dirfd,pathname,flags,mode);
+  if(fd<0)
+    pexit(1,"openat");
+  return fd;
+};
+int xopenat(int dirfd, const string &pathname, int flags, mode_t mode=0) {
+  return xopenat(dirfd,pathname.c_str(),flags,mode);
+};
+int xopen(const char *pathname, int flags, mode_t mode) {
+  return xopenat(AT_FDCWD,pathname,flags,mode);
+};
 
 // Function to write the response data from curl to a string
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     ((string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
+void *xmmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset) {
+  auto res=mmap(addr,length,prot,flags,fd,offset);
+  if(res==(void*)-1)
+    pexit(7,"mmap");
+  return (void*)res;
+};
 
+bool mmap_file(const string &fname, const char *&beg, const char *&end)
+{
+  bool write=false;
+  int prot=PROT_READ;
+  int mode=O_RDONLY;
+  if(write) {
+    prot|=PROT_WRITE;
+    mode|=O_RDWR;
+  };
+  int fd=xopenat(AT_FDCWD,fname,mode);
+  size_t size=lseek(fd,0,SEEK_END);
+  beg=(char*)xmmap(0,size?size:1,prot,MAP_PRIVATE,fd,0);
+  end=beg+size;
+  return true;
+};
 string generate_response(const string& prompt, const string& api_key) {
     CURL* curl;
     CURLcode res;
