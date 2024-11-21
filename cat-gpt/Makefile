@@ -5,8 +5,8 @@ CXX:=$(shell cat etc/cxx)
 list/here:=$(shell git ls-files .)
 dirb:=$(notdir $(PWD))
 list/up1:=$(patsubst %,$(dirb)/%,$(list/here))
-
-all: cat-gpt cat-gpt.tar
+exe:= cat-gem cat-gpt 
+all: cat-gpt.tar $(exe)
 
 tar: cat-gpt.tar
 
@@ -23,6 +23,6 @@ cat-gpt.tar: $(list/here)
 %.o: %.S etc/cxxflags
 	$(CXX) -o $@ $< $(CXXFLAGS) -S
 
-cat-gpt: cat-gpt.o
+$(exe): %: %.o
 	$(CXX) -o $@ $< $(CXXFLAGS) $(LDFLAGS) $(LDLIBES)
 

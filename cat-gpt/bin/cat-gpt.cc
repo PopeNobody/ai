@@ -1,3 +1,16 @@
+/**
+ *
+ *  The cat-gpt program copies it's input to cat-gpt, and cat-gpt's
+ *  output to you, the happy user.
+ *
+ *  ChatGPT ... Could you do me a favor, and change this to use mmap\
+ *  rather than iostreams to do it's business?  Also, I'd like to add
+ *  the ability to log.
+ *
+ *
+ *
+ */
+
 #include <iostream>
 #include <fcntl.h>
 #include <sys/mman.h>
@@ -162,4 +175,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-
