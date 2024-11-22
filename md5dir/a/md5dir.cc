@@ -59,13 +59,15 @@ md5_t md5(const path &rhs) {
       ofstream dirfile(dirname);
       sort(dir.begin(),dir.end());
       for(auto d : dir) {
+        path name = d.filename();
+        name/= ".md5";
         dirfile << md5(d) << "  "
-          << d.filename() << "/.md5"
+          << name.c_str()
           << endl;
       };
       sort(reg.begin(),reg.end());
       for(auto r : reg) {
-        dirfile << md5(r) << "  " << r <<endl;
+        dirfile << md5(r) << "  " << r.c_str() <<endl;
       };
     }
     return md5(dirname);
@@ -77,13 +79,13 @@ md5_t md5(const path &rhs) {
 };
 int main(int argc, char* argv[])
 {
-  path name=".";
+  path name="..";
   if(argc==2)
     name=argv[1];
   if(argc>2) {
     cerr << "usage: argv[0] <dir>" << endl;
     exit(1);
   };
-  cout << md5(name) << "  " << name << endl;
+  cout << md5(name) << "  " << name.c_str() << "/.md5" << endl;
   return 0;  
 }
