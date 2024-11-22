@@ -1,0 +1,3351 @@
+<!doctype html>
+<html 
+      lang="zh-TW-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-tw"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=zh-tw">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=vi" /><title>檔案提示策略 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="檔案提示策略 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-tw"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=zh-tw">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="zh_tw"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "檔案提示策略"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "檔案提示策略",
+      "item": "https://ai.google.dev/gemini-api/docs/file-prompting-strategies"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=en">
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="開啟選單">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=zh-tw" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="上層分頁">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=zh-tw"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemma"
+         
+           track-name="gemma"
+         
+       >
+    Gemma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai 邊緣"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI 邊緣"
+         
+           track-name="google ai 邊緣"
+         
+       >
+    Google AI 邊緣
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 工具"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 工具"
+         
+           track-name="工具"
+         
+       >
+    工具
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="以下項目的下拉式選單： 工具"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - 工具"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: 工具"
+        
+          track-name="工具"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=zh-tw"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=zh-tw"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      負責任的生成式 AI 工具包
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=zh-tw"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=zh-tw"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=zh-tw"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=zh-tw"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=zh-tw"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=zh-tw"
+                     track-metadata-position="nav - 工具"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=zh-tw"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - community"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Community"
+         
+           track-name="community"
+         
+       >
+    Community
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=zh-tw" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="開啟搜尋"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜尋結果"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜尋結果"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="關閉搜尋"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登入</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="下層分頁">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 文件"
+       track-metadata-module="primary nav"
+       aria-label="文件, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 文件"
+         
+           track-name="文件"
+         
+       >
+    文件
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - api 參考資料"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: API 參考資料"
+         
+           track-name="api 參考資料"
+         
+       >
+    API 參考資料
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=zh-tw"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=zh-tw"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 定價"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 定價"
+         
+           track-name="定價"
+         
+       >
+    定價
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="篩選器"
+         
+         aria-label="篩選類型"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除篩選器"
+        aria-label="清除篩選器"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="側邊選單">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="關閉導覽列">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=zh-tw" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 文件"
+      
+        track-name="文件"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 文件"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      文件
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: API 參考資料"
+      
+        track-name="api 參考資料"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: API 參考資料"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      API 參考資料
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 定價"
+      
+        track-name="定價"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 定價"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      定價
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemma"
+      
+        track-name="gemma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemma
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI 邊緣"
+      
+        track-name="google ai 邊緣"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI 邊緣"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI 邊緣
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 工具"
+      
+        track-name="工具"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      工具
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 工具"
+      
+        track-name="工具"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="工具">
+      更多
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="工具">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Community"
+      
+        track-name="community"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Community"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Community
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>總覽</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>開始使用</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>API 金鑰</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>快速入門導覽課程</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>程式庫</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>版本資訊</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>模型</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>實驗版模型</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="實驗版！"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>功能</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>文字生成</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>文件處理中</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>Vision</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>音訊</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>詳細背景資訊</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>連結</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>以 Google 搜尋建立基準</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>使用 Google 搜尋建議</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>程式碼執行</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>結構化輸出內容</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>微調</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>微調簡介</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>微調教學課程</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>函式呼叫</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>函式呼叫簡介</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>函式呼叫教學課程</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>擷取結構化資料</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>系統操作說明</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>嵌入</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>安全分</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>安全設定</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>安全指南</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>指南</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>內容快取</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>圖片 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>權杖</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>提示</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>提示簡介</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>提示策略</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>檔案提示策略</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>語意擷取</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>關於生成式模型</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>計費方式</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>OpenAI 相容性</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="實驗版！"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>遷移至 Cloud</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>其他資源</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Google AI Studio 快速入門導覽課程</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android (裝置端)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Firebase 擴充功能</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>OAuth 驗證</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="實驗版！"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>用途</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>應用程式</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>程式設計助理</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Flutter 程式碼產生器</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>內容搜尋</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>資料探索代理程式</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>寫作小幫手</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>簡報審查者</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>疑難排解</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>API 疑難排解</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>AI Studio 疑難排解</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>搭配 Google Workspace 使用 AI Studio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>要求提高配額</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Community</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>開發人員論壇</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="外部網站"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Legal</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>服務條款</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>可用地區</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>濫用行為監控</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="工具"
+          aria-label="側邊選單" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 負責任的生成式 AI 工具包"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      負責任的生成式 AI 工具包
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="這個頁面中的內容"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    您現在可以透過 Google 搜尋進行地面資訊驗證了！<a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">瞭解詳情</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=zh-tw"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            本頁面由 <a href="//cloud.google.com/translate/?hl=zh-tw">Cloud Translation API</a> 翻譯而成。
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="導覽標記">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=zh-tw"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        首頁
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=zh-tw"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=zh-tw"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        文件
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    提供意見
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      檔案提示策略
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="關閉"
+
+      
+      close-button-text="我知道了">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      透過集合功能整理內容
+    </span>
+    <span slot="popout-contents">
+      
+      你可以依據偏好儲存及分類內容。
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+</p>
+
+
+
+
+
+<p>Gemini 系列的人工智慧 (AI) 模型可以處理
+包括文字、圖片和音訊等各種輸入資料因為這些
+模型可以處理多種類型或「模式」<em></em>，也就是 Gemini 模型
+稱為<em>多模態模型</em>，或稱為<em>多模態功能</em>。</p>
+<aside class="note"><strong>注意：</strong><span> 特定 Gemini 模型支援使用媒體檔案進行提示。
+如要進一步瞭解哪些模型支援這項功能，請參閱
+<a href="https://ai.google.dev/gemini-api/docs/vision?hl=zh-tw">視力</a>和<a href="https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw">語音</a>指南。</span></aside>
+<p>本頁面提供在下列情況下使用媒體檔案的指示和最佳做法：
+輸入提示如要瞭解如何使用 Gemini Files API
+上傳媒體檔案並在提示中加入檔案，請參閱
+<a href="https://ai.google.dev/gemini-api/docs/vision?hl=zh-tw">Vision</a>、<a href="https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw">音訊</a>和
+<a href="https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw">文件處理</a>指南。</p>
+
+<h2 data-text="搭配提示使用媒體檔案" id="media-prompts" tabindex="-1">搭配提示使用媒體檔案</h2>
+
+<p>在提示中運用各種類型的資料，
+讓您靈活運用 Gemini API 處理的工作適用對象
+例如，你可以傳送美味餐點的相片給模型
+烹調簡短的餐點網誌。</p>
+
+<table style="border: 1px solid #D3D3D3">
+  <tbody><tr>
+    <td width="50%"><b>提示</b></td>
+    <td width="50%"><b>回應</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #D3D3D3">
+      <p>根據這張圖片撰寫簡短引人入勝的網誌文章。它應該
+      在相片中加入餐點說明，並談談我的旅程
+      備餐。</p>
+      <br />
+      <img alt="Cookie" src="https://ai.google.dev/static/gemini-api/docs/images/image_prompt.png?hl=zh-tw" style="width: 100%; border: 1px solid black" />
+    </td>
+    <td style="background-color:#f3f3ff">
+      <p>烹調餐點是省時又省錢的好方法，
+      幫助您更健康的飲食。這道餐點是健康的一份子
+      並能輕鬆提前準備美味餐點</p>
+
+      <p>早餐包括棕色米飯、烤蔬菜和雞肉照燒。
+      棕色飯是健康又複雜的碳水化合物
+      以及永續能源利用烘焙蔬菜是每日行程的好方法
+      一堆維他命和礦物 而雞照燒不過是美味的
+      蛋白質選項</p>
+
+      <p>這種餐點的準備方式也非常簡單。輕鬆煮棕色米飯、烤雞
+      也準備了雞肉照燒料理一切都製作完畢後
+      分成備餐容器，並放在冰箱內
+      您就可以拿起容器，在忙碌的早晨享受時光。</p>
+
+      <p>如果想尋找可輕鬆吃的健康美味餐點
+      早點餐前的料理
+此時不妨考慮這點整合
+      同時讓自己擁有飽滿滿滿的滿滿體驗。</p>
+
+      <p>我們準備了美味健康的餐點料理方式！</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h2 data-text="運用媒體提示的策略" id="strategies" tabindex="-1">運用媒體提示的策略</h2>
+
+<p>如果無法透過使用
+媒體檔案可以運用一些策略
+以下各節提供設計方法和疑難排解
+提示，提升使用多模態輸入的提示。</p>
+
+
+
+<p>如要改善多模態提示，請按照下列最佳做法：</p>
+
+<ul>
+    <li>
+        <h3 data-text="提示設計基本概念" id="prompt-design-fundamentals" tabindex="-1"><a href="#fundamentals">提示設計基本概念</a></h3>
+        <ul>
+            <li><strong>在指示中具體說明</strong>：請提供簡明扼要的指示，盡可能避免發生誤解的情形。</li>
+            <li><strong>在提示中新增一些例子：</strong>使用逼真的少量樣本範例，說明您想達成的目標。</li>
+            <li><strong>逐步分析</strong>：將複雜的工作劃分成可管理的子目標，引導模型完成整個程序。</li>
+            <li><strong>指定輸出格式</strong>：在提示中要求輸出格式，例如 Markdown、JSON、HTML 等等。</li>
+            
+            <li><strong>使用單一圖片提示，優先使用圖片</strong>：Gemini 能處理圖片和文字輸入內容，無論使用順序為何，但如果提示中含有單圖片，則將圖片置於文字提示前，成效可能會更好。</li>
+            
+        </ul>
+    </li>
+
+    <li>
+        <h3 data-text="多模態提示疑難排解" id="troubleshooting-your-multimodal-prompt" tabindex="-1"><a href="#troubleshooting">多模態提示疑難排解</a></h3>
+        <ul>
+            <li><strong>如果模型未從圖片的相關部分取得資訊：</strong>你可以從圖片的哪些方面放置提示，做為提示從圖片中提取資訊的依據。</li>
+            
+            <li><strong>如果模型輸出內容過於籠統 (不適合用於圖片)： </strong>請在提示一開始時要求模型描述圖片，再提供任務指示，或嘗試要求模型參照圖片中的內容。</li>
+            
+        </ul>
+    </li>
+</ul>
+
+<h2 data-text="提示設計基本概念" id="fundamentals" tabindex="-1">提示設計基本概念</h2>
+
+<p>本節將補充前一節列出的最佳做法。</p>
+<p>注意：下列 Gemini 範例的模型結果可能因實際執行情況而異。</p>
+
+<h3 data-text="指示力求明確" id="be-specific-in-your-instructions" tabindex="-1">指示力求明確</h3>
+
+<p>內容清楚且詳細時，提示的效果最佳。如果您有特定的輸出內容，最好在提示中加入該要求，確保得到所需的輸出內容。</p>
+<p>有時候，提示撰寫者看似明確，卻沒有明確指定。如要自訂模型行為，請考量可能 (及錯誤) 提示的解讀方式，並確保給予的指示明確且清楚。請務必盡量避免發生誤解的情形</p>
+<p>就這張投影片的圖片，要求模型只「描述這張圖片」可以產生一般說明如果需要模型剖析圖片中的時間和城市，可以直接在提示中加入該要求。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=zh-tw" /><p>描述這張圖片。</p></td>
+        <td><p>圖片顯示機場抵達和發車時刻表。</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img alt="行程時刻表" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=zh-tw" /><p>從這張圖片顯示的機場委員會將時間和城市剖析為清單。</p></td>
+      <td><p></p><li>10:50 莫斯科</li>
+        <li>11:05 愛丁堡</li>
+        <li>11:05 倫敦</li>
+        <li>11:10 布加勒斯特</li>
+        <li>11:30 基輔</li>
+        <li>11:35 都柏林</li>
+        <li>11:45 東密德蘭</li>
+        <li>12:15 索非亞</li>
+        <li>12:30 倫敦</li>
+        <li>12:30 紐卡索</li>
+        <li>12:40 聖彼得堡</li>
+        <li>12:40 倫敦</li>
+        <li>12:45 曼徹斯特</li><p></p></td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="新增幾個範例" id="add-a-few-examples" tabindex="-1">新增幾個範例</h3>
+
+<p>Gemini 模型可接受多種輸入內容，可用做範例來瞭解
+輸出內容新增這些範例，即可協助模型識別模式並
+  指定圖片和新範例回應之間的關聯性也稱為
+  「陰道」學習模式</p>
+
+<p>在以下範例中，初始輸出結果是以語句格式寫成
+國家/地區 (巴西)。假設您希望輸出採用其他格式或樣式，而且您想要
+只有城市，而不是國家/地區。在提示中加入少量樣本樣本，有利於模型引導方向
+以你偏好的方式回應</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>提示</b></th>
+      <th width="30%"><b>模型回應</b></th>
+    </tr>
+    <tr>
+      <td><img alt="行程時刻表" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=zh-tw" /><p>根據地標判斷城市。</p></td>
+      <td><p>當地地標是巴西里約熱內盧的救世主雕像。</p></td>
+    </tr>
+</tbody></table>
+
+<table>
+</table><table class="alternating-even-rows">
+  <tbody><tr>
+    <th width="40%"><b>更新提示</b></th>
+    <th width="30%"><b>提升回覆品質</b></th>
+  </tr>
+  <tr>
+    <td>
+      <p>根據地標判斷城市。</p>
+      <img alt="羅馬競技場" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/colosseum.png?hl=zh-tw" />
+    </td>
+    <td>
+      <p>城市：羅馬、地標：羅馬競技場。</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="紫禁城" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/forbidden-city.png?hl=zh-tw" />
+    </td>
+    <td>
+      <p>城市：北京，地標：紫禁城</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="禁止城市" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=zh-tw" />
+    </td>
+    <td>
+      <p>城市：裡約熱內盧，地標：救世基督像</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3 data-text="逐步解析" id="break-it-down-step-by-step" tabindex="-1">逐步解析</h3>
+
+<p>如果是需要同時理解影像內容及進行推理的工作等複雜的工作，這項功能會很有幫助
+將任務分割為更小且更直覺的步驟而且，這非常有效
+指示模型「逐步思考」</p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=zh-tw" /><p>何時會用完廁所紙？</p></td>
+        <td><p>你很快就剩下 3 個擲骰子。</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=zh-tw" /><p>
+          </p><ol>1. 首先，請計算這張圖中的廁所紙捲數量。</ol>
+          <ol>2.然後判斷一般人每天的洗手紙量。</ol>
+          <ol>3.計算這些馬桶捲的剩下時間長度。</ol>
+          <p></p></td>
+      <td><p>
+          </p><ol>1. 圖中有 3 捲的廁所。</ol>
+          <ol>2.一般人每天會用約 20 紙的廁所。</ol>
+          <ol>3.如果每個擲出的工作表包含 200 張工作表，則每個擲出的期限大約為 10 天。因此，這 3 次累積的分數會持續約一個月。</ol>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>你可以要求模型逐步思考數學問題或其他類型的應用題。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>提示</b></th>
+      <th width="30%"><b>回應</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=zh-tw" /><p>
+          </p><p>序列中的第 4 個字詞為何？</p>
+          <p></p></td>
+      <td><p>135 個
+        </p></td>
+    </tr>
+</tbody></table>
+
+<p>模型的回應不正確。有些改善方法，就是先要求模型剖析問題，然後再回答提示內容。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>提示</b></th>
+      <th width="30%"><b>回應</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=zh-tw" /><p>
+          </p><p>請先剖析圖片中的公式。</p>
+          <p>接著根據公式回答「序列中的第 4 個字詞為何？」。</p>
+          <p></p></td>
+      <td><p></p><details>
+        <summary><em>按一下即可展開結果</em></summary>
+<p>$$ b(n) = b(n-1) * (-3) $$</p>
+<p>$$ b(1) = 15 $$</p>
+<ol>
+<li>將 n = 4 換成公式：</li>
+<p>$$ b(4) = b(4-1) * (-3) $$</p>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<li>我們不知道 b(3) 的值，因此請將 n = 3 換成公式：</li>
+<p>$$ b(3) = b(3-1) * (-3) $$</p>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<li>我們不知道 b(2) 的值，因此請將 n = 2 換成公式：</li>
+<p>$$ b(2) = b(2-1) * (-3) $$</p>
+<p>$$ b(2) = b(1) * (-3) $$</p>
+<li>我們知道 b(1) 的值是 15，所以請將該值換成以下公式：</li>
+<p>$$ b(2) = 15 * (-3) $$</p>
+<p>$$ b(2) = -45 $$</p>
+<li>現在我們已知道 b(2) 的值，請將該值替換成 b(3) 的公式：</li>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<p>$$ b(3) = -45 * (-3) $$</p>
+<p>$$ b(3) = 135 $$</p>
+<li>現在我們已知道 b(3) 的值，請將該值替換成 b(4) 的公式：</li>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<p>$$ b(4) = 135 * (-3) $$</p>
+<p>$$ b(4) = -405 $$</p>
+</ol>
+<p>因此，序列中的第 4 個字詞為 -405。</p>
+      </details>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>這個模型回應正確，現在為了讓回應更加精簡，您現在可以要求模型逐步思考。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=zh-tw" /><p>
+          </p><p>序列中的第 4 個字詞為何？請逐步思考。</p>
+          <p></p></td>
+      <td><p>第一個字詞是 15</p>
+        <p>第二個字詞為 b(1) * (-3) = 15 * (-3) = -45。</p>
+          <p>第三個術語為 b(2) * (-3) = -45 * (-3) = 135。</p>
+            <p>第四項是 b(3) * (-3) = 135 * (-3) = -405。</p>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<h3 data-text="嘗試指定輸出格式" id="try-specifying-the-output-format" tabindex="-1">嘗試指定輸出格式</h3>
+
+<p>常見的問題是，模型的輸出內容必須使用特定格式 (例如 Markdown、JSON、HTML)，尤其是在模型輸出需要
+  由下游任務擷取您可以指示模型在提示中產生該格式的輸出內容，以下提供兩個範例：</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/excel-example.png?hl=zh-tw" /><p>將這張圖片中的資料表剖析為 Markdown 格式</p></td>
+        <td>
+          <p>|主旨 |狀態 |時間 |開始日期 |到期日 |</p>
+          <p> |------- |------ |---- |--------- |------ |</p>
+          <p>|數學 |完成 |1.5 小時 |2023 年 11 月 29 日 |2023 年 12 月 1 日 |</p>
+          <p>|地理位置 |完成 |30 分鐘 |2023 年 12 月 2 日 |2023 年 12 月 4 日 |</p>
+          <p>|物理 |進行中 |2 小時 |2023 年 12 月 3 日 |2023 年 12 月 5 日 |</p>
+          <p>|生物學 |尚未開始 |6 小時 |2016 年 11 月 2 日 |2023 年 12 月 6 日 |</p>
+          </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>提示</b></th>
+      <th width="30%"><b>模型回應</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/spanish-meal.png?hl=zh-tw" />
+        <p>請提供所有下列屬性的清單：</p>
+        <p>JSON 格式</p></td>
+      <td><p><code dir="ltr" translate="no">
+        </code></p><p><code dir="ltr" translate="no">```json```</code></p>
+        <p><code dir="ltr" translate="no">{</code></p>
+          <p><code dir="ltr" translate="no">"ingredients": [</code></p>
+            <p><code dir="ltr" translate="no">"rice",</code></p>
+              <p><code dir="ltr" translate="no">"shrimp",</code></p>
+                <p><code dir="ltr" translate="no">"clams",</code></p>
+                  <p><code dir="ltr" translate="no">"mussels",</code></p>
+                    <p><code dir="ltr" translate="no">"peas",</code></p>
+                      <p><code dir="ltr" translate="no">"tomatoes",</code></p>
+                        <p><code dir="ltr" translate="no">"onions",</code></p>
+                          <p><code dir="ltr" translate="no">"garlic",</code></p>
+                            <p><code dir="ltr" translate="no">"olive oil",</code></p>
+                              <p><code dir="ltr" translate="no">"paprika",</code></p>
+                                <p><code dir="ltr" translate="no">"salt",</code></p>
+                                  <p><code dir="ltr" translate="no">"pepper"</code></p>
+                                    <p><code dir="ltr" translate="no">],</code></p>
+                                      <p><code dir="ltr" translate="no">"type of cuisine": "Spanish",</code></p>
+                                        <p><code dir="ltr" translate="no">"vegetarian": false</code></p>
+</td>
+</tr>
+</tbody></table>
+
+<h3 data-text="提供單一圖片提示，優先顯示圖片" id="put-your-image-first-for-single-image-prompts" tabindex="-1">提供單一圖片提示，優先顯示圖片</h3>
+
+<p>Gemini 可以在提示中按任意順序解讀圖片和文字，但只有在圖片中
+可能會產生較好的結果您會在下列範例中發現
+每個提示文字的前方</p>
+
+
+<h2 data-text="多模態提示疑難排解" id="troubleshooting" tabindex="-1">多模態提示疑難排解</h2>
+
+<p>如果沒有收到實用的回覆，你可能需要對提示排解問題。以下提供幾種策略供您參考。</p>
+
+<h3 data-text="如果模型並非從圖像的相關部分擷取資訊" id="if-the-model-is-not-drawing-information-from-the-relevant-part-of-the-image" tabindex="-1">如果模型並非從圖像的相關部分擷取資訊</h3>
+
+<p>如要取得更具體的回覆，可以指出想提示的圖片哪些部分
+並收集資訊來做出回覆</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=zh-tw" /><p>這些尿布會維持多少天？</p></td>
+        <td><p>尿布會持續 198 天，然後就會用完。</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=zh-tw" />
+        <p>這些尿佈在我用完之前會多久？</p>
+        <p>使用方塊中顯示的體重來判斷孩童年齡，以及使用箱子總數。</p>
+        <p>將總人數除以孩子每天經過的尿布數量。</p></td>
+      <td>
+        <p>包裝盒內含 198 尿布。包裝盒上表示尿布適用於體重 22-37 磅的孩子。</p>
+        <p>這個體重範圍中的孩子平均可能介於 1 到 2 歲。</p>
+        <p>2 歲兒童通常每天需要 6 尿布，因此尿布會持續約 33 天 (198/6)。</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="如果模型輸出內容過於籠統，無法配合圖片輸入內容調整" id="if-the-model-output-is-too-generic-and-not-tailored-enough-to-the-image-input" tabindex="-1">如果模型輸出內容過於籠統，無法配合圖片輸入內容調整</h3>
+
+
+<p>為協助模型調整圖片的回應方式，請先要求模型描述圖片，再執行推理工作。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=zh-tw" />
+          <p>這些圖片有什麼共通點？</p></td>
+        <td><p>四張圖片皆為橫向攝影範例。</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=zh-tw" />
+        <p>首先，請詳細說明每張圖片的內容。這些圖片有什麼共通點？</p></td>
+      <td>
+        <p>第一張圖片顯示某人正在包裝行李箱。第二張圖片顯示購物中心的空走廊。第三張圖片顯示一滾滾的廁所紙。第四張圖片顯示黑暗又暴風的海洋。</p>
+        <p>這些圖片的共通點在於，這些圖片都是保留空間的例子。精簡空間是指位於其他兩個地點或情境之間的地點或情境。通常是有不確定性的或不確定性。</p>
+        <p>第一張圖片顯示使用者在家或旅途中。第二張圖片顯示兩間商店之間的走廊。第三張圖片是廁紙，代表浴室浴室是私人之間的過渡空間
+        和公共領域我們在這裡做好準備，進入或離開外界。</p>
+        <p>第四個圖片顯示海洋的平靜和暴風雨。</p>
+        <p>光顧自由的空間既有趣又令人不安。可以是新的起點或終點。例如反思或動作空間。</p>
+          <p></p>
+      </td>
+    </tr>
+</tbody></table>
+
+<p>您也可以明確要求模型指出圖像的內容。</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=zh-tw" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=zh-tw" />
+        <p>這些圖片有什麼共通點？請參閱回應中的圖像。</p></td>
+      <td>
+        <p>所有圖片都與旅遊相關。第一張圖片顯示某人正在包裝行李箱，第二張圖片顯示
+          購物中心的空廊，第三張圖片顯示一疊廁所紙，第四張圖片顯示
+          黑暗的海洋。</p>
+        <p>這些圖片都和旅遊相關，因為使用者需要或利用
+          他們的旅程第一張圖片顯示一個人正在打行李，而這人在做什麼時
+          旅途中第二張圖片呈現購物中心內空走的走廊，這是人們隨時造訪的場所
+          常常為行程購物。第三張圖片顯示一疊廁所紙
+          提供旅遊建議第四張圖片顯示了黑暗又暴風的海洋
+          是旅客出遊時經常碰到的問題</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<p>相同的秘訣也能處理圖片中的廣告素材輸出方式。在以下範例中使用
+  並明確要求模型納入圖像切面，以改善輸出內容</p><p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">模型回應</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=zh-tw" />
+          <p>可以幫我寫有關這張圖片的詩嗎？</p></td>
+        <td>
+          <p>小兔子，柔軟又棕色，<br />
+          上下跳轉來到田野上。<br />
+          你的耳朵很長，尾巴這麼小，<br />
+          你是無數的最可愛生物。</p>
+          <p>你機在草原上，味道綠色又甜美，<br />
+          看到我就離開。<br />
+          但我永遠是你的朋友<br />
+          小兔子，直到結束為止。</p>
+        </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>更新提示</b></th>
+      <th width="30%"><b>提升回覆品質</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=zh-tw" />
+        <p>可以幫我寫一本有關這張圖片且具有戲劇張力的詩詞，並附上地點嗎？</p></td>
+      <td>
+          <p>綠色上的小兔子，<br />
+          耳朵很長，真積極。<br />
+          親身體驗：<br />
+          從遠方的角度來看，</p>
+          <p>這是海藍嗎？<br />
+          在太陽的色調中發光嗎？<br />
+          又或者是發出吼叫聲的波浪，<br />
+          你有節奏嗎？</p>
+          <p>小兔子，跟我說是真的！<br />
+          吸引你目光的因素為何？<br />
+          這是鹹風嗎？<br />
+          或是海鷗拜託？</p>
+          <p>也許那是宇宙的龐大能量，<br />
+          世界大大小小的世界。<br />
+          夢想中的夢想家園<br />
+          冒險活動也能帶來驚喜。</p>
+          <p>小兔子，我好奇你的夢想，<br />
+          在你坐在草坪上，感覺很寧靜。<br />
+          你是不是想要探索深度？<br />
+          或是待在大陸上，進一步發展戰力</p>
+          <p>不管怎麼樣，都可能有小兔子<br />
+          保持神奇的火花。<br />
+          為實現你的夢想和期望，<br />
+          謊稱是正在等待你創作的世界。</p>
+      </td>
+    </tr>
+</tbody></table>
+
+</p><h3 data-text="解決提示的哪個部分失敗" id="troubleshooting-which-part-of-the-prompt-failed" tabindex="-1">解決提示的哪個部分失敗</h3>
+<p>很難確認提示是否失敗
+無法<strong>理解圖片</strong>的開頭，或無法解讀圖片，
+之後並未執行正確的<strong> 推理步驟</strong>。</p>
+<p>為釐清這些原因，請要求模型描述圖像內容。</p>
+<p>在此範例中，如果模型回應的零食，與配對時似乎驚人
+茶 (例如爆米花) 後，就可以先進行疑難排解，以便判斷模型是否正確辨識
+圖片中含有茶</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">進行疑難排解的提示</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=zh-tw" /><p>我可以在 1 分鐘內做出什麼點心可想吃？</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=zh-tw" /><p>說明這張圖片的內容。
+          </p></td>
+      </tr>
+</tbody></table>
+
+<p>另一個策略是要求模型解釋推論。以便您找出原因的哪個部分 (如果有的話) 縮小。</p><p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">提示</th>
+    <th style="width:30%">進行疑難排解的提示</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=zh-tw" /><p>我可以在 1 分鐘內做出什麼點心可想吃？</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=zh-tw" /><p>我可以在 1 分鐘內做出什麼點心可想吃？請說明原因。</p></td>
+      </tr>
+</tbody></table>
+
+</p><h3 data-text="調整取樣參數" id="tuning-the-sampling-parameters" tabindex="-1">調整取樣參數</h3>
+<p>在每個要求中，您不只會傳送多模態提示，還有一組取樣參數給模型。
+模型可能會針對不同的參數值產生不同的結果。使用
+以便取得工作的最佳值。最常調整的參數如下：</p>
+<ul>
+<li>溫度</li>
+<li>可能性總和為 P</li>
+<li>前 K 個</li>
+</ul>
+
+<h4 data-text="溫度" id="temperature" tabindex="-1">溫度</h4>
+<p>系統會在產生回應期間使用隨機性參數進行取樣，也就是套用「Top-P」和「Top-K」時的情況。
+Temperature 會決定選取詞元的隨機程度。建議調低隨機性參數
+需要更具確定性、較不具開放性和創意性的回應，而較高的隨機性參數則能
+多元或創意的結果隨機性參數為「0」代表具有確定性，即機率最高的回覆
+一律會選取。<br />
+</p><p>以大部分用途來說，可以先將隨機性參數設為「0.4」，如果您需要更多廣告素材結果，請嘗試提高
+溫度。如果發現幻覺不清，可以試著調低溫度。</p>
+
+<h4 data-text="Top-K" id="top-k" tabindex="-1">Top-K</h4>
+
+<p>「Top-K」會影響模型選取輸出符記的方式。如果「前 K 個」設為「1」，表示下一個所選符記
+模型詞彙表的所有符記中可能性最高 (也稱為「貪婪解碼」)。
+如果「前 K 個」設為「3」，代表模型會從可能性最高的 3 個符記中選取下一個符記
+測量溫度。<br />
+</p><p>在每個符記選取步驟中，模型會對機率最高的「前 K 個」符記取樣，接著
+符記進一步根據「Top-P」篩選，最後依隨機性參數選出最終符記。</p>
+
+<p>如要取得較不隨機的回覆，請指定較低的值；如要取得較隨機的回覆，請調高此值。
+「前 K 個」的預設值為 32。</p>
+
+<h4 data-text="Top-P" id="top-p" tabindex="-1">Top-P</h4>
+
+<p>「Top-P」會影響模型選取輸出符記的方式。模型會由高至低選取符記 (請查看「前 K 個」)
+至少到可能性，直到其可能性總和等於「Top-P」值為止。舉例來說，如果符記
+A、B 和 C 的可能性分別為 0.6、0.3、0.1，而「可能性總和為 P」的值為 0.9，那麼模型會
+請使用隨機性參數選取 A 或 B 做為下一個符記，並且排除 C 為候選字。<br />
+</p><p>如要取得較不隨機的回覆，請指定較低的值；如要取得較隨機的回覆，請調高此值。
+「可能性總和為 P」的預設值為 1.0。</p>
+
+<h2 data-text="後續步驟" id="next-steps" tabindex="-1">後續步驟</h2>
+
+<ul>
+<li>嘗試使用 <a href="http://aistudio.google.com?hl=zh-tw">Google AI 自行撰寫多模態提示
+Studio</a>。</li>
+<li>如要進一步瞭解提示設計，請參閱
+<a href="https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw">提示策略</a>頁面。</li>
+</ul>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=zh-tw" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    提供意見
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>除非另有註明，否則本頁面中的內容是採用<a href="https://creativecommons.org/licenses/by/4.0/">創用 CC 姓名標示 4.0 授權</a>，程式碼範例則為<a href="https://www.apache.org/licenses/LICENSE-2.0">阿帕契 2.0 授權</a>。詳情請參閱《<a href="https://developers.google.com/site-policies?hl=zh-tw">Google Developers 網站政策</a>》。Java 是 Oracle 和/或其關聯企業的註冊商標。</p>
+  <p>上次更新時間：2024-08-22 (世界標準時間)。</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    想進一步說明嗎？
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2024-08-22 (世界標準時間)。"],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="頁尾連結">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="公用程式連結">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=zh-tw"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          條款
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-tw"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隱私權
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;zh-tw&#34;, &#34;served&#34;: &#34;zh-tw&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="g6kzoWaXUa4qIh0PUvj29aRufkbhx0">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"zh_tw",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_dashboard_curated_recommendations","Profiles__enable_recognition_badges","Profiles__enable_public_developer_profiles","Search__enable_ai_eligibility_checks","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_page_saving","Profiles__enable_developer_profiles_callout","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloudx_ping","Cloud__enable_cloudx_experiment_ids","Profiles__enable_release_notes_notifications","MiscFeatureFlags__developers_footer_image","Cloud__enable_legacy_calculator_redirect","BookNav__enable_tenant_cache_key","Search__enable_page_map","Cloud__enable_cloud_dlp_service","DevPro__enable_developer_subscriptions","TpcFeatures__enable_mirror_tenant_redirects","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__emergency_css","TpcFeatures__enable_required_headers","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_project_variables","Cloud__enable_llm_concierge_chat","Profiles__enable_awarding_url","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_variable_operator","Analytics__enable_clearcut_logging","Concierge__enable_pushui","Profiles__enable_complete_playlist_endpoint","DevPro__enable_cloud_innovators_plus","Cloud__enable_cloud_shell","Experiments__reqs_query_experiments","MiscFeatureFlags__enable_view_transitions","Search__enable_suggestions_from_borg","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_shell_fte_user_flow","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_profile_collections","Cloud__enable_free_trial_server_call","OnSwitch__enable","Cloud__enable_cloud_facet_chat","MiscFeatureFlags__enable_firebase_utm"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

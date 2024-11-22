@@ -1,0 +1,2600 @@
+<!doctype html>
+<html 
+      lang="bn-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="robots" content="noindex"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansbengali.css"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/structured-output?hl=bn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=bn">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/structured-output" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/structured-output" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/structured-output?hl=bn" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/structured-output?hl=fa" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/structured-output?hl=ru" /><title>Gemini API দিয়ে কাঠামোগত আউটপুট তৈরি করুন &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="Gemini API দিয়ে কাঠামোগত আউটপুট তৈরি করুন &nbsp;|&nbsp; Google AI for Developers"><meta name="description" content="Gemini API-এর সাহায্যে কীভাবে স্ট্রাকচার্ড আউটপুট তৈরি করতে হয় তা জানুন">
+  <meta property="og:description" content="Gemini API-এর সাহায্যে কীভাবে স্ট্রাকচার্ড আউটপুট তৈরি করতে হয় তা জানুন"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/structured-output?hl=bn"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/structured-output.png?hl=bn">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="bn"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "Gemini API দিয়ে কাঠামোগত আউটপুট তৈরি করুন"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gemini API দিয়ে কাঠামোগত আউটপুট তৈরি করুন",
+      "item": "https://ai.google.dev/gemini-api/docs/structured-output"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/structured-output?hl=en">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="মেনু খুলুন">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=bn" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="উপরের ট্যাব">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=bn"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - জেমা"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: জেমা"
+         
+           track-name="জেমা"
+         
+       >
+    জেমা
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - গুগল এআই এজ"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: গুগল এআই এজ"
+         
+           track-name="গুগল এআই এজ"
+         
+       >
+    গুগল এআই এজ
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - টুলস"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: টুলস"
+         
+           track-name="টুলস"
+         
+       >
+    টুলস
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="এর ড্রপডাউন মেনু: টুলস"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - টুলস"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: টুলস"
+        
+          track-name="টুলস"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=bn"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=bn"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      দায়ী GenAI টুলকিট
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=bn"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=bn"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      কোলাব
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=bn"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=bn"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      কেরাস
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=bn"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=bn"
+                     track-metadata-position="nav - টুলস"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=bn"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - কমিউনিটি"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: কমিউনিটি"
+         
+           track-name="কমিউনিটি"
+         
+       >
+    কমিউনিটি
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=bn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="সার্চ বক্স খুলুন"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="সার্চ করুন"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="সার্চ করুন"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="সার্চ বক্স বন্ধ করুন"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>সাইন-ইন করুন</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="নিচের ট্যাব">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - ডক্স"
+       track-metadata-module="primary nav"
+       aria-label="ডক্স, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: ডক্স"
+         
+           track-name="ডক্স"
+         
+       >
+    ডক্স
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - api রেফারেন্স"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: API রেফারেন্স"
+         
+           track-name="api রেফারেন্স"
+         
+       >
+    API রেফারেন্স
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=bn"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=bn"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - মূল্য নির্ধারণ"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: মূল্য নির্ধারণ"
+         
+           track-name="মূল্য নির্ধারণ"
+         
+       >
+    মূল্য নির্ধারণ
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="ফিল্টার"
+         
+         aria-label="ফিল্টার করতে টাইপ করুন"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="ফিল্টার সরিয়ে দিন"
+        aria-label="ফিল্টার সরিয়ে দিন"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="সাইড মেনু">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="নেভিগেশন বন্ধ করুন">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=bn" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: ডক্স"
+      
+        track-name="ডক্স"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: ডক্স"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      ডক্স
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: API রেফারেন্স"
+      
+        track-name="api রেফারেন্স"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: API রেফারেন্স"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      API রেফারেন্স
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: মূল্য নির্ধারণ"
+      
+        track-name="মূল্য নির্ধারণ"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: মূল্য নির্ধারণ"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      মূল্য নির্ধারণ
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: জেমা"
+      
+        track-name="জেমা"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: জেমা"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      জেমা
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: গুগল এআই এজ"
+      
+        track-name="গুগল এআই এজ"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: গুগল এআই এজ"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      গুগল এআই এজ
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: টুলস"
+      
+        track-name="টুলস"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      টুলস
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: টুলস"
+      
+        track-name="টুলস"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="টুলস">
+      আরও
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="টুলস">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: কমিউনিটি"
+      
+        track-name="কমিউনিটি"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: কমিউনিটি"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      কমিউনিটি
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>ওভারভিউ</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>শুরু করুন</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>API কী</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>দ্রুত শুরু</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>লাইব্রেরি</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>রিলিজ নোট</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>মডেল</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>পরীক্ষামূলক মডেল</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="পরীক্ষামূলক!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>ক্ষমতা</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>পাঠ্য প্রজন্ম</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>ডকুমেন্ট প্রসেসিং</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>দৃষ্টি</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>শ্রুতি</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>দীর্ঘ প্রসঙ্গ</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>গ্রাউন্ডিং</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Google অনুসন্ধানের সাথে গ্রাউন্ডিং</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>গুগল সার্চ সাজেশন ব্যবহার করুন</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>কোড এক্সিকিউশন</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>স্ট্রাকচার্ড আউটপুট</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>ফাইন-টিউনিং</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>সূক্ষ্ম টিউনিং ভূমিকা</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>ফাইন-টিউনিং টিউটোরিয়াল</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>ফাংশন কলিং</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>ফাংশন কলিং ভূমিকা</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>ফাংশন কলিং টিউটোরিয়াল</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>স্ট্রাকচার্ড ডেটা বের করুন</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>সিস্টেম নির্দেশাবলী</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>এমবেডিং</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>নিরাপত্তা</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>নিরাপত্তা সেটিংস</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>নিরাপত্তা নির্দেশিকা</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>নির্দেশিকা</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>প্রসঙ্গ ক্যাশিং</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>চিত্র 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>টোকেন</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>প্রম্পটিং</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>প্রম্পট করার ভূমিকা</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>প্রম্পটিং কৌশল</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>ফাইল প্রম্পটিং কৌশল</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>শব্দার্থিক পুনরুদ্ধার</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>জেনারেটিভ মডেল সম্পর্কে</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>বিলিং</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>OpenAI সামঞ্জস্য</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="পরীক্ষামূলক!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>ক্লাউডে মাইগ্রেট করুন</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>অতিরিক্ত সম্পদ</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>গুগল এআই স্টুডিও দ্রুত শুরু</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>অ্যান্ড্রয়েড (অন-ডিভাইস), অ্যান্ড্রয়েড (ডিভাইসে), অ্যান্ড্রয়েড (ডিভাইসে)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>ফায়ারবেস এক্সটেনশন</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>OAuth প্রমাণীকরণ</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM,LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="পরীক্ষামূলক!"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>ব্যবহারের ক্ষেত্রে</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>অ্যাপ্লিকেশন</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>কোড সহকারী</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>ফ্লটার কোড জেনারেটর</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>বিষয়বস্তু অনুসন্ধান</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>ডেটা এক্সপ্লোরেশন এজেন্ট</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>লিখন সহকারী</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>স্লাইড পর্যালোচক</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>সমস্যা সমাধান</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>API সমস্যা সমাধান</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>এআই স্টুডিও সমস্যা সমাধান</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>Google Workspace-এর সাথে AI স্টুডিও</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>আরো কোটা অনুরোধ</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>কমিউনিটি</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>বিকাশকারী ফোরাম</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="এক্সটার্নাল"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>আইনি</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>সেবা পাবার শর্ত</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>উপলব্ধ অঞ্চল</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>অপব্যবহার পর্যবেক্ষণ</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="টুলস"
+          aria-label="সাইড মেনু" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: দায়ী GenAI টুলকিট"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      দায়ী GenAI টুলকিট
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: কোলাব"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      কোলাব
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: কেরাস"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      কেরাস
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="এই পৃষ্ঠায় রয়েছে"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          Google অনুসন্ধানের সাথে গ্রাউন্ডিং এখন উপলব্ধ! <a class="button button-primary"
+   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">আরও জানুন</a>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=bn"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            এই পৃষ্ঠাটি <a href="//cloud.google.com/translate/?hl=bn">Cloud Translation API</a> অনুবাদ করেছে।
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="ব্রেডক্রাম্ব">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=bn"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        হোম
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=bn"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=bn"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        ডক্স
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    মতামত জানান
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Gemini API দিয়ে কাঠামোগত আউটপুট তৈরি করুন
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="বাতিল করুন"
+
+      
+      close-button-text="বুঝেছি">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      সেভ করা পৃষ্ঠা গুছিয়ে রাখতে 'সংগ্রহ' ব্যবহার করুন
+    </span>
+    <span slot="popout-contents">
+      
+      আপনার পছন্দ অনুযায়ী কন্টেন্ট সেভ করুন ও সঠিক বিভাগে রাখুন।
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+<p></p><p><devsite-nav-buttons name="lang" param="always" type="filled"><button value="python" default>Python</button> <button value="node">Node.js</button> <button value="go">Go</button> <button value="dart">Dart (Flutter)</button> <button value="android">Android</button> <button value="swift">Swift</button> <button value="web">Web</button> <button value="rest">REST</button></devsite-nav-buttons></p><p><br></p><p> মিথুন ডিফল্টরূপে অসংগঠিত পাঠ্য তৈরি করে, তবে কিছু অ্যাপ্লিকেশনের জন্য কাঠামোগত পাঠ্য প্রয়োজন। এই ব্যবহারের ক্ষেত্রে, আপনি জেমিনিকে JSON এর সাথে প্রতিক্রিয়া জানাতে বাধ্য করতে পারেন, স্বয়ংক্রিয় প্রক্রিয়াকরণের জন্য উপযুক্ত একটি স্ট্রাকচার্ড ডেটা ফর্ম্যাট। আপনি একটি enum-এ উল্লিখিত বিকল্পগুলির একটির সাথে প্রতিক্রিয়া জানাতে মডেলটিকে সীমাবদ্ধ করতে পারেন।</p><p> মডেল থেকে কাঠামোগত আউটপুট প্রয়োজন হতে পারে এমন কয়েকটি ব্যবহারের ক্ষেত্রে এখানে রয়েছে:</p><ul><li> সংবাদপত্রের নিবন্ধগুলি থেকে কোম্পানির তথ্য টেনে কোম্পানিগুলির একটি ডাটাবেস তৈরি করুন।</li><li> জীবনবৃত্তান্ত থেকে প্রমিত তথ্য টেনে আনুন।</li><li> রেসিপি থেকে উপাদানগুলি বের করুন এবং প্রতিটি উপাদানের জন্য একটি মুদির ওয়েবসাইটের লিঙ্ক প্রদর্শন করুন।</li></ul><p> আপনার প্রম্পটে, আপনি জেমিনিকে JSON-ফরম্যাট করা আউটপুট তৈরি করতে বলতে পারেন, কিন্তু মনে রাখবেন যে মডেলটি JSON তৈরির নিশ্চয়তা দেয় না এবং JSON ছাড়া কিছুই নয়। আরও নির্ধারক প্রতিক্রিয়ার জন্য, আপনি একটি <a href="https://ai.google.dev/api/rest/v1beta/GenerationConfig?hl=bn#FIELDS.response_schema"><code translate="no" dir="ltr">responseSchema</code></a> ফিল্ডে একটি নির্দিষ্ট JSON স্কিমা পাস করতে পারেন যাতে মিথুন সবসময় একটি প্রত্যাশিত কাঠামোর সাথে প্রতিক্রিয়া জানায়।</p><p> আপনার পছন্দের SDK-এর মাধ্যমে বা সরাসরি REST API ব্যবহার করে <a href="https://ai.google.dev/api/rest/v1/models/generateContent?hl=bn"><code translate="no" dir="ltr">generateContent</code></a> পদ্ধতি ব্যবহার করে কীভাবে JSON তৈরি করবেন এই নির্দেশিকা আপনাকে দেখায়। উদাহরণগুলি কেবলমাত্র পাঠ্য ইনপুট দেখায়, যদিও জেমিনি <a href="https://ai.google.dev/gemini-api/docs/vision?hl=bn">ছবি</a> , <a href="https://ai.google.dev/gemini-api/docs/vision?hl=bn">ভিডিও</a> এবং <a href="https://ai.google.dev/gemini-api/docs/audio?hl=bn">অডিও</a> অন্তর্ভুক্ত মাল্টিমোডাল অনুরোধগুলিতে JSON প্রতিক্রিয়াও তৈরি করতে পারে। </p><h2 id="set-up-project-and-api-key" data-text=" আপনি শুরু করার আগে: আপনার প্রকল্প এবং API কী সেট আপ করুন" tabindex="-1"> আপনি শুরু করার আগে: আপনার প্রকল্প এবং API কী সেট আপ করুন</h2><p> Gemini API কল করার আগে, আপনাকে আপনার প্রকল্প সেট আপ করতে হবে এবং আপনার API কী কনফিগার করতে হবে। </p><p><section class="expandable" id="set-up-project-and-key"><p class="showalways" id="set-up-project-and-key"> <b>কিভাবে আপনার প্রকল্প এবং API কী সেট আপ করবেন তা দেখতে প্রসারিত করুন</b></p></p><aside class="tip"> <strong>টিপ:</strong> <span>সম্পূর্ণ সেটআপ নির্দেশাবলীর জন্য, <a href="https://ai.google.dev/gemini-api/docs/quickstart?hl=bn">Gemini API quickstart</a> দেখুন।</span></aside><h3 id="get-and-secure-api-key" data-text=" আপনার API কী পান এবং সুরক্ষিত করুন" tabindex="-1"> আপনার API কী পান এবং সুরক্ষিত করুন</h3><p> Gemini API কল করার জন্য আপনার একটি API কী প্রয়োজন। আপনার যদি ইতিমধ্যে একটি না থাকে তবে Google AI স্টুডিওতে একটি কী তৈরি করুন৷</p><p> <a class="button"
+   href="https://aistudio.google.com/app/apikey?hl=bn"
+   target="_blank"
+   rel="noopener noreferrer">একটি API কী পান</a></p><p> এটি দৃঢ়ভাবে সুপারিশ করা হয় যে আপনি আপনার সংস্করণ নিয়ন্ত্রণ সিস্টেমে একটি API কী চেক করবেন <em>না</em> ৷</p><p> Google ক্লাউড <a href="https://cloud.google.com/secret-manager/docs?hl=bn">সিক্রেট ম্যানেজার-</a> এর মতো গোপন স্টোরে আপনার API কী সংরক্ষণ করা উচিত।</p><p> এই টিউটোরিয়ালটি অনুমান করে যে আপনি একটি পরিবেশ পরিবর্তনশীল হিসাবে আপনার API কী অ্যাক্সেস করছেন।</p><h3 id="install-package-and-configure-key" data-text=" SDK প্যাকেজ ইনস্টল করুন এবং আপনার API কী কনফিগার করুন" tabindex="-1"> SDK প্যাকেজ ইনস্টল করুন এবং আপনার API কী কনফিগার করুন</h3><aside class="note"> <strong>দ্রষ্টব্য:</strong> <span>এই বিভাগটি স্থানীয় পাইথন পরিবেশের জন্য সেটআপ পদক্ষেপগুলি দেখায়। নির্ভরতা ইনস্টল করতে এবং Colab-এর জন্য আপনার API কী কনফিগার করতে, <a href="https://github.com/google-gemini/cookbook/blob/main/quickstarts/Authentication.ipynb">প্রমাণীকরণ কুইকস্টার্ট নোটবুক</a> দেখুন</span></aside><p> Gemini API-এর জন্য Python SDK <a href="https://pypi.org/project/google-generativeai/"><code translate="no" dir="ltr">google-generativeai</code></a> প্যাকেজে রয়েছে।</p><ol><li><p> পিপ ব্যবহার করে নির্ভরতা ইনস্টল করুন:</p><pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">pip install -U google-generativeai
+</code></pre></li><li><p> প্যাকেজটি আমদানি করুন এবং আপনার API কী দিয়ে পরিষেবাটি কনফিগার করুন: </p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import os
+import google.generativeai as genai
+
+genai.configure(api_key=os.environ[&#39;API_KEY&#39;])
+</code></pre></li></ol><p></section></p><h2 id="generate-json" data-text=" JSON তৈরি করুন" tabindex="-1"> JSON তৈরি করুন</h2><p> যখন মডেলটিকে JSON আউটপুট করার জন্য কনফিগার করা হয়, তখন এটি JSON- ফরম্যাটেড আউটপুট সহ যেকোনো প্রম্পটে সাড়া দেয়।</p><p> আপনি একটি স্কিমা সরবরাহ করে JSON প্রতিক্রিয়ার গঠন নিয়ন্ত্রণ করতে পারেন। মডেলটিতে স্কিমা সরবরাহ করার দুটি উপায় রয়েছে:</p><ul><li> প্রম্পটে পাঠ্য হিসাবে</li><li> একটি কাঠামোগত স্কিমা হিসাবে মডেল কনফিগারেশনের মাধ্যমে সরবরাহ করা হয়</li></ul><p> উভয় পদ্ধতিই Gemini 1.5 Flash এবং Gemini 1.5 Pro উভয় ক্ষেত্রেই কাজ করে।</p><h3 id="supply-schema-in-prompt" data-text=" প্রম্পটে পাঠ্য হিসাবে একটি স্কিমা সরবরাহ করুন" tabindex="-1"> প্রম্পটে পাঠ্য হিসাবে একটি স্কিমা সরবরাহ করুন</h3><p> নিম্নলিখিত উদাহরণটি মডেলটিকে একটি নির্দিষ্ট JSON ফর্ম্যাটে কুকি রেসিপিগুলি ফেরত দেওয়ার জন্য অনুরোধ করে৷</p><p> যেহেতু মডেলটি প্রম্পটে টেক্সট থেকে ফরম্যাট স্পেসিফিকেশন পায়, তাই আপনি স্পেসিফিকেশনটি কীভাবে উপস্থাপন করেন তাতে আপনার কিছুটা নমনীয়তা থাকতে পারে। একটি JSON স্কিমা প্রতিনিধিত্ব করার জন্য যেকোনো যুক্তিসঙ্গত বিন্যাস কাজ করতে পারে।</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">model = genai.GenerativeModel(&quot;gemini-1.5-pro-latest&quot;)
+prompt = &quot;&quot;&quot;List a few popular cookie recipes in JSON format.
+
+Use this JSON schema:
+
+Recipe = {&#39;recipe_name&#39;: str, &#39;ingredients&#39;: list[str]}
+Return: list[Recipe]&quot;&quot;&quot;
+result = model.generate_content(prompt)
+print(result)<div class="devsite-github-link nocode no-select"><a target="_top" href="https://github.com/google-gemini/generative-ai-python/blob/36e001ad92785667fa4e007c11db428b71048af2/samples/controlled_generation.py#L42-L50" class="gc-analytics-event" data-category="github_link" data-label="google-gemini/generative-ai-python/samples/controlled_generation.py#json_no_schema" data-code-snippet="true" data-github-path="google-gemini/generative-ai-python/samples/controlled_generation.py" data-region-tag="json_no_schema">controlled_generation.py</a></div>
+</code></pre><p> আউটপুট এই মত দেখতে পারে: </p><pre class="tfo-notebook-code-cell-output" translate="no" dir="ltr">
+[{"recipeName": "Chocolate Chip Cookies"}, {"recipeName": "Oatmeal Raisin Cookies"}, {"recipeName": "Snickerdoodles"}, {"recipeName": "Sugar Cookies"}, {"recipeName": "Peanut Butter Cookies"}]
+</pre><h3 id="supply-schema-in-config" data-text=" মডেল কনফিগারেশনের মাধ্যমে একটি স্কিমা সরবরাহ করুন" tabindex="-1"> মডেল কনফিগারেশনের মাধ্যমে একটি স্কিমা সরবরাহ করুন</h3><p> নিম্নলিখিত উদাহরণ নিম্নলিখিত কাজ করে:</p><ol><li> JSON এর সাথে প্রতিক্রিয়া জানাতে একটি স্কিমার মাধ্যমে কনফিগার করা একটি মডেলকে তাৎক্ষণিক করে।</li><li> মডেলকে কুকি রেসিপি ফেরত দিতে অনুরোধ করে।</li></ol><aside class="special"> <strong>গুরুত্বপূর্ণ:</strong> <span>JSON স্কিমা ঘোষণা করার জন্য এই আরও আনুষ্ঠানিক পদ্ধতি আপনাকে শুধুমাত্র প্রম্পটে পাঠ্যের উপর নির্ভর করার চেয়ে আরও সুনির্দিষ্ট নিয়ন্ত্রণ দেয়।</span></aside><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import typing_extensions as typing
+
+class Recipe(typing.TypedDict):
+    recipe_name: str
+    ingredients: list[str]
+
+model = genai.GenerativeModel(&quot;gemini-1.5-pro-latest&quot;)
+result = model.generate_content(
+    &quot;List a few popular cookie recipes.&quot;,
+    generation_config=genai.GenerationConfig(
+        response_mime_type=&quot;application/json&quot;, response_schema=list[Recipe]
+    ),
+)
+print(result)<div class="devsite-github-link nocode no-select"><a target="_top" href="https://github.com/google-gemini/generative-ai-python/blob/36e001ad92785667fa4e007c11db428b71048af2/samples/controlled_generation.py#L24-L37" class="gc-analytics-event" data-category="github_link" data-label="google-gemini/generative-ai-python/samples/controlled_generation.py#json_controlled_generation" data-code-snippet="true" data-github-path="google-gemini/generative-ai-python/samples/controlled_generation.py" data-region-tag="json_controlled_generation">controlled_generation.py</a></div>
+</code></pre><p> আউটপুট এই মত দেখতে পারে: </p><pre class="tfo-notebook-code-cell-output" translate="no" dir="ltr">
+[{"recipeName": "Chocolate Chip Cookies"}, {"recipeName": "Oatmeal Raisin Cookies"}, {"recipeName": "Snickerdoodles"}, {"recipeName": "Sugar Cookies"}, {"recipeName": "Peanut Butter Cookies"}]
+</pre><h4 id="schema_definition_syntax" data-text=" স্কিমা সংজ্ঞা সিনট্যাক্স" tabindex="-1"> স্কিমা সংজ্ঞা সিনট্যাক্স</h4><p> আপনার মডেল কনফিগারেশনের <code translate="no" dir="ltr">response_schema</code> বৈশিষ্ট্যে JSON প্রতিক্রিয়ার জন্য স্কিমা নির্দিষ্ট করুন। <code translate="no" dir="ltr">response_schema</code> এর মান অবশ্যই একটি হতে হবে:</p><ul><li> পাইথন <a href="https://docs.python.org/3/library/typing.html"><code translate="no" dir="ltr">typing</code> মডিউল</a> মডিউলে সংজ্ঞায়িত একটি টাইপ ইঙ্গিত টীকা।</li><li> <a href="https://ai.google.dev/api/python/google/generativeai/protos/Schema?hl=bn"><code translate="no" dir="ltr">genai.protos.Schema</code></a> এর একটি উদাহরণ। </li></ul><h5 id="define_a_schema_with_a_type_hint_annotation" data-text=" একটি টাইপ ইঙ্গিত টীকা সহ একটি স্কিমা সংজ্ঞায়িত করুন" tabindex="-1"> একটি টাইপ ইঙ্গিত টীকা সহ একটি স্কিমা সংজ্ঞায়িত করুন</h5><p> একটি স্কিমা সংজ্ঞায়িত করার সবচেয়ে সহজ উপায় হল একটি টাইপ ইঙ্গিত টীকা। এটি পূর্ববর্তী উদাহরণে ব্যবহৃত পদ্ধতি:</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">generation_config={&#34;response_mime_type&#34;: &#34;application/json&#34;,
+                   &#34;response_schema&#34;: list[Recipe]}
+</code></pre><p> Gemini API Python ক্লায়েন্ট লাইব্রেরি <code translate="no" dir="ltr">typing</code> টীকাগুলির নিম্নলিখিত উপসেটের সাথে সংজ্ঞায়িত স্কিমাগুলিকে সমর্থন করে (যেখানে <code translate="no" dir="ltr">AllowedType</code> যেকোন অনুমোদিত ধরনের টীকা):</p><ul><li> <code translate="no" dir="ltr">int</code></li><li> <code translate="no" dir="ltr">float</code></li><li> <code translate="no" dir="ltr">bool</code></li><li> <code translate="no" dir="ltr">str</code> (বা enum)</li><li> <code translate="no" dir="ltr">list[AllowedType]</code></li><li> ডিক ধরনের জন্য:<ul><li> <code translate="no" dir="ltr">dict[str, AllowedType]</code> । এই টীকাটি সমস্ত dict মানকে একই ধরণের বলে ঘোষণা করে, কিন্তু কী কী অন্তর্ভুক্ত করা উচিত তা নির্দিষ্ট করে না।</li><li> <a href="https://docs.python.org/3/library/typing.html#typing.TypedDict"><code translate="no" dir="ltr">typing.TypedDict</code></a> এর ব্যবহারকারী-সংজ্ঞায়িত সাবক্লাস। TypedDict। এই পদ্ধতির সাহায্যে আপনি মূল নামগুলি নির্দিষ্ট করতে এবং প্রতিটি কীগুলির সাথে যুক্ত মানগুলির জন্য বিভিন্ন প্রকার সংজ্ঞায়িত করতে পারেন৷</li><li> ব্যবহারকারী-সংজ্ঞায়িত <a href="https://docs.python.org/3/library/dataclasses.html">ডেটা ক্লাস</a> । <code translate="no" dir="ltr">TypedDict</code> সাবক্লাসের মতো, এই পদ্ধতির সাহায্যে আপনি মূল নামগুলি নির্দিষ্ট করতে এবং প্রতিটি কীগুলির সাথে যুক্ত মানগুলির জন্য বিভিন্ন প্রকার সংজ্ঞায়িত করতে পারেন। </li></ul></li></ul><h5 id="define_a_schema_with_genaiprotosschema_protocol_buffer" data-text=" genai.protos.Schema প্রোটোকল বাফার দিয়ে একটি স্কিমা সংজ্ঞায়িত করুন" tabindex="-1"> <code translate="no" dir="ltr">genai.protos.Schema</code> প্রোটোকল বাফার দিয়ে একটি স্কিমা সংজ্ঞায়িত করুন</h5><p> Gemini API <code translate="no" dir="ltr">genai.protos.Schema</code> প্রোটোকল বাফার সংজ্ঞা কিছু অতিরিক্ত স্কিমা বৈশিষ্ট্য সমর্থন করে যা টাইপ ইঙ্গিতগুলির জন্য সমর্থিত নয়, যার মধ্যে রয়েছে:</p><ul><li> স্ট্রিং জন্য Enums</li><li> সাংখ্যিক প্রকারের জন্য বিন্যাস নির্দিষ্ট করা (উদাহরণস্বরূপ, পূর্ণসংখ্যার জন্য <code translate="no" dir="ltr">int32</code> বা <code translate="no" dir="ltr">int64</code> )</li><li> কোন ক্ষেত্র প্রয়োজন তা উল্লেখ করা।</li></ul><p> আপনার যদি এই বৈশিষ্ট্যগুলির প্রয়োজন হয়, ফাংশন কলিং-এ চিত্রিত পদ্ধতিগুলির একটি ব্যবহার করে একটি <code translate="no" dir="ltr">genai.protos.Schema</code> চালু করুন <a href="https://ai.google.dev/gemini-api/docs/function-calling/tutorial?lang=python&hl=bn#optional_low_level_access">: নিম্ন স্তরের অ্যাক্সেস</a> ।</p><h2 id="use-an-enum" data-text=" আউটপুট সীমাবদ্ধ করতে একটি enum ব্যবহার করুন" tabindex="-1"> আউটপুট সীমাবদ্ধ করতে একটি enum ব্যবহার করুন</h2><p> কিছু ক্ষেত্রে আপনি মডেলটিকে বিকল্পগুলির তালিকা থেকে একটি একক বিকল্প বেছে নিতে চাইতে পারেন। এই আচরণটি বাস্তবায়ন করতে, আপনি আপনার স্কিমাতে একটি <em>enum</em> পাস করতে পারেন। আপনি একটি enum বিকল্প ব্যবহার করতে পারেন যেখানে আপনি <code translate="no" dir="ltr">response_schema</code> একটি <code translate="no" dir="ltr">str</code> ব্যবহার করতে পারেন, কারণ একটি enum আসলে স্ট্রিংগুলির একটি তালিকা। একটি JSON স্কিমার মতো, একটি enum আপনাকে আপনার অ্যাপ্লিকেশনের প্রয়োজনীয়তা পূরণের জন্য মডেল আউটপুট সীমাবদ্ধ করতে দেয়।</p><p> উদাহরণস্বরূপ, অনুমান করুন যে আপনি বাদ্যযন্ত্রের চিত্রগুলিকে পাঁচটি বিভাগের মধ্যে একটিতে শ্রেণীবদ্ধ করার জন্য একটি অ্যাপ্লিকেশন তৈরি করছেন: <code translate="no" dir="ltr">&quot;Percussion&quot;</code> , <code translate="no" dir="ltr">&quot;String&quot;</code> , <code translate="no" dir="ltr">&quot;Woodwind&quot;</code> , <code translate="no" dir="ltr">&quot;Brass&quot;</code> বা &quot; <code translate="no" dir="ltr">Keyboard</code> &quot;৷ আপনি এই কাজটিতে সাহায্য করার জন্য একটি enum তৈরি করতে পারেন।</p><p> এই বিভাগে কোড উদাহরণগুলি চালানোর আগে, Google Generative AI লাইব্রেরি আমদানি করতে ভুলবেন না:</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import google.generativeai as genai
+</code></pre><p> নিম্নলিখিত উদাহরণে, আপনি <code translate="no" dir="ltr">response_schema</code> হিসাবে enum ক্লাস <code translate="no" dir="ltr">Choice</code> পাস করেন এবং মডেলটিকে সবচেয়ে উপযুক্ত enum বিকল্পটি বেছে নেওয়া উচিত।</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import enum
+
+class Choice(enum.Enum):
+    PERCUSSION = &quot;Percussion&quot;
+    STRING = &quot;String&quot;
+    WOODWIND = &quot;Woodwind&quot;
+    BRASS = &quot;Brass&quot;
+    KEYBOARD = &quot;Keyboard&quot;
+
+model = genai.GenerativeModel(&quot;gemini-1.5-pro-latest&quot;)
+
+organ = genai.upload_file(media / &quot;organ.jpg&quot;)
+result = model.generate_content(
+    [&quot;What kind of instrument is this:&quot;, organ],
+    generation_config=genai.GenerationConfig(
+        response_mime_type=&quot;text/x.enum&quot;, response_schema=Choice
+    ),
+)
+print(result)  # Keyboard<div class="devsite-github-link nocode no-select"><a target="_top" href="https://github.com/google-gemini/generative-ai-python/blob/36e001ad92785667fa4e007c11db428b71048af2/samples/controlled_generation.py#L124-L142" class="gc-analytics-event" data-category="github_link" data-label="google-gemini/generative-ai-python/samples/controlled_generation.py#x_enum" data-code-snippet="true" data-github-path="google-gemini/generative-ai-python/samples/controlled_generation.py" data-region-tag="x_enum">controlled_generation.py</a></div>
+</code></pre><p> পাইথন SDK API-এর জন্য টাইপ ঘোষণা অনুবাদ করবে। কিন্তু API আসলে OpenAPI 3.0 স্কিমার একটি উপসেট গ্রহণ করে ( <a href="https://ai.google.dev/api/caching?hl=bn#schema">স্কিমা</a> )। আপনি JSON হিসাবে স্কিমা পাস করতে পারেন:</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">model = genai.GenerativeModel(&quot;gemini-1.5-pro-latest&quot;)
+
+organ = genai.upload_file(media / &quot;organ.jpg&quot;)
+result = model.generate_content(
+    [&quot;What kind of instrument is this:&quot;, organ],
+    generation_config=genai.GenerationConfig(
+        response_mime_type=&quot;text/x.enum&quot;,
+        response_schema={
+            &quot;type&quot;: &quot;STRING&quot;,
+            &quot;enum&quot;: [&quot;Percussion&quot;, &quot;String&quot;, &quot;Woodwind&quot;, &quot;Brass&quot;, &quot;Keyboard&quot;],
+        },
+    ),
+)
+print(result)  # Keyboard<div class="devsite-github-link nocode no-select"><a target="_top" href="https://github.com/google-gemini/generative-ai-python/blob/36e001ad92785667fa4e007c11db428b71048af2/samples/controlled_generation.py#L147-L160" class="gc-analytics-event" data-category="github_link" data-label="google-gemini/generative-ai-python/samples/controlled_generation.py#x_enum_raw" data-code-snippet="true" data-github-path="google-gemini/generative-ai-python/samples/controlled_generation.py" data-region-tag="x_enum_raw">controlled_generation.py</a></div>
+</code></pre><p> মৌলিক মাল্টিপল চয়েস সমস্যার বাইরে, আপনি JSON বা ফাংশন কলিংয়ের জন্য স্কিমার যে কোনো জায়গায় একটি enum ব্যবহার করতে পারেন। উদাহরণস্বরূপ, আপনি মডেলটিকে রেসিপি শিরোনামের একটি তালিকার জন্য জিজ্ঞাসা করতে পারেন এবং প্রতিটি শিরোনামকে একটি জনপ্রিয়তা গ্রেড দিতে একটি <code translate="no" dir="ltr">Grade</code> এনাম ব্যবহার করতে পারেন:</p><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import enum
+from typing_extensions import TypedDict
+
+class Grade(enum.Enum):
+    A_PLUS = &quot;a+&quot;
+    A = &quot;a&quot;
+    B = &quot;b&quot;
+    C = &quot;c&quot;
+    D = &quot;d&quot;
+    F = &quot;f&quot;
+
+class Recipe(TypedDict):
+    recipe_name: str
+    grade: Grade
+
+model = genai.GenerativeModel(&quot;gemini-1.5-pro-latest&quot;)
+
+result = model.generate_content(
+    &quot;List about 10 cookie recipes, grade them based on popularity&quot;,
+    generation_config=genai.GenerationConfig(
+        response_mime_type=&quot;application/json&quot;, response_schema=list[Recipe]
+    ),
+)
+print(result)  # [{&quot;grade&quot;: &quot;a+&quot;, &quot;recipe_name&quot;: &quot;Chocolate Chip Cookies&quot;}, ...]<div class="devsite-github-link nocode no-select"><a target="_top" href="https://github.com/google-gemini/generative-ai-python/blob/36e001ad92785667fa4e007c11db428b71048af2/samples/controlled_generation.py#L78-L101" class="gc-analytics-event" data-category="github_link" data-label="google-gemini/generative-ai-python/samples/controlled_generation.py#enum_in_json" data-code-snippet="true" data-github-path="google-gemini/generative-ai-python/samples/controlled_generation.py" data-region-tag="enum_in_json">controlled_generation.py</a></div>
+</code></pre><p> enums দিয়ে শুরু করতে, <a href="https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Enum.ipynb?hl=bn">enum quickstart Colab</a> ব্যবহার করে দেখুন। </p><link href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=bn" rel="stylesheet" data-page-link><link href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" data-page-link>
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    মতামত জানান
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>-এর অধীনে এবং কোডের নমুনাগুলি <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, <a href="https://developers.google.com/site-policies?hl=bn">Google Developers সাইট নীতি</a> দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।</p>
+  <p>2024-11-13 UTC-তে শেষবার আপডেট করা হয়েছে।</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    আমাদের আরও কিছু জানাতে চান?
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2024-11-13 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="ফুটার লিঙ্ক">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="উপযোগিতা সংক্রান্ত লিঙ্ক">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=bn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          শর্তাবলী
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=bn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          গোপনীয়তা
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;bn&#34;, &#34;served&#34;: &#34;bn&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="KUOdpFqnw2KJy/TXsBCFteVsOuMVxV">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"bn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_recognition_badges","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_page_saving","MiscFeatureFlags__emergency_css","Search__enable_ai_eligibility_checks","TpcFeatures__enable_required_headers","Cloud__enable_free_trial_server_call","Profiles__enable_developer_profiles_callout","Profiles__enable_public_developer_profiles","Search__enable_page_map","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_llm_concierge_chat","Profiles__require_profile_eligibility_for_signin","DevPro__enable_cloud_innovators_plus","Experiments__reqs_query_experiments","Cloud__enable_cloud_shell_fte_user_flow","CloudShell__cloud_shell_button","Cloud__enable_cloud_facet_chat","CloudShell__cloud_code_overflow_menu","Analytics__enable_clearcut_logging","Search__enable_dynamic_content_confidential_banner","Cloud__enable_cloud_shell","Concierge__enable_pushui","DevPro__enable_developer_subscriptions","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_profile_collections","MiscFeatureFlags__enable_view_transitions","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__developers_footer_image","Profiles__enable_dashboard_curated_recommendations","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_awarding_url","MiscFeatureFlags__enable_project_variables","Cloud__enable_cloudx_experiment_ids","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__enable_variable_operator","Cloud__enable_cloud_dlp_service","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloudx_ping","Profiles__enable_release_notes_notifications","BookNav__enable_tenant_cache_key","OnSwitch__enable","Search__enable_suggestions_from_borg"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>
