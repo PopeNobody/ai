@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use HTTP::Daemon;
+use HTTP::Status;
+
+my $d = HTTP::Daemon->new(LocalPort=>8080) || die;
+my %method = map { $_, 1 } qw( GET POST PUT HEAD );
+print "Please contact me at: <URL:", $d->url, ">\n";
+open(STDERR,">&STDOUT");
+while (my $c = $d->accept) {
+  while (my $r = $c->get_request) {
+    use Data::Dumper;
+    open(STDOUT,">response.html");
+    print "<HTML>\r\n";
+    print "<BODY>\r\n";
+    print "<PRE>\r\n";
+    print join("\r\n",split("\n",Dumper($r)));
+    print "</PRE>\r\n";
+    print "</BODY>\r\n";
+    print "</HTML>\r\n";
+    $c->send_file("response.html");
+    close(STDOUT);
+    open(STDOUT,">&STDERR");
+    print "send one\n";
+  }
+  $c->close;
+  undef($c);
+}
+
+
+1;
