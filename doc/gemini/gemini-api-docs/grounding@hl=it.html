@@ -1,0 +1,2956 @@
+<!doctype html>
+<html 
+      lang="it-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/grounding?hl=it"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=it">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/grounding" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/grounding" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/grounding?hl=vi" /><title>Grounding con la Ricerca Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="Grounding con la Ricerca Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/grounding?hl=it"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=it">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="it"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "Grounding con la Ricerca Google"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Grounding con la Ricerca Google",
+      "item": "https://ai.google.dev/gemini-api/docs/grounding"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/grounding?hl=en">
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Apri menu">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=it" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Schede superiori">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=it"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemma"
+         
+           track-name="gemma"
+         
+       >
+    Gemma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai edge"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Edge"
+         
+           track-name="google ai edge"
+         
+       >
+    Google AI Edge
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - strumenti"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Strumenti"
+         
+           track-name="strumenti"
+         
+       >
+    Strumenti
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="Menu a discesa per Strumenti"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - strumenti"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: Strumenti"
+        
+          track-name="strumenti"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=it"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=it"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Toolkit dell'IA generativa responsabile
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=it"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=it"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=it"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=it"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=it"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=it"
+                     track-metadata-position="nav - strumenti"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=it"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - community"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Community"
+         
+           track-name="community"
+         
+       >
+    Community
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=it" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Apri ricerca"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Cerca"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Cerca"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Chiudi ricerca"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Accedi</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Schede inferiori">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - documenti"
+       track-metadata-module="primary nav"
+       aria-label="Documenti, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Documenti"
+         
+           track-name="documenti"
+         
+       >
+    Documenti
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - riferimento api"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Riferimento API"
+         
+           track-name="riferimento api"
+         
+       >
+    Riferimento API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=it"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=it"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - prezzi"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Prezzi"
+         
+           track-name="prezzi"
+         
+       >
+    Prezzi
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filtra"
+         
+         aria-label="Digita per filtrare"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Cancella filtro"
+        aria-label="Cancella filtro"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="Menu laterale">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Chiudi navigatore">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=it" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Documenti"
+      
+        track-name="documenti"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Documenti"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      Documenti
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Riferimento API"
+      
+        track-name="riferimento api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Riferimento API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Riferimento API
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Prezzi"
+      
+        track-name="prezzi"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Prezzi"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Prezzi
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemma"
+      
+        track-name="gemma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemma
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Edge"
+      
+        track-name="google ai edge"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Edge"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Edge
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Strumenti"
+      
+        track-name="strumenti"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Strumenti
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Strumenti"
+      
+        track-name="strumenti"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="Strumenti">
+      Altro
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="Strumenti">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Community"
+      
+        track-name="community"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Community"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Community
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>Panoramica</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Per iniziare</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>Chiavi API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>Guida rapida</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>Librerie</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>Note di rilascio</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Modelli</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>Modelli sperimentali</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Sperimentale."
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Funzionalità</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>Generazione di testo</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>Elaborazione di documenti</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>Visione artificiale</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>Audio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>Contesto lungo</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Grounding</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Grounding con la Ricerca Google</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>Utilizzare i suggerimenti di Ricerca Google</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>Esecuzione del codice</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>Output strutturato</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Ottimizzazione</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>Introduzione al perfezionamento</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>Tutorial sul perfezionamento</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Chiamate di funzione</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>Introduzione alle chiamate di funzione</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>Tutorial sulla chiamata di funzione</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>Estrai dati strutturati</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>Istruzioni di sistema</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>Incorporamenti</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Sicurezza</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>Impostazioni di sicurezza</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>Indicazioni per la sicurezza</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Guide</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>Memorizzazione nella cache del contesto</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>Imagen 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>Token</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Prompt</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>Introduzione ai prompt</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>Strategie di prompt</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>Strategie di richiesta di file</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>Recupero semantico</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>Informazioni sui modelli generativi</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>Fatturazione</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>Compatibilità con OpenAI</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Sperimentale."
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>Esegui la migrazione a Cloud</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Risorse aggiuntive</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Guida rapida di Google AI Studio</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android (sul dispositivo)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Estensioni Firebase</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>Autenticazione OAuth</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Sperimentale."
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Casi d&#39;uso</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Applicazioni</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>Assistente per la programmazione</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Generatore di codici Flutter</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>Ricerca di contenuti</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>Agente di esplorazione dei dati</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>Assistente alla scrittura</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>Revisore slide</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Risoluzione dei problemi</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>Risoluzione dei problemi relativi all&#39;API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>Risoluzione dei problemi di AI Studio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>AI Studio con Google Workspace</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>Richiedere una quota maggiore</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Community</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>Forum per gli sviluppatori</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="Esterna"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Legale</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>Termini di servizio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>Aree geografiche disponibili</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>Monitoraggio degli abusi</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="Strumenti"
+          aria-label="Menu laterale" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Toolkit dell&#39;IA generativa responsabile"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Toolkit dell&#39;IA generativa responsabile
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="Su questa pagina"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    Grounding con la Ricerca Google è ora disponibile. <a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Scopri di più</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=it"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            Questa pagina è stata tradotta dall'<a href="//cloud.google.com/translate/?hl=it">API Cloud Translation</a>.
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="Breadcrumb">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=it"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Home page
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=it"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=it"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Documenti
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Invia feedback
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Grounding con la Ricerca Google
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Ignora"
+
+      
+      close-button-text="OK">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      Mantieni tutto organizzato con le raccolte
+    </span>
+    <span slot="popout-contents">
+      
+      Salva e classifica i contenuti in base alle tue preferenze.
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+</p>
+
+
+<aside class="special"><strong>Importante:</strong><span> stiamo lanciando la funzionalità Grounding con la Ricerca Google. Questo è un lancio
+iniziale. Le regioni SEE, Regno Unito e Svizzera saranno supportate in un secondo momento. Ti invitiamo a leggere i <a href="https://ai.google.dev/gemini-api/terms?hl=it">Termini di servizio aggiuntivi dell'API Gemini</a> aggiornati, che includono i termini delle nuove funzionalità e aggiornamenti per maggiore chiarezza.</span></aside>
+<p><devsite-nav-buttons name="lang" param="always" type="filled">
+  <button default="" value="python">Python</button>
+  <button value="node">Node.js</button>
+  <button value="rest">REST</button>
+</devsite-nav-buttons></p>
+
+<p><br /></p>
+
+
+
+<p>La funzionalità di grounding con la Ricerca Google nell'API Gemini e in AI Studio può essere impiegata per migliorare l'accuratezza e l'aggiornamento delle risposte del modello. Oltre a risposte più oggettive, quando è attivata la funzionalità di grounding con la Ricerca Google, l'API Gemini restituisce le fonti di grounding (link di supporto in linea) e i <a href="#search-suggestions">suggerimenti della Ricerca Google</a> insieme ai contenuti della risposta. I suggerimenti di ricerca indirizzano gli utenti ai risultati di ricerca corrispondenti
+alla risposta con grounding.</p>
+
+<p>La funzionalità Grounding con la Ricerca Google supporta solo i prompt di testo. Non supporta prompt multimodali (testo e immagini, testo e audio e così via). La verifica con la Ricerca Google supporta tutte le <a href="https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#available-languages">lingue disponibili</a> per i modelli Gemini.</p>
+
+<p>Questa guida ti aiuterà a iniziare a utilizzare Grounding con la Ricerca Google utilizzando uno degli SDK dell'API Gemini o l'API REST.</p>
+
+<h2 data-text="Configurare un modello per l'utilizzo della Ricerca Google" id="configure-grounding" tabindex="-1">Configurare un modello per l'utilizzo della Ricerca Google</h2>
+<aside class="tip"><strong>Suggerimento:</strong><span> prima di eseguire il codice di esempio, assicurati di aver seguito le istruzioni di installazione e configurazione riportate nella <a href="https://ai.google.dev/gemini-api/docs/quickstart?hl=it">guida introduttiva</a>.</span></aside>
+
+
+<h2 data-text="Perché è utile il grounding con la Ricerca Google?" id="why-grounding" tabindex="-1">Perché è utile il grounding con la Ricerca Google?</h2>
+
+<p>Nell'IA generativa, il <em>grounding</em> si riferisce al processo di connessione del modello a fonti di informazioni verificabili. Queste fonti potrebbero fornire informazioni sul luogo di lavoro reale o su altri contesti specifici. L'aggiornamento contribuisce a migliorare la precisione, l'affidabilità e l'utilità degli output dell'IA.</p>
+
+<p>L'utilizzo di fonti attendibili è particolarmente importante per i prompt che richiedono informazioni aggiornate del web. Grazie alla fondatezza, il modello può accedere alle informazioni oltre la data di interruzione della conoscenza, ottenere le fonti delle informazioni e rispondere a domande a cui altrimenti non avrebbe potuto rispondere con precisione.</p>
+
+<p>Con Google AI Studio o l'API Gemini, puoi basare l'output del modello sulla Ricerca Google. Il grounding con la Ricerca Google offre i seguenti vantaggi:</p>
+
+<ul>
+<li>Consente risposte del modello legate a contenuti specifici.</li>
+<li>Riduce le allucinazioni del modello, ovvero le situazioni in cui il modello genera contenuti non basati su fatti.</li>
+<li>Fissa le risposte del modello alle fonti su cui un utente può fare clic e aprire.</li>
+<li>Migliora l'affidabilità e l'applicabilità dei contenuti generati.</li>
+</ul>
+
+<p>Quando utilizzi il Grounding con la Ricerca Google, colleghi il
+modello a risultati di ricerca affidabili di internet. Poiché le risposte del modello non basate su dati empirici si basano su modelli appresi, potresti non ricevere risposte oggettive ai prompt relativi agli eventi attuali (ad esempio, se chiedi una previsione meteo o il risultato finale di una partita di calcio recente). Poiché internet fornisce accesso a nuove informazioni, un prompt basato su dati concreti può generare risposte più aggiornate, con le fonti citate.</p>
+
+<p>Ecco un esempio che confronta una risposta non basata su dati e una risposta basata su dati
+generata utilizzando l'API. Le risposte sono state generate a ottobre 2024.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Gemini senza grounding</strong></th>
+      <th><strong>Grounding con la Ricerca Google</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Prompt:</strong> Chi ha vinto il Super Bowl quest'anno?<br />
+        <strong>Risposta:</strong> i Kansas City Chiefs hanno vinto il Super Bowl LVII quest'anno (2023).
+      </td>
+      <td><strong>Prompt:</strong> Chi ha vinto il Super Bowl quest'anno?<br />
+        <strong>Risposta:</strong> quest'anno i Kansas City Chiefs hanno vinto il Super Bowl LVIII, battendo i San Francisco 49ers ai tempi supplementari con il punteggio di 25 a 22.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nella risposta non basata su dati, il modello fa riferimento alla vittoria del Super Bowl 2023 dei Kansas City Chiefs. Nella risposta basata su dati di fatto, il modello fa riferimento correttamente alla vittoria più recente del 2024.</p>
+
+<p>L'immagine seguente mostra l'aspetto di una risposta basata su dati in AI Studio.</p>
+
+<p><img alt="Prompt e risposta basati su dati in AI Studio" src="https://ai.google.dev/static/gemini-api/docs/images/grounded-prompt.png?hl=it" style="max-width:900px" /></p>
+
+<h2 data-text="Suggerimenti della Ricerca Google" id="search-suggestions" tabindex="-1">Suggerimenti della Ricerca Google</h2>
+
+<p>Per utilizzare grounding con la Ricerca Google, devi mostrare i suggerimenti della Ricerca Google, che sono query suggerite incluse nei metadati della risposta con grounding. Per scoprire di più sui requisiti di visualizzazione, consulta
+<a href="https://ai.google.dev/gemini-api/docs/grounding/search-suggestions?hl=it">Utilizzare i suggerimenti della Ricerca Google</a>.</p>
+
+<h2 data-text="Recupero dinamico" id="dynamic-retrieval" tabindex="-1">Recupero dinamico</h2>
+
+<p>È probabile che alcune query traggono un maggiore vantaggio dal grounding con la Ricerca Google rispetto ad altre. La funzionalità di <em>recupero dinamico</em> offre un ulteriore controllo su quando utilizzare il grounding con la Ricerca Google.</p>
+
+<p>Se la modalità di recupero dinamico non è specificata, la funzionalità di ancoraggio con la Ricerca Google viene attivata sempre. Se la modalità è impostata su dinamica, il modello decide quando utilizzare la messa a terra in base a una soglia che puoi configurare. La soglia è un valore con virgola mobile compreso nell'intervallo [0,1] e il valore predefinito è 0,3. Se il valore di soglia è 0, la risposta si basa sempre sulla Ricerca Google; se è 1, non lo è mai.</p>
+
+<h3 data-text="Come funziona il recupero dinamico" id="how-dynamic-retrieval-works" tabindex="-1">Come funziona il recupero dinamico</h3>
+
+<p>Puoi utilizzare il recupero dinamico nella tua richiesta per scegliere quando attivare il Grounding con la Ricerca Google. Ciò è utile quando il prompt non richiede una risposta basata sulla Ricerca Google e il modello può fornire una risposta in base alle proprie conoscenze senza basi. Questo ti aiuta a gestire la latenza,
+la qualità e i costi in modo più efficace.</p>
+
+<p>Prima di richiamare la configurazione di recupero dinamico nella richiesta,
+comprendere la seguente terminologia:</p>
+
+<ul>
+<li><p><strong>Punteggio di previsione</strong>: quando richiedi una risposta basata su dati, Gemini assegna al prompt un
+<em>punteggio di previsione</em>. Il punteggio di previsione è un valore con virgola mobile nell'intervallo [0,1]. Il suo valore dipende dal fatto che il prompt possa trarre vantaggio dalla fondazione della risposta con le informazioni più aggiornate della Ricerca Google. Pertanto, se un prompt richiede una risposta basata sui fatti più recenti sul web, ha un punteggio di previsione più elevato. Un prompt per il quale è sufficiente una risposta generata dal modello ha un
+
+punteggio di previsione più basso.</p>
+
+<p>Ecco alcuni esempi di prompt e i relativi punteggi di previsione.</p>
+<aside class="note"><strong>Nota:</strong><span> i punteggi di previsione vengono assegnati da Gemini e possono variare nel tempo in base a diversi fattori.</span></aside>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>Punteggio di previsione</th>
+<th>Commento</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>"Scrivi una poesia sulle peonie"</td>
+<td>0,13</td>
+<td>Il modello può fare affidamento sulle sue conoscenze e la risposta non richiede grounding.</td>
+</tr>
+<tr>
+<td>"Consigliami un giocattolo per un bambino di 2 anni"</td>
+<td>0,36</td>
+<td>Il modello può fare affidamento sulle sue conoscenze e la risposta non richiede grounding.</td>
+</tr>
+<tr>
+<td>"Puoi darmi la ricetta di un guacamole di ispirazione asiatica?"</td>
+<td>0,55</td>
+<td>La Ricerca Google può dare una risposta basata su dati, ma questa operazione non è strettamente necessaria; le conoscenze del modello potrebbero essere sufficienti.</td>
+</tr>
+<tr>
+<td>"Che cos'è Agent Builder? Come viene addebitato il grounding in Agent Builder?"</td>
+<td>0,72</td>
+<td>Richiede che la Ricerca Google generi una risposta ben fondata.</td>
+</tr>
+<tr>
+<td>"Chi ha vinto l'ultimo Gran Premio di Formula 1?"</td>
+<td>0,97</td>
+<td>Richiede Ricerca Google per generare una risposta corretta.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>Soglia</strong>: nella richiesta API puoi specificare una configurazione di recupero
+dinamico con una soglia. La soglia è un valore in virgola mobile
+nell'intervallo [0,1] e il valore predefinito è 0,7. Se il valore della soglia è zero, la risposta è sempre basata sulla Ricerca Google. Per tutti gli altri valori della soglia, si applica quanto segue:</p>
+
+<ul>
+<li>Se il punteggio di previsione è maggiore o uguale alla soglia, la risposta si basa sulla Ricerca Google.
+Una soglia più bassa implica che più prompt hanno risposte generate utilizzando il grounding con la Ricerca Google.</li>
+<li>Se il punteggio di previsione è inferiore alla soglia, il modello potrebbe comunque generare la risposta, ma non è basato sulla Ricerca Google.</li>
+</ul></li>
+</ul>
+
+<p>Per scoprire come impostare la soglia di recupero dinamico utilizzando un SDK o l'API REST, consulta l'<a href="#configure-grounding">esempio di codice</a> appropriato.</p>
+
+<p>Se utilizzi AI Studio, puoi impostare la soglia di recupero dinamico facendo clic su <strong>Modifica grounding</strong>.</p>
+
+<p><img alt="Seleziona la soglia di grounding in AI Studio" src="https://ai.google.dev/static/gemini-api/docs/images/edit-grounding.png?hl=it" style="max-width:800px" /></p>
+
+<p>Per trovare una soglia adatta alle esigenze della tua attività, puoi creare un insieme rappresentativo di query che prevedi di trovare. Poi puoi ordinare
+le query in base al punteggio di previsione nella risposta e selezionare
+una buona soglia per il tuo caso d'uso.</p>
+
+<h2 data-text="Una risposta fondata" id="grounded-response" tabindex="-1">Una risposta fondata</h2>
+
+<p>Se il prompt viene eseguito correttamente nella Ricerca Google, la risposta includerà
+<code dir="ltr" translate="no">groundingMetadata</code>. Una risposta basata su dati potrebbe essere simile alla seguente
+(alcune parti della risposta sono state omesse per brevità):</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy devsite-disable-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JSON"><code translate="no" dir="ltr"><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nt">"candidates"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-nt">"content"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"parts"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"text"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Carlos Alcaraz won the Gentlemen's Singles title at the 2024 Wimbledon Championships. He defeated Novak Djokovic in the final, winning his second consecutive Wimbledon title and fourth Grand Slam title overall. \n"</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"role"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"model"</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-err">...</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-nt">"groundingMetadata"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"searchEntryPoint"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-nt">"renderedContent"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4x8Epe-gzpwRBvp7o3RZh2m1ygq1EHktn0OWCtvTXjad4bb1zSuqfJd6OEuZZ9_SXZ_P2SvCpJM7NaFfQfiZs6064MeqXego0vSbV9LlAZoxTdbxWK1hFeqTG6kA13YJf7Fbu1SqBYM0cFM4zo0G_sD9NKYWcOCQMvDLDEJFhjrC9DM_QobBIAMq-gWN95G5tvt6_z6EuPN8QY=\"\u003ewho won wimbledon 2024\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n"</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"groundingChunks"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"web"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"uri"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4whET1ta3sDETZvcicd8FeNe4z0VuduVsxrT677KQRp2rYghXI0VpfYbIMVI3THcTuMwggRCbFXS_wVvW0UmGzMe9h2fyrkvsnQPJyikJasNIbjJLPX0StM4Bd694-ZVle56MmRA4YiUvwSqad1w6O2opmWnw=="</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"title"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"wikipedia.org"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"web"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"uri"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4wR1M-9-yMPUr_KdHlnoAmQ8ZX90DtQ_vDYTjtP2oR5RH4tRP04uqKPLmesvo64BBkPeYLC2EpVDxv9ngO3S1fs2xh-e78fY4m0GAtgNlahUkm_tBm_sih5kFPc7ill9u2uwesNGUkwrQlmP2mfWNU5lMMr23HGktr6t0sV0QYlzQq7odVoBxYWlQ_sqWFH"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"title"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"wikipedia.org"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"web"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"uri"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4wsDmROzbP-tmt8GdwCW_pqISTZ4IRbBuoaMyaHfcQg8WW-yKRQQvMDTPAuLxJh-8_U8_iw_6JKFbQ8M9oVYtaFdWFK4gOtL4RrC9Jyqc5BNpuxp6uLEKgL5-9TggtNvO97PyCfziDFXPsxylwI1HcfQdrz3Jy7ZdOL4XM-S5rC0lF2S3VWW0IEAEtS7WX861meBYVjIuuF_mIr3spYPqWLhbAY2Spj-4_ba8DjRvmevIFUhRuESTKvBfmpxNSM"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"title"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"cbssports.com"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"web"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"uri"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4yzjLkorHiUKjhOPkWaZ9b4cO-cLG-02vlEl6xTBjMUjyhK04qSIclAa7heR41JQ6AAVXmNdS3WDrLOV4Wli-iezyzW8QPQ4vgnmO_egdsuxhcGk3-Fp8-yfqNLvgXFwY5mPo6QRhvplOFv0_x9mAcka18QuAXtj0SPvJfZhUEgYLCtCrucDS5XFc5HmRBcG1tqFdKSE1ihnp8KLdaWMhrUQI21hHS9"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"title"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"jagranjosh.com"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"web"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"uri"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWhgh4y9L4oeNGWCatFz63b9PpP3ys-Wi_zwnkUT5ji9lY7gPUJQcsmmE87q88GSdZqzcx5nZG9usot5FYk2yK-FAGvCRE6JsUQJB_W11_kJU2HVV1BTPiZ4SAgm8XDFIxpCZXnXmEx5HUfRqQm_zav7CvS2qjA2x3__qLME6Jy7R5oza1C5_aqjQu422le9CaigThS5bvJoMo-ZGcXdBUCj2CqoXNVjMA=="</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"title"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"apnews.com"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"groundingSupports"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"segment"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"endIndex"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">85</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"text"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Carlos Alcaraz won the Gentlemen's Singles title at the 2024 Wimbledon Championships."</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"groundingChunkIndices"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">2</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">3</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"confidenceScores"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.97380733</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.97380733</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.97380733</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.97380733</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"segment"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"startIndex"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">86</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"endIndex"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">210</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-nt">"text"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"He defeated Novak Djokovic in the final, winning his second consecutive Wimbledon title and fourth Grand Slam title overall."</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"groundingChunkIndices"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mi">4</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-nt">"confidenceScores"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.96145374</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.96145374</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-mf">0.96145374</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nt">"webSearchQueries"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-s2">"who won wimbledon 2024"</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-err">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Se la risposta non include <code dir="ltr" translate="no">groundingMetadata</code>, significa che la risposta
+non è stata basata su dati sufficienti. I motivi possono essere diversi, tra cui la bassa pertinenza della fonte o informazioni incomplete all'interno della risposta del modello.</p>
+
+<p>Quando viene generato un risultato basato su fatti, i metadati contengono URI che reindirizzano ai publisher dei contenuti utilizzati per generare il risultato basato su fatti.
+Questi URI contengono il sottodominio <code dir="ltr" translate="no">vertexaisearch</code>, come in questo esempio troncato:
+<code dir="ltr" translate="no">https://vertexaisearch.cloud.google.com/grounding-api-redirect/...</code>. I metadati contengono anche i domini dei publisher. Gli URI forniti rimangono accessibili per 30 giorni dopo la generazione del risultato basato su dati.</p>
+<aside class="special"><strong>Importante:</strong><span> gli URI forniti devono essere direttamente accessibili agli utenti finali e non devono essere sottoposti a query in modo programmatico tramite mezzi automatici. Se viene rilevato un accesso automatico, il servizio di generazione di risposte con grounding potrebbe smettere di fornire gli URI di reindirizzamento.</span></aside>
+<p>Il campo <code dir="ltr" translate="no">renderedContent</code> all'interno di <code dir="ltr" translate="no">searchEntryPoint</code> è il codice fornito per
+implementare i suggerimenti della Ricerca Google. Per saperne di più, consulta
+<a href="https://ai.google.dev/gemini-api/docs/grounding/search-suggestions?hl=it">Utilizzare i suggerimenti della Ricerca Google</a>.</p>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=it" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Invia feedback
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla <a href="https://creativecommons.org/licenses/by/4.0/">licenza Creative Commons Attribution 4.0</a>, mentre gli esempi di codice sono concessi in base alla <a href="https://www.apache.org/licenses/LICENSE-2.0">licenza Apache 2.0</a>. Per ulteriori dettagli, consulta le <a href="https://developers.google.com/site-policies?hl=it">norme del sito di Google Developers</a>. Java è un marchio registrato di Oracle e/o delle sue consociate.</p>
+  <p>Ultimo aggiornamento 2024-11-07 UTC.</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    Vuoi dirci altro?
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2024-11-07 UTC."],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="Link piè di pagina">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Link utilità">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=it"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Termini
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=it"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;it&#34;, &#34;served&#34;: &#34;it&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="dsth7d4RuuTML1/0kiQMcI36sBwRF5">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"it",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Search__enable_suggestions_from_borg","Profiles__enable_release_notes_notifications","Search__enable_dynamic_content_confidential_banner","Profiles__enable_page_saving","TpcFeatures__enable_required_headers","Profiles__enable_completecodelab_endpoint","Cloud__enable_free_trial_server_call","CloudShell__cloud_shell_button","Cloud__enable_cloud_dlp_service","Search__enable_page_map","Profiles__enable_recognition_badges","Cloud__enable_llm_concierge_chat","DevPro__enable_cloud_innovators_plus","BookNav__enable_tenant_cache_key","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_developer_subscriptions","Cloud__enable_cloud_facet_chat","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_awarding_url","MiscFeatureFlags__emergency_css","OnSwitch__enable","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_variable_operator","Profiles__enable_complete_playlist_endpoint","Cloud__enable_cloud_shell","MiscFeatureFlags__developers_footer_image","EngEduTelemetry__enable_engedu_telemetry","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_shell_fte_user_flow","Search__enable_ai_eligibility_checks","Cloud__enable_cloudx_experiment_ids","Experiments__reqs_query_experiments","Concierge__enable_pushui","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_view_transitions","Profiles__enable_public_developer_profiles","Analytics__enable_clearcut_logging","Cloud__enable_cloudx_ping","Profiles__enable_profile_collections","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__enable_project_variables","Cloud__enable_legacy_calculator_redirect"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

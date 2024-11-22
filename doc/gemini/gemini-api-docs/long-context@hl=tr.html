@@ -1,0 +1,3001 @@
+<!doctype html>
+<html 
+      lang="tr-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/long-context?hl=tr"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=tr">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/long-context" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/long-context" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/long-context?hl=vi" /><title>Uzun bağlam &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="Uzun bağlam &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"><meta name="description" content="Gemini 1.5 Pro ve Gemini 1.5 Flash&#39;ta uzun bağlamla (1 milyon ve 2 milyon bağlam penceresi) geliştirme yapmaya nasıl başlayacağınızı öğrenin">
+  <meta property="og:description" content="Gemini 1.5 Pro ve Gemini 1.5 Flash&#39;ta uzun bağlamla (1 milyon ve 2 milyon bağlam penceresi) geliştirme yapmaya nasıl başlayacağınızı öğrenin"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/long-context?hl=tr"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=tr">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="tr"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "Uzun bağlam"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uzun bağlam",
+      "item": "https://ai.google.dev/gemini-api/docs/long-context"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/long-context?hl=en">
+  
+
+  
+
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Menüyü aç">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=tr" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Üst sekmeler">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=tr"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - değerli taş"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Değerli Taş"
+         
+           track-name="değerli taş"
+         
+       >
+    Değerli Taş
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google yapay zeka edge"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google Yapay Zeka Edge"
+         
+           track-name="google yapay zeka edge"
+         
+       >
+    Google Yapay Zeka Edge
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - araçlar"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Araçlar"
+         
+           track-name="araçlar"
+         
+       >
+    Araçlar
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="İlgili açılır menüsü: Araçlar"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - araçlar"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: Araçlar"
+        
+          track-name="araçlar"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=tr"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=tr"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Sorumlu Üretken Yapay Zeka Araç Seti
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=tr"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=tr"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=tr"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=tr"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAK
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=tr"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=tr"
+                     track-metadata-position="nav - araçlar"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=tr"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - topluluk"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Topluluk"
+         
+           track-name="topluluk"
+         
+       >
+    Topluluk
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=tr" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Aramayı aç"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Arama"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Arama"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Aramayı kapat"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Oturum aç</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Alttaki sekmeler">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - dokümanlar"
+       track-metadata-module="primary nav"
+       aria-label="Dokümanlar, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Dokümanlar"
+         
+           track-name="dokümanlar"
+         
+       >
+    Dokümanlar
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - api referansı"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: API Referansı"
+         
+           track-name="api referansı"
+         
+       >
+    API Referansı
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=tr"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=tr"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - fiyatlandırma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Fiyatlandırma"
+         
+           track-name="fiyatlandırma"
+         
+       >
+    Fiyatlandırma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filtre"
+         
+         aria-label="Filtrelemek için yazın"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Filtreyi temizle"
+        aria-label="Filtreyi temizle"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="Yan menü">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Gezinmeyi kapat">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=tr" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Dokümanlar"
+      
+        track-name="dokümanlar"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Dokümanlar"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      Dokümanlar
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: API Referansı"
+      
+        track-name="api referansı"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: API Referansı"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      API Referansı
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Fiyatlandırma"
+      
+        track-name="fiyatlandırma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Fiyatlandırma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Fiyatlandırma
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Değerli Taş"
+      
+        track-name="değerli taş"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Değerli Taş"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Değerli Taş
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google Yapay Zeka Edge"
+      
+        track-name="google yapay zeka edge"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google Yapay Zeka Edge"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google Yapay Zeka Edge
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Araçlar"
+      
+        track-name="araçlar"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Araçlar
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Araçlar"
+      
+        track-name="araçlar"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="Araçlar">
+      Diğer
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="Araçlar">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Topluluk"
+      
+        track-name="topluluk"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Topluluk"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Topluluk
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>Genel bakış</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Başlama</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>API anahtarları</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>Hızlı Başlangıç</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>Kütüphaneler</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>Sürüm notları</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Modeller</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>Deneysel modeller</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Deneysel!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Özellikler</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>Metin oluşturma</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>Belge işleme</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>Vision</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>Ses</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>Uzun bağlam</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Referans Yüzey</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Google Arama temeli</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>Google Arama Önerileri&#39;ni kullanma</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>Kod yürütme</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>Yapılandırılmış çıkış</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>İnce ayar</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>İnce ayar yapmaya giriş</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>İnce ayar eğiticisi</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>İşlev çağırma</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>İşlev çağrısına giriş</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>İşlev çağrısı eğiticisi</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>Yapılandırılmış verileri ayıklama</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>Sistem talimatları</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>Yerleştirmeler</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Güvenlik</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>Güvenlik ayarları</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>Güvenlikle ilgili yol gösterici bilgiler</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Rehberler</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>Bağlamı önbelleğe alma</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>Resim 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>Simgeler</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>İstemde bulunma</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>İstemeye giriş</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>İstem stratejileri</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>Dosya isteme stratejileri</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>Anlamsal alma</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>Üretken modeller hakkında</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>Faturalandırma</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>OpenAI Uyumluluğu</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Deneysel!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>Cloud&#39;a taşı</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Ek kaynaklar</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Google AI Studio hızlı başlangıç kılavuzu</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android (cihaz üzerinde)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Firebase uzantıları</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>OAuth kimlik doğrulaması</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Deneysel!"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Kullanım alanları</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Uygulamalar</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>Kod yardımcısı</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Flutter kodu oluşturucu</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>İçerik arama</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>Veri keşfi aracısı</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>Yazma asistanı</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>Slaytlar incelemecisi</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Sorun giderme</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>API sorunlarını giderme</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>AI Studio ile ilgili sorunları giderme</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>Google Workspace ile AI Studio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>Daha fazla kota isteme</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Topluluk</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>Geliştirici forumu</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="Harici"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Hukuk</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>Hizmet şartları</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>Kullanılabildiği bölgeler</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>Kötüye kullanım izleme</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="Araçlar"
+          aria-label="Yan menü" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Sorumlu Üretken Yapay Zeka Araç Seti"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Sorumlu Üretken Yapay Zeka Araç Seti
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAK"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAK
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="Bu sayfada"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    Google Arama ile topraklama özelliği kullanıma sunuldu <a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Daha fazla bilgi</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=tr"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            Bu sayfa, <a href="//cloud.google.com/translate/?hl=tr">Cloud Translation API</a> ile çevrilmiştir.
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="İçerik haritası">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=tr"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Ana Sayfa
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=tr"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=tr"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Dokümanlar
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Geri bildirim gönderin
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Uzun bağlam
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Kapat"
+
+      
+      close-button-text="Anladım">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      Koleksiyonlar ile düzeninizi koruyun
+    </span>
+    <span slot="popout-contents">
+      
+      İçeriği tercihlerinize göre kaydedin ve kategorilere ayırın.
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p>Gemini 1.5 Flash, 1 milyon jetonluk bağlam penceresiyle standart olarak sunulur.
+Gemini 1.5 Pro'da 2 milyon jetonluk bağlam penceresi bulunur. Geçmişte,
+dil modellerinin (LLM'ler) metin boyutu (veya
+jeton) bulunur. Gemini 1.5 uzun
+bağlam penceresi, <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">neredeyse mükemmel şekilde
+(>%99)</a>,
+birçok yeni kullanım alanı ve geliştirici paradigması ortaya çıkarır.</p>
+
+<p><a href="https://ai.google.dev/gemini-api/docs/text-generation?hl=tr">Metin gibi durumlarda zaten kullandığınız kod
+oluşturma</a> veya <a href="https://ai.google.dev/gemini-api/docs/vision?hl=tr">çok modlu
+girişlerin</a> uzun bağlamda kullanıma sunulacağı anlamına gelir.</p>
+
+<p>Bu kılavuz boyunca bağlam penceresinin temel özelliklerini,
+geliştiricilerin uzun bir bağlam, gerçek dünyadaki çeşitli kullanım alanları gibi
+uzun bağlam ve uzun bağlam kullanımını optimize etme yolları.</p>
+
+<h2 data-text="Bağlam penceresi nedir?" id="what-is-context-window" tabindex="-1">Bağlam penceresi nedir?</h2>
+
+<p>Gemini 1.5 modellerini kullanmanın temel yolu, bilgileri (bağlam)
+bu da daha sonra bir yanıt üretir. Mesela
+bağlam penceresi kısa süreli bellektir. Sınırlı miktarda bilgi
+kısa vadeli hafızasında saklanabildiği bir süreçtir. Aynı durum,
+üretken modeller.</p>
+
+<p><a href="https://ai.google.dev/gemini-api/docs/models/generative-models?hl=tr">Üretken modellerimizde modellerin arka planda nasıl çalıştığı hakkında daha fazla bilgi edinebilirsiniz.
+rehberini</a> inceleyin.</p>
+
+<h2 data-text="Uzun bağlam kullanmaya başlama" id="getting-started-with-long-context" tabindex="-1">Uzun bağlam kullanmaya başlama</h2>
+
+<p>Son birkaç yılda oluşturulan çoğu üretken modelde
+aynı anda 8.000 jeton işleniyor. Yeni modellerde kabul edilerek
+32.000 jeton veya 128.000 jeton. Gemini 1.5, şunları yapabilen ilk modeldir:
+1 milyon jeton ve şimdi de <a href="https://developers.googleblog.com/en/new-features-for-the-gemini-api-and-google-ai-studio/">Gemini 1.5 ile 2 milyon jeton kabul ediliyor
+Profesyonel</a>.</p>
+
+<p>Pratikte 1 milyon jeton şöyle görünür:</p>
+
+<ul>
+<li>50.000 kod satırı (satır başına standart 80 karakterle)</li>
+<li>Son 5 yılda gönderdiğiniz tüm kısa mesajlar</li>
+<li>Ortalama uzunlukta 8 İngilizce roman</li>
+<li>Ortalama uzunluktaki 200'den fazla podcast bölümünün transkriptleri</li>
+</ul>
+
+<p>Modeller giderek daha fazla bağlamda yer alabilse de, modelin çoğu
+büyük dil modellerinin kullanılmasıyla ilgili geleneksel yaklaşıma göre
+modeldeki sınırlama, 2024 itibarıyla geçerliliğini yitirdi.</p>
+
+<p>Küçük bağlam pencerelerinin sınırlamalarını ele almaya yönelik bazı yaygın stratejiler
+dahil:</p>
+
+<ul>
+<li>Eski mesajları / metinleri bağlam penceresinden rastgele yeni metin olarak bırakma
+gelir</li>
+<li>Önceki içeriği özetlemeli ve
+bağlam penceresi dolmak üzere</li>
+<li>Verileri bağlam penceresinden dışarı taşımak ve RAG sistemini,
+veri tabanına</li>
+<li>Belirli metinleri kaldırmak için deterministik veya üretken filtreler kullanma
+jeton kaydetme istemlerindeki karakterler</li>
+</ul>
+
+<p>Bu kuralların birçoğu bazı durumlara rağmen hâlâ geçerli olsa da,
+başlangıç noktası tüm jetonları bağlam penceresine yerleştirmektir. Çünkü
+Gemini 1.5 modelleri, uzun bir bağlam penceresiyle amaca yönelik olarak geliştirildi.
+bağlam içi öğrenme Örneğin, yalnızca öğretici
+materyaller (500 sayfalık referans dil bilgisi, bir sözlük ve ≈ 400 ekstra paralel
+Gemini 1.5 Pro ve Gemini 1.5 Flash ise) şunlardır:
+<a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">çeviri yapmayı öğrenebilen</a>
+İngilizceden Kalamang’a—Papua dili, 200’den az konuşan ve
+Bu nedenle, neredeyse hiç çevrimiçi varlık yok. Bu, eğitim alan bir kişininkine benzer bir
+aynı malzemelerden yapabilirsiniz.</p>
+
+<p>Bu örnek, bir şirketle her biri için mümkün olan
+kapsamlı bağlam ve Gemini 1.5'in bağlam içi öğrenme yetenekleri.</p>
+
+<h2 data-text="Uzun bağlam kullanım alanları" id="long-context-use-cases" tabindex="-1">Uzun bağlam kullanım alanları</h2>
+
+<p>Çoğu üretken modelin standart kullanım alanı hâlâ metin girişi olsa da
+Gemini 1.5 model ailesi, çok modlu kullanım alanlarında yeni bir paradigma sunuyor. Bu
+yerel olarak metin, video, ses ve resimleri anlayabilir. Bunlar:
+<a href="https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=tr">Çok modlu dosyayı alan Gemini API ve
+türler</a>
+yardımcı olur.</p>
+
+<h3 data-text="Uzun metin" id="long-form-text" tabindex="-1">Uzun metin</h3>
+
+<p>Günümüzde birçok yapay zekanın temelini oluşturan metin,
+ivmelenmeye başladım. Daha önce belirttiğimiz gibi, proje yönetiminin pratik sınırlamalarının
+LLM'ler, belirli görevleri gerçekleştirmek için yeterince büyük bir bağlam
+görevlerden biridir. Bu durum, almalı artırılmış nesilin (RAG) hızla benimsenmesine yol açtı.
+ve modele alakalı bilgileri dinamik olarak sağlayan diğer teknikler
+bağlamsal bilgiler sağlar. Şimdi ise daha geniş ve daha geniş bağlam aralıklarıyla (şu anda
+2 milyona kadar ulaşırken,
+kullanıma sunmak üzere yeni teknikler
+Bu da yeni kullanım alanları ortaya çıkarır.</p>
+
+<p>Metin tabanlı uzun bağlam için yeni ve standart kullanım alanlarından bazıları şunlardır:</p>
+
+<ul>
+<li>Büyük metin topluluklarını özetleme
+<ul>
+<li>Daha küçük bağlam modellerine sahip önceki özetleme seçenekleri için gerekenler
+önceki bölümlerin durumunu korumak için kayan pencere veya başka bir teknik
+yeni jetonlar modele iletildikçe</li>
+</ul></li>
+<li>Soru ve cevap
+<ul>
+<li>Geçmişte bu, sınırlı miktarda ve RAG ile birlikte yapılabiliyordu.
+bağlam ve modellerin olgusal hatırlanabilirliğin düşük olması</li>
+</ul></li>
+<li>Aracı iş akışları
+<ul>
+<li>Temsilcilerin yaptığı işleri kontrol etme yönteminin temelidir
+ve ne yapmaları gerekiyor? dünya hakkında yeterli bilgiye sahip olmaması
+Aracının amacı temsilcilerin güvenilirliğini sınırlamak</li>
+</ul></li>
+</ul>
+
+<p><a href="https://arxiv.org/pdf/2404.11018">Birçok çekimle bağlam içinde öğrenme</a>,
+uzun bağlam modelleri sayesinde elde edilen
+en benzersiz özellikleri sunar. Araştırmaların gösterdikleri
+ortak bir "tek vuruş" yapma veya "çoklu çekim" inceleyebilirsiniz.
+görev bir veya birkaç örnekle sunulduğunda ve bunu en yüksek düzeye
+yüzlerce, hatta binlerce, hatta yüz binlerce örnek, insanların
+yeni model olanaklarından yararlanmayı öğreteceğim. Bu çok çekim yaklaşımının, yüksek performans
+Bu da belirli bir görev için ince ayar yapılmış modellere benzer. Kullanım alanları için
+Gemini modelinin performansının üretim için yeterli olmadığı durumlarda
+çok çekimli yaklaşımı deneyebilirsiniz. Gördüğünüz gibi
+bağlam optimizasyonu bölümü, bağlam önbelleğe alma işlemi için bu tür bir yüksek
+daha ekonomiktir ve hatta bazı durumlarda
+durumlarda işe yarar.</p>
+
+<h3 data-text="Uzun video" id="long-form-video" tabindex="-1">Uzun video</h3>
+
+<p>Video içeriğini kullanmak, erişilebilirliğin olmaması nedeniyle uzun süredir kısıtlanmıştır
+olduğunu söyleyebilir. İçeriğe göz atmak zordu, transkriptler genellikle
+yakalarsınız. Çoğu araçta
+görüntü, metin ve metin
+sesi birlikte kullanabilirsiniz. Gemini 1.5'te uzun bağlam metin özellikleri
+çok modlu girişlerle ilgili akıl yürütme ve soruları yanıtlama becerisi
+sürdürülebilir performans. Gemini 1.5 Flash, videoda iğneyle test edildiğinde
+1 milyon jetonla ilgili samanlık sorunu, videonun% 99,8'in üzerinde
+bağlam penceresine kıyasla ve 1.5 Pro,
+<a href="https://video-mme.github.io/home_page.html">Video-MME karşılaştırması</a>.</p>
+
+<p>Uzun videolar için yeni ve standart kullanım alanlarından bazıları şunlardır:</p>
+
+<ul>
+<li>Video sorusu ve yanıtı</li>
+<li><a href="https://deepmind.google/technologies/gemini/project-astra/?hl=tr">Google Project Astra</a>'da gösterildiği gibi video belleği</li>
+<li>Video altyazısı</li>
+<li>Mevcut meta verileri yeni içeriklerle zenginleştirerek
+çok modlu anlama</li>
+<li>Veri kitaplığına ve ilişkili videolara bakarak video özelleştirme
+meta verilerle alakalı olmayan kısımları kaldırarak
+görüntüleyen</li>
+<li>Video içeriği moderasyonu</li>
+<li>Gerçek zamanlı video işleme</li>
+</ul>
+
+<p>Videolarla çalışırken, <a href="https://ai.google.dev/gemini-api/docs/tokens?hl=tr#media-token">videoların nasıl
+jetonlara dönüştürülmesini sağlar.</a> Bu,
+faturalandırma ve kullanım sınırları. Video dosyalarıyla istem gönderme hakkında daha fazla bilgi edinmek için şu bölümü inceleyebilirsiniz:
+<a href="https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=tr#prompting-with-videos">istem
+rehberini</a> inceleyin.</p>
+
+<h3 data-text="Uzun video ses" id="long-form-audio" tabindex="-1">Uzun video ses</h3>
+
+<p>Gemini 1.5 modelleri, ilk yerel olarak çok modlu büyük dil modelleriydi.
+anlayabiliyoruz. Önceden beri, tipik geliştirici iş akışı
+alan adına özgü birden çok modelin bir araya getirilmesini içerir.
+sesle yazma modelini ve metin-metin modelini kullanır. Bu
+Birden fazla gidiş dönüş isteği gerçekleştirilmesi gereken ek gecikmeye neden oldu
+ve performanstaki düşüş, genellikle farklı dildeki mimarilerin
+model kurulumunu da destekler.</p>
+
+<p>Gemini 1.5 Pro, standart ses içeren samanlık değerlendirmelerinde
+testlerin% 100'ünde gizli sestir ve Gemini 1.5 Flash, bu sesi
+<a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">% 98,7
+testlerinde</a> bulabilirsiniz.
+Gemini 1.5 Flash, tek seferde 9,5 saate kadar <a href="https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=tr#audio_formats">sesi kabul eder
+</a> ve
+Gemini 1.5 Pro, 2 milyon jeton ile 19 saate kadar sesi kabul edebilir
+bağlam penceresine 
+kaçırmayın. Ayrıca Gemini 1.5 Pro, 15 dakikalık ses kliplerinden oluşan bir test setinde
+~%5,5'lik bir kelime hatası (WER) oranı (özel düzeylere göre çok daha düşük) arşivler.
+ekstra giriş segmentasyonunun ek karmaşıklığı olmadan sesle yazma modelleri
+hazırlamanız gerekir.</p>
+
+<p>Ses bağlamı için yeni ve standart kullanım alanlarından bazıları şunlardır:</p>
+
+<ul>
+<li>Gerçek zamanlı metne dönüştürme ve çeviri</li>
+<li>Podcast / video hakkında soru ve yanıtlar</li>
+<li>Toplantıyı metne dönüştürme ve özetleme</li>
+<li>Sesli asistanlar</li>
+</ul>
+
+<p>Ses dosyalarıyla istem alma hakkında daha fazla bilgiyi <a href="https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=tr#prompting-with-videos">İstemler bölümünde
+rehberini</a> inceleyin.</p>
+
+<h2 data-text="Uzun bağlam optimizasyonları" id="long-context-optimizations" tabindex="-1">Uzun bağlam optimizasyonları</h2>
+
+<p>Uzun bağlamla çalışırken uygulanan birincil optimizasyon ve Gemini 1.5
+model, <a href="https://ai.google.dev/gemini-api/docs/caching?hl=tr">bağlamın
+önbelleğe alma</a>. Öncekinin ötesinde
+tek bir istekte çok sayıda jetonun işlenmesinin imkansız olması,
+maliyetiydi. "Verilerinizle sohbet etme" özelliğini kullanıyorsanız kullanıcının
+10 PDF, bir video ve bazı çalışma dokümanları yüklediğinde, eskiden sahip olduğunuz
+daha karmaşık bir alma artırılmış nesil (RAG) aracıyla çalışmak /
+çerçevesini kullanarak bu talepleri işleme almak ve
+jeton bağlam penceresine taşınır. Artık kullanıcının kullandığı dosyaları önbelleğe alabilirsiniz
+ve saatlik olarak depolamak için ödeme yapıyor. Hesap başına giriş / çıkış maliyeti
+Gemini ile istek
+Örneğin, 1,5 Flash, standart giriş / çıkış maliyetinden yaklaşık 4 kat daha düşüktür.
+kullanıcılarla sohbet etmeye yeterince zaman ayıramıyorsanız,
+en az bir haftalık 
+çaba gerekiyorsa</p>
+
+<h2 data-text="Uzun bağlam sınırlamaları" id="long-context-limitations" tabindex="-1">Uzun bağlam sınırlamaları</h2>
+
+<p>Bu kılavuzun çeşitli bölümlerinde Gemini 1.5 modellerinin
+samanlıktaki çeşitli iğne alma değerlendirmelerinde yüksek performans sergiliyor. Bu
+en temel kurulum modelidir. Burada ise elinizdeki tek bir iğne
+yardımcı oluyorum. Birden fazla "iğnenizin" olduğu durumlarda veya belirli parçaları
+model, aradığınız herhangi bir bilgiyle aynı performans
+emin olun. Performans, bağlama bağlı olarak büyük ölçüde değişiklik gösterebilir. Bu
+satın alma kararını verme arasında doğal bir denge olduğundan
+ve maliyeti ortaya çıkarır. Tek bir sorguda yaklaşık% 99 oranında bir artış elde edebilirsiniz, ancak
+bu sorguyu her gönderdiğinizde giriş jetonu ücretini ödemeniz gerekir. Yani 100 için
+almak istiyorsanız, %99 performansa ihtiyacınız varsa bunu
+muhtemelen 100 istek göndermesi gerekir. Bu, bağlamın nerede 
+kullanıldığının
+önbelleğe alma, Gemini modellerinin kullanımıyla ilişkili maliyeti önemli ölçüde azaltabilir
+hem de performansı yüksek tutuyoruz.</p>
+
+<h2 data-text="SSS" id="faqs" tabindex="-1">SSS</h2>
+
+<h3 data-text="Bir sorguya daha fazla jeton eklediğimde model performansını kaybeder miyim?" id="do_i_lose_model_performance_when_i_add_more_tokens_to_a_query" tabindex="-1">Bir sorguya daha fazla jeton eklediğimde model performansını kaybeder miyim?</h3>
+
+<p>Genellikle, jetonların modele aktarılması gerekmiyorsa
+geçmekten kaçınmalısınız. Bununla birlikte,
+ve bu bilgi hakkında sorular sormak istiyorsanız model
+çok yetenekli (birçok araçta% 99'a varan doğruluk)
+durumlarda).</p>
+
+<h3 data-text="Gemini 1.5 Pro, standart samanlıkta iğne testinde nasıl performans gösteriyor?" id="how_does_gemini_15_pro_perform_on_the_standard_needle-in-a-haystack_test" tabindex="-1">Gemini 1.5 Pro, standart samanlıkta iğne testinde nasıl performans gösteriyor?</h3>
+
+<p>Gemini 1.5 Pro, 530 bine kadar jetonu% 100 geri çağırma ve% 99,7'den fazla geri çağırma özelliğini <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">kullanıyor.
+1 Mn
+jetonlar</a>.</p>
+
+<h3 data-text="Uzun bağlam içeren sorgularla maliyetimi nasıl azaltabilirim?" id="how_can_i_lower_my_cost_with_long-context_queries" tabindex="-1">Uzun bağlam içeren sorgularla maliyetimi nasıl azaltabilirim?</h3>
+
+<p>Birçok farklı token'ı / bağlamını yeniden kullanmak
+<a href="https://ai.google.dev/gemini-api/docs/caching?hl=tr">Bağlam önbelleğe alma</a> maliyetleri azaltmaya yardımcı olabilir
+soru sormakla bağlantılı.</p>
+
+<h3 data-text="2 milyon jeton bağlam penceresine nasıl erişebilirim?" id="how_can_i_get_access_to_the_2-million-token_context_window" tabindex="-1">2 milyon jeton bağlam penceresine nasıl erişebilirim?</h3>
+
+<p>Tüm geliştiriciler artık Gemini ile 2 milyon jetonlu bağlam penceresine erişebilirler
+1.5 Pro.</p>
+
+<h3 data-text="Bağlam uzunluğu model gecikmesini etkiler mi?" id="does_the_context_length_affect_the_model_latency" tabindex="-1">Bağlam uzunluğu model gecikmesini etkiler mi?</h3>
+
+<p>Kısıtlamadan bağımsız olarak her istekte sabit bir gecikme süresi vardır.
+ancak genellikle daha uzun sorgularda daha yüksek gecikme (ilke kadar geçen süre)
+jeton).</p>
+
+<h3 data-text="Gemini 1.5 Flash ve Gemini 1.5 Pro'nun uzun bağlam özellikleri arasında farklılık var mı?" id="do_the_long_context_capabilities_differ_between_gemini_15_flash_and_gemini_15_pro" tabindex="-1">Gemini 1.5 Flash ve Gemini 1.5 Pro'nun uzun bağlam özellikleri arasında farklılık var mı?</h3>
+
+<p>Evet, bazı rakamlar bu kılavuzun farklı bölümlerinde bahsedilmişti, ancak
+Gemini 1.5 Pro, çoğu uzun bağlam kullanım alanında genellikle daha iyi performans gösterir.</p>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=tr" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Geri bildirim gönderin
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>Aksi belirtilmediği sürece bu sayfanın içeriği <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Atıf 4.0 Lisansı</a> altında ve kod örnekleri <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 Lisansı</a> altında lisanslanmıştır. Ayrıntılı bilgi için <a href="https://developers.google.com/site-policies?hl=tr">Google Developers Site Politikaları</a>'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.</p>
+  <p>Son güncelleme tarihi: 2024-08-05 UTC.</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    Bize geri bildirimde bulunmak mı istiyorsunuz?
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2024-08-05 UTC."],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="Altbilgi bağlantıları">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Yararlı bağlantılar">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=tr"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Şartlar
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=tr"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Gizlilik
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;tr&#34;, &#34;served&#34;: &#34;tr&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="qtwRKJ9/CG3lk7ooLNE30BmnRnUwOc">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"tr",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Search__enable_suggestions_from_borg","Profiles__enable_release_notes_notifications","Search__enable_ai_eligibility_checks","Cloud__enable_free_trial_server_call","OnSwitch__enable","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__enable_explain_this_code","Cloud__enable_cloudx_experiment_ids","Cloud__enable_cloud_dlp_service","Profiles__enable_developer_profiles_callout","CloudShell__cloud_code_overflow_menu","Profiles__enable_profile_collections","TpcFeatures__enable_required_headers","Search__enable_page_map","Profiles__enable_awarding_url","Profiles__enable_recognition_badges","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_project_variables","Experiments__reqs_query_experiments","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_cloud_innovators_plus","DevPro__enable_developer_subscriptions","Profiles__enable_dashboard_curated_recommendations","CloudShell__cloud_shell_button","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__enable_variable_operator","Cloud__enable_cloud_facet_chat","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_legacy_calculator_redirect","Cloud__enable_llm_concierge_chat","Analytics__enable_clearcut_logging","Cloud__enable_cloudx_ping","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_shell","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_page_saving","Profiles__enable_public_developer_profiles","BookNav__enable_tenant_cache_key","Concierge__enable_pushui","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__emergency_css"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>
