@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+# vim: ts=2 sw=2 ft=perl
+eval 'exec perl -x -wS $0 ${1+"$@"}'
+  if 0;
+$|++;
+use common::sense;
+use autodie;
+use Nobody::Util;
+our(@VERSION) = qw( 0 1 0 );
+package Mech;
+our(@ISA);
+use Nobody::Util;
+use base 'WWW::Mechanize::Shell';
+use HTTP::CookieJar::LWP;
+use WWW::Mechanize;
+
+$SIG{__WARN__}=sub{ warn("@_\n"); };
+sub new {
+  my($class)=class(shift);
+  unshift(@_,'cookie_jar', HTTP::CookieJar->new());
+  WWW::Mechanize::Shell->new(@_);
+};
+sub cmd {
+  my($self)=shift;
+  warn("$self->cmd(".pp(\@_).")");
+  for(@ISA) {
+    if(wantarray){
+      local(@_);
+      @_=WWW::Mechanize::Shell($self,@_);
+      warn("[@_]");
+      @_;
+    } elsif(defined(wantarray)){
+      local($_);
+      $_=WWW::Mechanize::Shell($self,@_);
+      warn("($_)");
+      $_;
+    } else {
+      WWW::Mechanize::Shell($self,@_);
+      warn("undef");
+      undef;
+    }
+  }    
+};
+package main;
+my ($mech) = Mech->new;
+$mech->cmd("get http://_gateway");
+$mech->cmd('parse');

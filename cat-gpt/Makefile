@@ -1,28 +1,16 @@
-CXXFLAGS:= @etc/cxxflags
-LDFLAGS:= @etc/ldflags
-LDLIBES:= @etc/libs
 CXX:=$(shell cat etc/cxx)
-list/here:=$(shell git ls-files .)
 dirb:=$(notdir $(PWD))
-list/up1:=$(patsubst %,$(dirb)/%,$(list/here))
-exe:= cat-gem cat-gpt 
-all: cat-gpt.tar $(exe)
+exe:= bin/cat-gem bin/cat-gpt 
+src:= $(wildcard src/*.cc)
+obj:= $(patsubst src/%.cc,obj/%.o,$(src))
 
-tar: cat-gpt.tar
+all: $(exe)
+$(src):
 
+$(obj): obj/%.o: src/%.cc etc/cxxflags
+	$(CXX) @etc/cxxflags -o $@ $< -c  
 
-cat-gpt.tar: $(list/here)
-	tar -cf cat-gpt.tar cat-gpt -C .. $(list/up1)
+$(exe): bin/%: obj/%.o
+	$(CXX) -o $@ $< @etc/cxxflags @etc/lnkflags @etc/libs
 
-%.i: %.cc etc/cxxflags
-	$(CXX) -o $@ $< $(CXXFLAGS) -E
-
-%.o: %.i etc/cxxflags
-	$(CXX) -o $@ $< $(CXXFLAGS) -c
-
-%.o: %.S etc/cxxflags
-	$(CXX) -o $@ $< $(CXXFLAGS) -S
-
-$(exe): %: %.o
-	$(CXX) -o $@ $< $(CXXFLAGS) $(LDFLAGS) $(LDLIBES)
 

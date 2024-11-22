@@ -1,0 +1,14 @@
+
+sub run_parse {
+  my ($self) = @_;
+  my $content = $self->agent->content;
+  my $p = HTML::TokeParser->new(\$content);
+
+	#$p->report_tags(qw(form input textarea select optgroup option));
+
+  while (my $token = $p->get_token()) {
+  #while (my $token = $p->get_tag("frame")) {
+  #  print "<",$token->[0],":",ref $token->[1] ? $token->[1]->{src} : "",">";
+    print "<",$token->[0],":",$token->[1],">";
+  }
+};

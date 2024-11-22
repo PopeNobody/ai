@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+# vim: ts=2 sw=2 ft=perl
+eval 'exec perl -x -wS $0 ${1+"$@"}'
+  if 0;
+
+  
+$|++;
+use Nobody::Util;
+use common::sense;
+use lib $ENV{PWD};
+use Mech;
+our(@VERSION) = qw( 0 1 0 );
+package main;
+sub main;
+sub main {
+  my ($mech,$html)=Mech->new;
+  my ($sess); 
+  $mech->get("http://_gateway/");
+  ($html)=$mech->content;
+  for($html) {
+    @_=split('(http://)');
+    substr($_,0,length($_[0]))="";
+    s{'.*}{};
+  };
+  $mech->get($_);
+};
+main @ARGV;

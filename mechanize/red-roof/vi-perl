@@ -1,0 +1,65 @@
+#!/usr/bin/perl
+# vim: ts=2 sw=2 ft=perl
+eval 'exec perl -x -wS $0 ${1+"$@"}'
+  if 0;
+$|++;
+use autodie;
+use common::sense;
+use Nobody::Util;
+our(@VERSION) = qw( 0 1 0 );
+use File::stat;
+use IO::Select;
+use Nobody::PP;
+use IPC::Open3;
+use Symbol 'gensym'; # vivify a separate handle for STDERR
+
+$|++;
+die "usage: $0 [args and script and args ...] ...\n..." unless(@ARGV);
+for(@ARGV){
+  last if m{^-e} or s{sudo:}{};
+}
+our($o,$e,$p,$s);
+say("$$:parent");
+#unless($p = open3($i,$o,$e=gensym,"-")){
+use IO::Pipe;
+$e=IO::Pipe->new;
+unless($p=open($o,"-|")) {
+  $e=$e->writer;
+  open(STDERR,">&".fileno($e));
+  ddx($e);
+  say STDERR ("$$:child:out");
+  say STDOUT ("$$:child:out");
+  while(<STDIN>){
+    print;
+  };
+  exit(0);
+};
+$e->reader;
+$s = IO::Select->new();
+my ($ob,$eb);
+$s->add([$o,$ob]);
+$s->add([$e,$eb]);
+for( $o, $e ){
+  my ($buf)="";
+  $_=[ $_, \$buf ];
+  $s->add($_);
+};
+
+while($s->handles){
+  for($s->can_read) {
+    my ($fh,$ref)=@$_;
+    my ($ch);
+    my ($len)=sysread($fh,$ch,0,1);
+    if($len) {
+      if($ch eq "\n"){
+        say($$ref);
+      } else {
+        $$ref="$$ref$ch";
+      };
+    } else {
+      $s->remove($fh);
+      no autodie qw(close);
+      warn "close($fh):$!" unless close($fh);
+    };
+  };
+};

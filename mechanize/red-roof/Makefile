@@ -1,0 +1,2 @@
+all:
+	vi-perl signin
