@@ -1,0 +1,3314 @@
+<!doctype html>
+<html 
+      lang="ko-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosanskr.css"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ko"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=ko">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=vi" /><title>파일 프롬프팅 전략 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="파일 프롬프팅 전략 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ko"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=ko">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="ko"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "파일 프롬프팅 전략"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "파일 프롬프팅 전략",
+      "item": "https://ai.google.dev/gemini-api/docs/file-prompting-strategies"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=en">
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="메뉴 열기">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=ko" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="상단 탭">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=ko"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemma"
+         
+           track-name="gemma"
+         
+       >
+    Gemma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai 에지"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI 에지"
+         
+           track-name="google ai 에지"
+         
+       >
+    Google AI 에지
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 도구"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 도구"
+         
+           track-name="도구"
+         
+       >
+    도구
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="드롭다운 메뉴: 도구"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - 도구"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: 도구"
+        
+          track-name="도구"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=ko"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=ko"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      책임감 있는 생성형 AI 툴킷
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=ko"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=ko"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=ko"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=ko"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=ko"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=ko"
+                     track-metadata-position="nav - 도구"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=ko"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 커뮤니티"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 커뮤니티"
+         
+           track-name="커뮤니티"
+         
+       >
+    커뮤니티
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=ko" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="검색 열기"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="검색"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="검색"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="검색 닫기"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>로그인</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="하단 탭">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - docs"
+       track-metadata-module="primary nav"
+       aria-label="Docs, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Docs"
+         
+           track-name="docs"
+         
+       >
+    Docs
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - api 참조"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: API 참조"
+         
+           track-name="api 참조"
+         
+       >
+    API 참조
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=ko"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=ko"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 가격 책정"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 가격 책정"
+         
+           track-name="가격 책정"
+         
+       >
+    가격 책정
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="필터"
+         
+         aria-label="입력하여 필터링"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="필터 지우기"
+        aria-label="필터 지우기"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="사이드 메뉴">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="탐색 메뉴 닫기">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=ko" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Docs"
+      
+        track-name="docs"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Docs"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      Docs
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: API 참조"
+      
+        track-name="api 참조"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: API 참조"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      API 참조
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 가격 책정"
+      
+        track-name="가격 책정"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 가격 책정"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      가격 책정
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemma"
+      
+        track-name="gemma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemma
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI 에지"
+      
+        track-name="google ai 에지"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI 에지"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI 에지
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 도구"
+      
+        track-name="도구"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      도구
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 도구"
+      
+        track-name="도구"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="도구">
+      더보기
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="도구">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 커뮤니티"
+      
+        track-name="커뮤니티"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 커뮤니티"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      커뮤니티
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>개요</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>시작하기</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>API 키</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>빠른 시작</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>라이브러리</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>출시 노트</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>모델</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>실험용 모델</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="시험용"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>기능</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>텍스트 생성</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>문서 처리</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>비전</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>오디오</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>긴 컨텍스트</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>그라운딩</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Google 검색으로 그라운딩</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>Google 추천 검색어 사용</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>코드 실행</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>구조화된 출력</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>미세 조정</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>미세 조정 소개</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>미세 조정 튜토리얼</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>함수 호출</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>함수 호출 소개</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>함수 호출 튜토리얼</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>구조화된 데이터 추출</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>시스템 안내</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>임베딩</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>안전</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>안전 설정</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>안전 안내</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>가이드</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>컨텍스트 캐싱</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>Imagen 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>토큰</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>메시지 표시</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>메시지 표시 소개</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>프롬프트 전략</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>파일 프롬프팅 전략</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>시맨틱 검색</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>생성 모델 정보</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>결제</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>OpenAI 호환성</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="시험용"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>클라우드로 마이그레이션</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>추가 리소스</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Google AI 스튜디오 빠른 시작</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android (기기 내)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Firebase Extensions</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>OAuth 인증</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="시험용"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>사용 사례</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>애플리케이션</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>코드 어시스턴트</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Flutter 코드 생성기</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>콘텐츠 검색</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>데이터 탐색 에이전트</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>글쓰기 지원</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>프레젠테이션 검토자</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>문제 해결</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>API 문제 해결</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>AI Studio 문제 해결</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>AI Studio와 Google Workspace</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>할당량 추가 요청</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>커뮤니티</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>개발자 포럼</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="외부 링크"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>법률</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>서비스 약관</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>사용 가능한 리전</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>악용 모니터링</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="도구"
+          aria-label="사이드 메뉴" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 책임감 있는 생성형 AI 툴킷"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      책임감 있는 생성형 AI 툴킷
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="이 페이지의 내용"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    이제 Google 검색을 통한 그라운딩 기능을 사용할 수 있습니다. <a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">자세히 알아보기</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=ko"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            이 페이지는 <a href="//cloud.google.com/translate/?hl=ko">Cloud Translation API</a>를 통해 번역되었습니다.
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="탐색경로">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=ko"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        홈
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=ko"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=ko"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Docs
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    의견 보내기
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      파일 프롬프팅 전략
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="닫기"
+
+      
+      close-button-text="확인">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      컬렉션을 사용해 정리하기
+    </span>
+    <span slot="popout-contents">
+      
+      내 환경설정을 기준으로 콘텐츠를 저장하고 분류하세요.
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+</p>
+
+
+
+
+
+<p>Gemini 인공지능 (AI) 모델 제품군은
+데이터 세트를 학습합니다. 이
+둘 이상의 데이터 유형 또는 <em>모드</em>를 처리할 수 있는 경우, Gemini 모델은
+<em>멀티모달 모델</em>이라고 하거나 <em>멀티모달 기능</em>이 있는 것으로 설명할 수 있습니다.</p>
+<aside class="note"><strong>참고:</strong><span> 미디어 파일을 사용한 메시지 표시는 특정 Gemini 모델에서 지원됩니다.
+이 기능을 지원하는 모델에 대한 자세한 내용은 다음을 참조하세요.
+<a href="https://ai.google.dev/gemini-api/docs/vision?hl=ko">Vision</a> 및 <a href="https://ai.google.dev/gemini-api/docs/audio?hl=ko">Audio</a> 가이드</span></aside>
+<p>이 페이지에서는 다음과 같이 미디어 파일을 사용하기 위한 안내와 권장사항을 제공합니다.
+프롬프트가 표시됩니다 Gemini Files API를 사용하는 방법에 관한 정보
+미디어 파일을 업로드하고 프롬프트에 포함하는 경우
+<a href="https://ai.google.dev/gemini-api/docs/vision?hl=ko">Vision</a>, <a href="https://ai.google.dev/gemini-api/docs/audio?hl=ko">Audio</a>
+<a href="https://ai.google.dev/gemini-api/docs/document-processing?hl=ko">문서 처리</a> 가이드</p>
+
+<h2 data-text="프롬프트와 함께 미디어 파일 사용" id="media-prompts" tabindex="-1">프롬프트와 함께 미디어 파일 사용</h2>
+
+<p>프롬프트에서 다양한 유형의 데이터를 사용하면
+유연성을 발휘하는 데 도움이 됩니다. 대상
+예를 들어 모델에 맛있는 식사 사진을 보내고
+블로그가 있습니다.</p>
+
+<table style="border: 1px solid #D3D3D3">
+  <tbody><tr>
+    <td width="50%"><b>프롬프트</b></td>
+    <td width="50%"><b>응답</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #D3D3D3">
+      <p>이 사진을 바탕으로 마음을 사로잡는 짧은 블로그 게시물을 작성합니다. 또한
+      사진에 식사 설명을 포함하고 저의 여정에 대해 이야기해 주세요
+      식사 준비 등이 포함됩니다.</p>
+      <br />
+      <img alt="쿠키" src="https://ai.google.dev/static/gemini-api/docs/images/image_prompt.png?hl=ko" style="width: 100%; border: 1px solid black" />
+    </td>
+    <td style="background-color:#f3f3ff">
+      <p>식사 준비는 시간과 비용을 절약하는 좋은 방법이며,
+      도움이 됩니다. 이 식사는 건강한 삶을 위한
+      미리 쉽게 준비할 수 있는 맛있는 음식이 있습니다.</p>
+
+      <p>현미, 구운 야채, 치킨 데리야키로 구성된 식사입니다.
+      현미는 건강하고 복합적인 탄수화물로
+      지속적인 에너지가 필요합니다. 구운 채소를 먹으면 하루를 위한
+      비타민과 미네랄이 아주 듬뿍 들어있고 치킨 데리야끼는 맛있고
+      단백질이 풍부한 선택지입니다.</p>
+
+      <p>이 음식은 또한 매우 쉽게 준비할 수 있습니다. 현미를 끓이고 굽기만 하면
+      야채를 넣고 치킨 데리야키를 요리합니다. 모든 요리가 끝나면
+      음식 준비 용기로 나누어 냉장고에 보관합니다.
+      그런 다음 용기를 빌려 바쁜 아침에 일어날 수 있습니다.</p>
+
+      <p>건강하고 맛있는 식사를 하고 싶으시다면
+      미리 준비된 이 식사는 훌륭한 옵션입니다. Google Kubernetes Engine은
+      영양소와 풍미를 함께 즐기면서 포만감을 느끼게 할 것입니다.</p>
+
+      <p>건강하고 맛있는 식사를 준비하실 수 있습니다.</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h2 data-text="미디어를 사용한 프롬프트 작성 전략" id="strategies" tabindex="-1">미디어를 사용한 프롬프트 작성 전략</h2>
+
+<p>사용하는 프롬프트에서 원하는 출력을 얻는 데 문제가 있는 경우
+좋은 결과를 얻는 데 도움이 되는 몇 가지 전략이 있습니다.
+있습니다. 다음 섹션에서는 설계 접근 방식과 문제 해결을 제공합니다.
+멀티모달 입력을 사용하는 프롬프트 개선을 위한 팁을 알려드립니다.</p>
+
+
+
+<p>다음 권장사항에 따라 멀티모달 프롬프트를 향상시킬 수 있습니다.</p>
+
+<ul>
+    <li>
+        <h3 data-text="프롬프트 설계 기초" id="prompt-design-fundamentals" tabindex="-1"><a href="#fundamentals">프롬프트 설계 기초</a></h3>
+        <ul>
+            <li><strong>구체적인 지침 설정</strong>: 오해의 소지가 거의 없도록 명확하고 간결한 지침을 제시합니다.</li>
+            <li><strong>프롬프트에 몇 가지 예시 추가:</strong> 달성하려는 목표를 쉽게 이해할 수 있도록 실질적인 퓨샷 예시를 사용합니다.</li>
+            <li><strong>단계별 분류</strong>: 복잡한 태스크를 관리 가능한 하위 목표로 분할하고 프로세스 전반에 걸쳐서 모델을 안내합니다.</li>
+            <li><strong>출력 형식 지정</strong>: 프롬프트에서 마크다운, JSON, HTML 등 원하는 형식으로 출력을 요청합니다. </li>
+            
+            <li><strong>단일 이미지 프롬프트의 경우 이미지를 먼저 배치</strong>: Gemini는 이미지와 텍스트 입력을 순서에 관계없이 처리할 수 있지만 단일 이미지가 포함된 프롬프트의 경우 해당 이미지가 텍스트 프롬프트 앞에 배치되면 성능이 개선될 수 있습니다.</li>
+            
+        </ul>
+    </li>
+
+    <li>
+        <h3 data-text="멀티모달 프롬프트 문제 해결" id="troubleshooting-your-multimodal-prompt" tabindex="-1"><a href="#troubleshooting">멀티모달 프롬프트 문제 해결</a></h3>
+        <ul>
+            <li><strong>모델이 관련 이미지 부분에서 정보를 가져오지 않는 경우:</strong> 프롬프트로 정보를 가져오려는 이미지 부분에 대한 힌트를 제공합니다.</li>
+            
+            <li><strong>모델 출력이 너무 일반적인 경우(이미지에 맞춤화되지 않음): </strong>프롬프트를 시작할 때 작업 안내를 제공하기 전에 모델에 이미지를 설명하도록 요청하거나 모델에 이미지의 내용을 참고하도록 요청하세요.</li>
+            
+        </ul>
+    </li>
+</ul>
+
+<h2 data-text="프롬프트 설계 기초" id="fundamentals" tabindex="-1">프롬프트 설계 기초</h2>
+
+<p>이 섹션에서는 이전 섹션에 나열된 권장사항을 자세히 설명합니다.</p>
+<p>참고: 다음 Gemini 예시의 모델 결과는 실행할 때마다 달라질 수 있습니다.</p>
+
+<h3 data-text="구체적인 지침 설정" id="be-specific-in-your-instructions" tabindex="-1">구체적인 지침 설정</h3>
+
+<p>프롬프트는 명확하고 세부적일 때 가장 성공적입니다. 특정 출력을 염두에 두고 있다면 원하는 출력을 얻을 수 있도록 프롬프트에 해당 요구사항을 포함하는 것이 좋습니다. </p>
+<p>일부 경우에는 프롬프트 의도가 이를 작성한 사람에게는 명확하게 보이더라도 실제로 그렇지 않을 수 있습니다. 모델 동작을 맞춤설정하려면 프롬프트가 어떻게 (잘못) 해석될 수 있는지를 고려하고, 제공하는 지침이 구체적이고 명확해야 합니다. 오해의 소지가 거의 없어야 합니다.</p>
+<p>이 공항 보드 이미지의 경우 모델에 '이 이미지를 설명해 줘'라고 요청함 일반적인 설명을 생성할 수 있습니다 모델이 이미지에서 시간과 도시를 파싱해야 하는 경우 해당 요청을 프롬프트에 직접 포함할 수 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=ko" /><p>이 이미지를 설명해 주세요.</p></td>
+        <td><p>이 이미지는 공항 도착 및 출발 보드를 보여줍니다.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img alt="여행 일정" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=ko" /><p>이 이미지에 표시된 공항 보드에서 시간과 도시를 분석해서 목록으로 표시해 주세요.</p></td>
+      <td><p></p><li>10:50 모스크바</li>
+        <li>11:05 에든버러</li>
+        <li>11:05 런던</li>
+        <li>11:10 부카레스트</li>
+        <li>11:30 키예프</li>
+        <li>11:35 더블린</li>
+        <li>11:45 이스트 미들랜즈</li>
+        <li>12:15 소피아</li>
+        <li>12:30 런던</li>
+        <li>12:30 뉴캐슬</li>
+        <li>12:40 상트페테르부르크</li>
+        <li>12:40 런던</li>
+        <li>12:45 맨체스터</li><p></p></td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="몇 가지 예시 추가" id="add-a-few-examples" tabindex="-1">몇 가지 예시 추가</h3>
+
+<p>Gemini 모델은 원하는 출력을 이해하기 위해 예시로 사용할 수 있는 여러 입력을 수락할 수 있습니다. 이러한 예시를 추가하면 모델이 패턴을 식별하고 제공된 이미지와 응답 사이의 관계를 새 예시에 적용할 수 있습니다. 이를 "퓨샷" 학습이라고도 부릅니다.</p>
+
+<p>아래 예시에서 최초 출력은 문장 형식으로 작성되었으며 국가(브라질)를 포함합니다. 다른 형식 또는 스타일로 출력을 표시하고 국가가 아닌 도시만 포함한다고 가정해 보세요. 프롬프트에 퓨샷 예시를 추가하면 원하는 방식으로 응답하도록 모델을 조정할 수 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>프롬프트</b></th>
+      <th width="30%"><b>모델 응답</b></th>
+    </tr>
+    <tr>
+      <td><img alt="여행 일정" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=ko" /><p>명소와 함께 도시를 설명해 주세요.</p></td>
+      <td><p>이 랜드마크는 브라질 리우데자네이루에 있는 구세주 예수상입니다.</p></td>
+    </tr>
+</tbody></table>
+
+<table>
+</table><table class="alternating-even-rows">
+  <tbody><tr>
+    <th width="40%"><b>업데이트된 프롬프트</b></th>
+    <th width="30%"><b>개선된 응답</b></th>
+  </tr>
+  <tr>
+    <td>
+      <p>명소와 함께 도시를 설명해 주세요.</p>
+      <img alt="콜로세움" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/colosseum.png?hl=ko" />
+    </td>
+    <td>
+      <p>도시: 로마, 랜드마크: 콜로세움</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="자금성" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/forbidden-city.png?hl=ko" />
+    </td>
+    <td>
+      <p>도시: 베이징, 랜드마크: 자금성</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="자금성" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=ko" />
+    </td>
+    <td>
+      <p>도시: 리우데자네이루, 랜드마크: 구세주 예수상</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3 data-text="단계별 분류" id="break-it-down-step-by-step" tabindex="-1">단계별 분류</h3>
+
+<p>시각적인 이해와 근거가 모두 필요한 것과 같이 복잡한 태스크의 경우에는 태스크를 더 작고 보다 직관적인 단계들로 분할하는 것이 유용할 수 있습니다. 또는 프롬프트에서 "단계별로 생각"하도록 모델에 직접 요청하는 것도 효과적일 수 있습니다.</p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=ko" /><p>화장지가 언제 다 떨어질까요?</p></td>
+        <td><p>이제 3개 밖에 없으니 곧 떨어집니다.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=ko" /><p>
+          </p><ol>1. 먼저 이 사진에서 화장실 휴지 개수를 세어 보세요.</ol>
+          <ol>2. 그런 다음 일반적인 사람이 하루에 화장실 휴지를 얼마나 사용하는지 확인해 주세요.</ol>
+          <ol>3. 여기 있는 화장실 휴지가 얼마나 오래갈지 계산해 주세요.</ol>
+          <p></p></td>
+      <td><p>
+          </p><ol>1. 이 사진에는 화장실 휴지가 3개 있습니다.</ol>
+          <ol>2. 사람은 일반적으로 화장실 휴지를 하루에 20칸 정도 사용합니다.</ol>
+          <ol>3. 한 롤에 휴지가 200칸 있으면 각 롤이 약 10일 정도 지속됩니다. 따라서 3개 롤은 한 달 정도 지속됩니다.</ol>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>수학 문제나 기타 유형의 단어 문제는 모델이 단계별로 생각하도록 요청하기에 적합한 후보입니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>프롬프트</b></th>
+      <th width="30%"><b>응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=ko" /><p>
+          </p><p>이 시퀀스에서 네 번째 항은 무엇인가요?</p>
+          <p></p></td>
+      <td><p>-135
+        </p></td>
+    </tr>
+</tbody></table>
+
+<p>모델의 응답은 잘못되었습니다. 이를 개선하기 위한 몇 가지 방법은 모델이 프롬프트에 답변하기 전 문제를 파싱하도록 요청하는 것입니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>프롬프트</b></th>
+      <th width="30%"><b>응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=ko" /><p>
+          </p><p>먼저 이미지에서 수식을 분석해 주세요.</p>
+          <p>그런 후 수식을 기준으로 "시퀀스에서 네 번째 항은 무엇"인지 대답해 주세요.</p>
+          <p></p></td>
+      <td><p></p><details>
+        <summary><em>클릭하여 결과 확장</em></summary>
+<p>$$ b(n) = b(n-1) * (-3) $$</p>
+<p>$$ b(1) = 15 $$</p>
+<ol>
+<li>n = 4를 수식에 대체합니다.</li>
+<p>$$ b(4) = b(4-1) * (-3) $$</p>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<li>b(3)의 값을 알지 못하므로 n = 3을 수식에 대체합니다.</li>
+<p>$$ b(3) = b(3-1) * (-3) $$</p>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<li>b(2)의 값을 알지 못하므로 n = 2를 수식에 대체합니다.</li>
+<p>$$ b(2) = b(2-1) * (-3) $$</p>
+<p>$$ b(2) = b(1) * (-3) $$</p>
+<li>b(1)의 값이 15인 것을 알고 있으므로 이를 수식에 대체합니다.</li>
+<p>$$ b(2) = 15 * (-3) $$</p>
+<p>$$ b(2) = -45 $$</p>
+<li>이제 b(2)의 값을 알았으므로 이를 b(3) 수식에 대체합니다.</li>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<p>$$ b(3) = -45 * (-3) $$</p>
+<p>$$ b(3) = 135 $$</p>
+<li>이제 b(3)의 값을 알았으므로 이를 b(4) 수식에 대체합니다.</li>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<p>$$ b(4) = 135 * (-3) $$</p>
+<p>$$ b(4) = -405 $$</p>
+</ol>
+<p>따라서 시퀀스에서 네 번째 항은 -405입니다.</p>
+      </details>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>이번에는 모델 응답이 올바릅니다. 이제 응답을 보다 효율적으로 만들기 위해 모델에 단계별로 생각하도록 요청할 수 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=ko" /><p>
+          </p><p>이 시퀀스에서 네 번째 항은 무엇인가요? 단계별로 생각해 주세요.</p>
+          <p></p></td>
+      <td><p>첫 번째 항은 15입니다.</p>
+        <p>두 번째 항은 b(1) * (-3) = 15 * (-3) = -45입니다.</p>
+          <p>세 번째 항은 b(2) * (-3) = -45 * (-3) = 135입니다.</p>
+            <p>네 번째 항은 b(3) * (-3) = 135 * (-3) = -405입니다.</p>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<h3 data-text="출력 형식 지정" id="try-specifying-the-output-format" tabindex="-1">출력 형식 지정</h3>
+
+<p>일반적인 문제는 모델 출력을 다운스트림 태스크로 수집해야 할 경우 특히 모델 출력을 특정 형식(예: 마크다운, JSON, HTML)으로 지정해야 한다는 것입니다. 프롬프트 내에서 이를 수행하도록 모델을 안내하여 해당 형식으로 출력을 생성할 수 있습니다. 다음은 두 가지 예시입니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/excel-example.png?hl=ko" /><p>이 이미지의 표를 마크다운 형식으로 분석해 주세요.</p></td>
+        <td>
+          <p>| 과목 | 상태 | 시간 | 시작일 | 만료일 |</p>
+          <p> | ------- | ------ | ---- | --------- | ------ |</p>
+          <p>| 수학 | 완료 | 1.5시간 | 2023/11/29 | 2023/12/1 |</p>
+          <p>| 지리 | 완료 | 30분 | 2023/12/2 | 2023/12/4 |</p>
+          <p>| 물리 | 진행 중 | 2시간 | 2023/12/3 | 2023/12/5 |</p>
+          <p>| 생물 | 시작 안 함 | 6시간 | 2016/11/2 | 2023/12/6 |</p>
+          </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>프롬프트</b></th>
+      <th width="30%"><b>모델 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/spanish-meal.png?hl=ko" />
+        <p>다음 모든 속성:</p>
+        <p>재료, 요리 종류, 채식주의 식단 여부의 목록을 JSON 형식으로 제공해 주세요.</p></td>
+      <td><p><code dir="ltr" translate="no">
+        </code></p><p><code dir="ltr" translate="no">```json```</code></p>
+        <p><code dir="ltr" translate="no">{</code></p>
+          <p><code dir="ltr" translate="no">"ingredients": [</code></p>
+            <p><code dir="ltr" translate="no">"rice",</code></p>
+              <p><code dir="ltr" translate="no">"shrimp",</code></p>
+                <p><code dir="ltr" translate="no">"clams",</code></p>
+                  <p><code dir="ltr" translate="no">"mussels",</code></p>
+                    <p><code dir="ltr" translate="no">"peas",</code></p>
+                      <p><code dir="ltr" translate="no">"tomatoes",</code></p>
+                        <p><code dir="ltr" translate="no">"onions",</code></p>
+                          <p><code dir="ltr" translate="no">"garlic",</code></p>
+                            <p><code dir="ltr" translate="no">"olive oil",</code></p>
+                              <p><code dir="ltr" translate="no">"paprika",</code></p>
+                                <p><code dir="ltr" translate="no">"salt",</code></p>
+                                  <p><code dir="ltr" translate="no">"pepper"</code></p>
+                                    <p><code dir="ltr" translate="no">],</code></p>
+                                      <p><code dir="ltr" translate="no">"type of cuisine": "Spanish",</code></p>
+                                        <p><code dir="ltr" translate="no">"vegetarian": false</code></p>
+</td>
+</tr>
+</tbody></table>
+
+<h3 data-text="단일 이미지 프롬프트에 이미지 먼저 배치" id="put-your-image-first-for-single-image-prompts" tabindex="-1">단일 이미지 프롬프트에 이미지 먼저 배치</h3>
+
+<p>Gemini는 프롬프트 내에서 어떤 순서로든 이미지와 텍스트를 해석할 수 있지만 텍스트 프롬프트 앞에 단일 이미지를 배치하는 것이 더 좋은 결과로 이어질 수 있습니다. 다음 샘플에서는 이미지가
+각 프롬프트의 텍스트 앞에 옵니다</p>
+
+
+<h2 data-text="멀티모달 프롬프트 문제 해결" id="troubleshooting" tabindex="-1">멀티모달 프롬프트 문제 해결</h2>
+
+<p>유용한 응답을 얻지 못할 경우 프롬프트를 문제 해결해야 할 수 있습니다. 이를 위해서는 몇 가지 전략을 시도해볼 수 있습니다.</p>
+
+<h3 data-text="모델이 관련 이미지 부분에서 정보를 가져오지 않는 경우" id="if-the-model-is-not-drawing-information-from-the-relevant-part-of-the-image" tabindex="-1">모델이 관련 이미지 부분에서 정보를 가져오지 않는 경우</h3>
+
+<p>보다 구체적인 응답을 얻기 위해서는 해당 응답에 정보를 제공하도록 프롬프트가 정보를 가져올 이미지 특정 부분을 지적할 수 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=ko" /><p>아기 한 명이 사용할 때 이 기저귀는 며칠이나 갈까요?</p></td>
+        <td><p>기저귀가 모두 소진되려면 198일 걸립니다.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=ko" />
+        <p>기저귀가 소진되려면 며칠이나 걸릴까요?</p>
+        <p>상자에 표시된 무게를 사용해서 아기의 나이를 확인하고 상자에 적힌 총 기저귀 개수를 사용해 주세요.</p>
+        <p>총 개수를 아기 한 명이 하루에 사용하는 기저귀 수로 나눠주세요.</p></td>
+      <td>
+        <p>상자에는 198개의 기저귀가 있습니다. 상자에는 체중이 22-37lbs인 아기를 위한 기저귀라고 씌여져 있습니다.</p>
+        <p>이 몸무게 범위의 평균 아기는 만 1~2세 사이입니다.</p>
+        <p>만 2세 아기는 일반적으로 하루 6개 정도 기저귀를 사용합니다. 따라서 기저귀는 33일(198/6) 정도 지속됩니다.</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="모델 출력이 너무 일반적이고 이미지 입력에 충분히 맞춤화되지 않은 경우" id="if-the-model-output-is-too-generic-and-not-tailored-enough-to-the-image-input" tabindex="-1">모델 출력이 너무 일반적이고 이미지 입력에 충분히 맞춤화되지 않은 경우</h3>
+
+
+<p>모델이 이미지에 따라 응답을 조정할 수 있게 하려면 근거 태스크를 수행하기 전 이미지를 기술하도록 요청합니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=ko" />
+          <p>이러한 이미지 사이의 공통점은 무엇인가요?</p></td>
+        <td><p>4개 이미지 모두 풍경 사진을 보여줍니다.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=ko" />
+        <p>첫째, 각 이미지에 무엇이 있는지 자세히 설명해 주세요. 이러한 이미지 사이의 공통점은 무엇인가요?</p></td>
+      <td>
+        <p>첫 번째 이미지는 여행 가방을 싸고 있는 사람을 보여줍니다. 두 번째 이미지는 쇼핑몰의 빈 통로를 보여줍니다. 세 번째 이미지는 화장실 휴지 한 롤을 보여줍니다. 네 번째 이미지는 어둡고 거친 바다를 보여줍니다.</p>
+        <p>이러한 이미지 간의 공통점은 이미지가 모두 경계 공간의 예시라는 점입니다. 경계 공간은 두 가지 서로 다른 공간 또는 상황 사이에 있는 공간 또는 상황을 의미합니다. 경계 공간의 특성은 불확실성이나 모호한 감정에 있습니다.</p>
+        <p>첫 번째 이미지는 집과 여행 사이에 있는 사람을 보여줍니다. 두 번째 이미지는 두 매장 사이의 통로를 보여줍니다. 세 번째 이미지는 욕실을 나타낼 수 있는 화장실 휴지를 보여줍니다. 욕실은 전통적으로 개인성과 공공성을 모두 갖고 있는 공간입니다. 그리고 우리가 외부 세계로 들어오고 나가기 위해 스스로를 준비하는 장소이기도 합니다.</p>
+        <p>네 번째 이미지는 고요함과 거침 사이에 있는 바다를 보여줍니다.</p>
+        <p>경계 공간은 흥미로움과 불편함을 모두 일으킬 수 있습니다. 이러한 공간은 무언가 시작되는 장소이거나 끝나는 장소일 수 있습니다. 사색하는 장소이거나 행동하는 장소일 수도 있습니다.</p>
+          <p></p>
+      </td>
+    </tr>
+</tbody></table>
+
+<p>또한 모델이 이미지에 포함된 내용을 참조하도록 명확하게 요청할 수도 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=ko" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=ko" />
+        <p>이러한 이미지 사이의 공통점은 무엇인가요? 이미지에 포함된 내용을 참조해서 답변해 주세요.</p></td>
+      <td>
+        <p>모든 이미지는 여행과 관련이 있습니다. 첫 번째 이미지는 여행 가방을 싸고 있는 사람을 보여줍니다. 두 번째 이미지는 쇼핑몰의 빈 통로를 보여줍니다. 세 번째 이미지는 쌓여 있는 화장실 휴지를 보여줍니다. 네 번째 이미지는 어둡고 거친 바다를 보여줍니다.</p>
+        <p>이러한 이미지는 모두 여행할 때 필요하거나 사용하는 것들이기 때문에 모두 여행과 관련이 있습니다. 첫 번째 이미지는 여행 가방을 싸고 있는 사람을 보여줍니다. 이것은 사람들이 여행을 떠날 때 하는 행동입니다. 두 번째 이미지는 쇼핑몰의 빈 통로를 보여줍니다. 이것은 사람들이 여행에 필요한 물건을 구입하기 위해 자주 이동하는 장소입니다. 세 번째 이미지는 쌓여 있는 화장실 휴지를 보여줍니다. 이것은 사람들이 여행할 때 자주 사용하는 물건입니다. 네 번째 이미지는 어둡고 거친 바다를 보여줍니다. 이것은 사람들이 여행할 때 가끔 만나게 되는 것입니다.</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<p>이미지를 통한 광고 소재 출력에도 동일한 팁이 적용됩니다. 토끼를 사용한 다음 예시에서 특히 모델에 이미지 특성을 포함하도록 요청하면 출력을 개선시킬 수 있습니다.</p><p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">모델 응답</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=ko" />
+          <p>이 이미지에 관한 시를 지어줄 수 있나요?</p></td>
+        <td>
+          <p>작은 토끼, 너무 부드럽고 갈색이야,<br />
+          위로, 아래로 들판을 뛰어 다녀.<br />
+          네 귀는 너무 길어, 네 꼬리는 너무 작아,<br />
+          너는 모든 것들 중 가장 귀여운 생명체.</p>
+          <p>물고 뜯는 잔디 속, 너무 파랗고, 달콤해,<br />
+          그리고 날 보면 깡총 떠나버려.<br />
+          하지만 난 항상 네 친구야,<br />
+          작은 토끼야, 세상 끝날 때까지.</p>
+        </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>업데이트된 프롬프트</b></th>
+      <th width="30%"><b>개선된 응답</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=ko" />
+        <p>이 이미지에 대해 위치를 포함해서 설명적이고 극적인 시를 지어줄 수 있나요?</p></td>
+      <td>
+          <p>초록 위 작은 토끼,<br />
+          귀가 너무 길고, 너무 예리해.<br />
+          저 멀리 무엇을 보고 있니,<br />
+          저 멀리, 어딜 그렇게 보고 있어?</p>
+          <p>파란색 바다인가,<br />
+          태양빛에 반짝이는?<br />
+          아니면 성내고 부서지는 파도인가,<br />
+          네가 좋아하는 그 리듬?</p>
+          <p>작은 토끼야, 사실을 말해줘,<br />
+          널 사로잡은 것이 무엇이니?<br />
+          짭짤한 바닷 바람이니?<br />
+          혹은 낄낄대는 갈매기 울음이니?</p>
+          <p>어쩌면 그 모든 것을 품은 광활함일지도,<br />
+          세상은 너무 크고도 너무 작아.<br />
+          꿈들이 돌아다닐 수 있는 곳,<br />
+          그리고 모험을 뿌릴 수 있는 곳이야.</p>
+          <p>작은 토끼야, 네 꿈은 무엇일까,<br />
+          풀밭에 앉으면 너무나 고요해.<br />
+          깊은 곳을 탐험하고 싶니,<br />
+          아니면 마음껏 뛸 수 있는 땅 위에 서고 싶니?</p>
+          <p>그것이 무엇이든, 작은 토끼야,<br />
+          그 놀라움의 불꽃이 밝게 계속 타오르게 하렴.<br />
+          너의 꿈과 열망 속에서,<br />
+          너의 창조를 기다리는 세상 속에서.</p>
+      </td>
+    </tr>
+</tbody></table>
+
+</p><h3 data-text="실패한 프롬프트 부분 문제 해결" id="troubleshooting-which-part-of-the-prompt-failed" tabindex="-1">실패한 프롬프트 부분 문제 해결</h3>
+<p>모델이 처음에 <strong>이미지를 이해</strong>하지 못해서 프롬프트가 실패했는지, 아니면 이미지를 이해했지만 이후 올바른 <strong>추론 단계</strong>를 수행하지 못했는지 알기 어려울 수 있습니다.</p>
+<p>이러한 이유들을 구분하기 위해서는 모델에 이미지에 포함된 것이 무엇인지 기술하도록 요청하세요.</p>
+<p>아래 예시에서 모델이 차와 함께 할 때 어울리지 않는 간식(예: 팝콘)으로 응답할 경우에는 먼저 모델이 이미지에 차가 포함된 것을 올바르게 인식했는지 확인하는 방식으로 문제 해결을 시작할 수 있습니다.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">문제 해결을 위한 프롬프트</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=ko" /><p>이 사진과 어울리는 것 중 1분 내에 만들 수 있는 간식은 무엇이 있나요?</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=ko" /><p>이 이미지의 내용을 설명해 주세요.
+          </p></td>
+      </tr>
+</tbody></table>
+
+<p>또 다른 전략은 모델에 그 이유를 설명하도록 요청하는 것입니다. 이렇게 하면 근거를 세분화하는 데 도움이 될 수 있습니다.</p><p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">프롬프트</th>
+    <th style="width:30%">문제 해결을 위한 프롬프트</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=ko" /><p>이 사진과 어울리는 것 중 1분 내에 만들 수 있는 간식은 무엇이 있나요?</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=ko" /><p>이 사진과 어울리는 것 중 1분 내에 만들 수 있는 간식은 무엇이 있나요? 이유를 설명해 주세요.</p></td>
+      </tr>
+</tbody></table>
+
+</p><h3 data-text="샘플링 매개변수 조정" id="tuning-the-sampling-parameters" tabindex="-1">샘플링 매개변수 조정</h3>
+<p>각 요청에서 멀티모달 프롬프트만 보내는 것이 아니라 샘플링 매개변수 집합도 모델에 전송합니다.
+모델은 서로 다른 매개변수 값에 대해 서로 다른 결과를 생성할 수 있습니다. 태스크에 가장 적합한 값을 얻기 위해 다른 매개변수로 실험해 봅니다. 가장 일반적으로 조정되는 매개변수는 다음과 같습니다.</p>
+<ul>
+<li>강도</li>
+<li>최상위 P</li>
+<li>최상위 K</li>
+</ul>
+
+<h4 data-text="강도" id="temperature" tabindex="-1">강도</h4>
+<p>강도는 최상위 P와 최상위 K가 적용될 때 발생하는 응답 생성 중 샘플링에 사용됩니다.
+강도는 토큰 선택의 무작위성 수준을 제어합니다. 강도가 낮을수록 자유롭거나 창의적인 답변과 거리가 먼 확정적인 응답이 필요한 프롬프트에 적합하고, 강도가 높을수록 보다 다양하거나 창의적인 결과로 이어질 수 있습니다. 강도가 0이면 확정적입니다. 즉, 확률이 가장 높은 응답이 항상 선택됩니다.<br />
+</p><p>대부분의 사용 사례에서는 강도 0.4로 시작해 보세요. 보다 창의적인 결과가 필요하면 강도를 늘려 보세요. 할루시네이션이 관측되면 강도를 줄여 보세요.</p>
+
+<h4 data-text="최상위 K" id="top-k" tabindex="-1">최상위 K</h4>
+
+<p>최상위 K는 모델이 출력용 토큰을 선택하는 방식을 변경합니다. 최상위 K가 1이면 다음으로 선택된 토큰이 모델의 어휘에 포함된 모든 토큰 중에서 가장 확률이 높다는 의미입니다(그리디 디코딩이라고도 함). 반면에 최상위 K가 3이면 강도를 사용하여 가장 확률이 높은 토큰 3개 중에서 다음 토큰이 선택된다는 의미입니다.<br />
+</p><p>각 토큰 선택 단계에서 확률이 가장 높은 최상위 K 토큰이 샘플링됩니다. 그런 다음 최상위 P를 기준으로 토큰을 추가로 필터링하고 강도 샘플링을 사용하여 최종 토큰을 선택합니다.</p>
+
+<p>임의성이 낮은 응답에 낮은 값을 지정하고 임의성이 높은 응답에 높은 값을 지정합니다.
+최상위 K의 기본값은 32입니다.</p>
+
+<h4 data-text="최상위 P" id="top-p" tabindex="-1">최상위 P</h4>
+
+<p>최상위 P는 모델이 출력용 토큰을 선택하는 방식을 변경합니다. 토큰은 확률의 합이 최상위 P 값과 같아질 때까지 확률이 가장 높은 것부터(최상위 K 참조) 가장 낮은 것까지 선택됩니다. 예를 들어 토큰 A, B, C의 확률이 0.6, 0.3, 0.1이고 최상위 P 값이 0.9이면 모델이 강도를 사용해서 다음 토큰으로 A 또는 B를 선택하고 C는 후보에서 제외합니다.<br />
+</p><p>임의성이 낮은 응답에 낮은 값을 지정하고 임의성이 높은 응답에 높은 값을 지정합니다.
+top-P의 기본값은 1.0입니다.</p>
+
+<h2 data-text="다음 단계" id="next-steps" tabindex="-1">다음 단계</h2>
+
+<ul>
+<li><a href="http://aistudio.google.com?hl=ko">Google AI를 사용해 나만의 멀티모달 프롬프트를 작성해 보세요.
+Studio</a>에 오신 것을 환영합니다.</li>
+<li>프롬프트 설계에 대한 자세한 내용은
+<a href="https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ko">프롬프트 전략</a> 페이지.</li>
+</ul>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=ko" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    의견 보내기
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>달리 명시되지 않는 한 이 페이지의 콘텐츠에는 <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 라이선스</a>에 따라 라이선스가 부여되며, 코드 샘플에는 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 라이선스</a>에 따라 라이선스가 부여됩니다. 자세한 내용은 <a href="https://developers.google.com/site-policies?hl=ko">Google Developers 사이트 정책</a>을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.</p>
+  <p>최종 업데이트: 2024-08-22(UTC)</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    의견을 전달하고 싶나요?
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2024-08-22(UTC)"],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="바닥글 링크">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="유틸리티 링크">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=ko"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          약관
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=ko"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          개인정보처리방침
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;ko&#34;, &#34;served&#34;: &#34;ko&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="42BAv82mqjSHEajjLorJC8yQv58nlP">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"ko",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_release_notes_notifications","Profiles__enable_awarding_url","BookNav__enable_tenant_cache_key","MiscFeatureFlags__developers_footer_image","Cloud__enable_cloudx_experiment_ids","Profiles__enable_complete_playlist_endpoint","Profiles__enable_page_saving","Cloud__enable_cloud_facet_chat","Profiles__require_profile_eligibility_for_signin","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator","Search__enable_dynamic_content_confidential_banner","Cloud__enable_cloudx_ping","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_developer_profiles_callout","Profiles__enable_completecodelab_endpoint","Concierge__enable_pushui","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__enable_firebase_utm","TpcFeatures__enable_mirror_tenant_redirects","Cloud__enable_free_trial_server_call","DevPro__enable_developer_subscriptions","TpcFeatures__enable_required_headers","Cloud__enable_llm_concierge_chat","DevPro__enable_cloud_innovators_plus","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_cloud_dlp_service","Experiments__reqs_query_experiments","Profiles__enable_profile_collections","MiscFeatureFlags__enable_project_variables","MiscFeatureFlags__emergency_css","Analytics__enable_clearcut_logging","Profiles__enable_recognition_badges","CloudShell__cloud_code_overflow_menu","Profiles__enable_public_developer_profiles","Search__enable_suggestions_from_borg","Search__enable_ai_eligibility_checks","Cloud__enable_cloud_shell","OnSwitch__enable","CloudShell__cloud_shell_button","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__enable_view_transitions","EngEduTelemetry__enable_engedu_telemetry"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

@@ -1,0 +1,3753 @@
+<!doctype html>
+<html 
+      lang="ja-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjp.css"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/function-calling?hl=ja"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=ja">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/function-calling" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/function-calling" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/function-calling?hl=vi" /><title>Gemini API を使用した関数呼び出しの概要 &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="Gemini API を使用した関数呼び出しの概要 &nbsp;|&nbsp; Google AI for Developers"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/function-calling?hl=ja"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=ja">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="ja"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "Gemini API を使用した関数呼び出しの概要"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gemini API を使用した関数呼び出しの概要",
+      "item": "https://ai.google.dev/gemini-api/docs/function-calling"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/function-calling?hl=en">
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="メニューを開く">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=ja" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="上部のタブ">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=ja"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemma"
+         
+           track-name="gemma"
+         
+       >
+    Gemma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai エッジ"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI エッジ"
+         
+           track-name="google ai エッジ"
+         
+       >
+    Google AI エッジ
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - ツール"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: ツール"
+         
+           track-name="ツール"
+         
+       >
+    ツール
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="プルダウン メニュー: ツール"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - ツール"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: ツール"
+        
+          track-name="ツール"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=ja"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=ja"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      責任ある生成 AI ツールキット
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=ja"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=ja"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=ja"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=ja"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=ja"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=ja"
+                     track-metadata-position="nav - ツール"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=ja"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - community"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Community"
+         
+           track-name="community"
+         
+       >
+    Community
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=ja" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="検索を開始"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="検索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="検索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="検索を閉じる"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>ログイン</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="下部のタブ">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - ドキュメント"
+       track-metadata-module="primary nav"
+       aria-label="ドキュメント, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: ドキュメント"
+         
+           track-name="ドキュメント"
+         
+       >
+    ドキュメント
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - api リファレンス"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: API リファレンス"
+         
+           track-name="api リファレンス"
+         
+       >
+    API リファレンス
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=ja"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=ja"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - 料金"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: 料金"
+         
+           track-name="料金"
+         
+       >
+    料金
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="フィルタ"
+         
+         aria-label="フィルタ テキストを入力"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="フィルタをクリア"
+        aria-label="フィルタをクリア"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="サイドメニュー">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="ナビゲーションを閉じる">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=ja" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: ドキュメント"
+      
+        track-name="ドキュメント"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: ドキュメント"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      ドキュメント
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: API リファレンス"
+      
+        track-name="api リファレンス"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: API リファレンス"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      API リファレンス
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: 料金"
+      
+        track-name="料金"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 料金"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      料金
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemma"
+      
+        track-name="gemma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemma
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI エッジ"
+      
+        track-name="google ai エッジ"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI エッジ"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI エッジ
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: ツール"
+      
+        track-name="ツール"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      ツール
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: ツール"
+      
+        track-name="ツール"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="ツール">
+      その他
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="ツール">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Community"
+      
+        track-name="community"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Community"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Community
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>概要</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>開始する</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>API キー</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>クイックスタート</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>ライブラリ</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>リリースノート</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>モデル</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>試験運用版モデル</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="試験運用版"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>機能</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>テキスト生成</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>ドキュメント処理</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>ビジョン</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>オーディオ</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>長いコンテキスト</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>グラウンディング</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Google 検索によるグラウンディング</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>Google の検索候補を使用する</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>コードの実行</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>構造化出力</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>ファインチューニング</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>ファインチューニングの概要</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>ファインチューニングのチュートリアル</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>関数呼び出し</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>関数呼び出しの概要</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>関数呼び出しのチュートリアル</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>構造化データを抽出する</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>システム指示</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>エンベディング</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>安全性</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>安全性設定</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>安全に関するガイダンス</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>ガイド</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>コンテキスト キャッシュ</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>Imagen 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>トークン</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>プロンプト</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>プロンプトの概要</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>プロンプト戦略</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>ファイル プロンプト戦略</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>セマンティック取得</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>生成モデルについて</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>課金</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>OpenAI の互換性</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="試験運用版"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>クラウドに移行する</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>参考情報</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Google AI Studio のクイックスタート</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android（オンデバイス）</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Firebase Extensions</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>OAuth 認証</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="試験運用版"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>使用例</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>アプリケーション</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>コード アシスタント</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Flutter コード生成ツール</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>コンテンツ検索</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>データ探索エージェント</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>執筆アシスタント</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>スライド審査担当者</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>トラブルシューティング</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>API のトラブルシューティング</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>AI Studio のトラブルシューティング</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>AI Studio と Google Workspace</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>割り当ての増加をリクエストする</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Community</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>デベロッパー フォーラム</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="外部サイト"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>法務</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>利用規約</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>利用可能なリージョン</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>不正行為のモニタリング</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="ツール"
+          aria-label="サイドメニュー" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: 責任ある生成 AI ツールキット"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      責任ある生成 AI ツールキット
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="このページの内容"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    Google 検索によるグラウンディングが利用できるようになりました。<a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">詳細</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=ja"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            このページは <a href="//cloud.google.com/translate/?hl=ja">Cloud Translation API</a> によって翻訳されました。
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="パンくずリスト">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=ja"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        ホーム
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=ja"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=ja"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        ドキュメント
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    フィードバックを送信
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Gemini API を使用した関数呼び出しの概要
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="閉じる"
+
+      
+      close-button-text="OK">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      コレクションでコンテンツを整理
+    </span>
+    <span slot="popout-contents">
+      
+      必要に応じて、コンテンツの保存と分類を行います。
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Gemini API の関数呼び出し機能を使用すると、カスタム関数を
+モデルに追加します。モデルはこれらの関数を直接呼び出すのではなく、
+その代わりに、関数名を指定する構造化出力を生成し、
+渡します。次に、関数名と引数を使用して、外部 IP アドレス
+生成された API 出力を別のクエリに組み込んで、
+より包括的なレスポンスを返せるようにします。
+追加できます</p>
+
+<p>関数呼び出しにより、ユーザーはリアルタイムの情報やサービス（データベース、顧客管理システム、ドキュメント リポジトリなど）を操作できます。この特徴により、関連する情報をモデルに提示する
+コンテキストに基づいた回答を提供します。関数呼び出しは外部とのやり取りに最適
+支援しますユースケースで、モデルで計算を実行する必要があるものの、
+外部システムまたは API が関与する場合は、Terraform を使用して
+<a href="https://ai.google.dev/gemini-api/docs/code-execution?hl=ja">コード実行</a>を使用してください。</p>
+
+<p>関数呼び出しの動作例については、<a href="https://github.com/google-gemini/cookbook/blob/main/quickstarts/Function_calling_config.ipynb">「light bot」ノートブック</a>をご覧ください。</p>
+<aside class="beta"><strong>ベータ版:</strong><span> 関数呼び出し機能はベータ版です。詳しくは
+  <a href="https://ai.google.dev/docs/api_versions?hl=ja">API バージョン</a>のページをご覧ください。</span></aside>
+<h2 data-text="関数呼び出しの仕組み" id="how_it_works" tabindex="-1">関数呼び出しの仕組み</h2>
+
+<p>関数呼び出し機能を使用するには、プログラミング インターフェースを記述する構造化クエリデータ（<em>関数宣言</em>）をモデル プロンプトに追加します。関数の宣言には、API 関数の名前、その目的、サポートされているパラメータ、パラメータの説明が含まれます。合格後
+クエリ内の関数宣言のリストをモデルに送信すると、
+の残りの部分を使用して、宣言された
+API を返します。</p>
+
+<p>その後、このモデルは
+<a href="https://spec.openapis.org/oas/v3.0.3#schema">OpenAPI 互換スキーマ</a>
+応答するために宣言された 1 つ以上の関数を呼び出す方法を指定する
+と回答します。推奨される関数呼び出しパラメータを使用して実際の API を呼び出し、レスポンスを取得してユーザーに提供したり、さらにアクションを実行したりできます。モデルは宣言された関数を実際に呼び出すわけではありません。代わりに、返されたスキーマ オブジェクト パラメータを使用して、
+関数を呼び出します。Gemini API は、モデルが 1 つのリクエストに基づいて複数の API 関数呼び出しを推奨する並列関数呼び出しもサポートしています。</p>
+
+<h2 data-text="関数宣言" id="function_declarations" tabindex="-1">関数宣言</h2>
+
+<p>プロンプトで関数呼び出しを実装する場合は、<code dir="ltr" translate="no">tools</code> オブジェクトを作成します。
+これには 1 つ以上の <em><code dir="ltr" translate="no">function declarations</code></em> が含まれます。お客様が関数を定義する
+具体的には JSON 形式での
+<a href="https://ai.google.dev/api/caching?hl=ja#schema">サブセットを選択</a>
+
+<a href="https://spec.openapis.org/oas/v3.0.3#schemawr">OpenAPI スキーマ</a>
+使用できます。1 つの関数宣言には、次のパラメータを含めることができます。</p>
+
+<ul>
+<li><strong><code dir="ltr" translate="no">name</code></strong>（文字列）: API 呼び出し内の関数の一意の識別子。</li>
+<li><strong><code dir="ltr" translate="no">description</code></strong>（文字列）: 関数の目的と機能に関する包括的な説明。</li>
+<li><strong><code dir="ltr" translate="no">parameters</code></strong>（オブジェクト）: 関数に必要な入力データを定義します。
+<ul>
+<li><strong><code dir="ltr" translate="no">type</code></strong>（文字列）: 全体的なデータ型を指定します（<code dir="ltr" translate="no">object</code> など）。</li>
+<li><strong><code dir="ltr" translate="no">properties</code></strong>（オブジェクト）: 次のパラメータを持つ、個々のパラメータをリストします。
+&lt;ph type="x-smartling-placeholder"><ul>&lt;/ph>
+<li><strong><code dir="ltr" translate="no">type</code></strong>（文字列）: パラメータのデータ型。例:
+<code dir="ltr" translate="no">string</code>、<code dir="ltr" translate="no">integer</code>、<code dir="ltr" translate="no">boolean</code>。</li>
+<li><strong><code dir="ltr" translate="no">description</code></strong>（文字列）: パラメータの目的と想定される形式を明確に説明します。</li>
+</ul></li>
+<li><strong><code dir="ltr" translate="no">required</code></strong>（配列）: パラメータ名をリストした文字列の配列
+必須の引数です。</li>
+</ul></li>
+</ul>
+
+<p>cURL コマンドを使用した関数宣言のコード例については、<a href="#function-calling-curl-samples">関数呼び出しの例</a>をご覧ください。たとえば、
+ Gemini API SDK を使用して関数宣言を作成する方法については、
+<a href="https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=ja">関数呼び出しのチュートリアル</a></p>
+
+<h3 data-text="関数宣言のベスト プラクティス" id="key-parameters-best-practices" tabindex="-1">関数宣言のベスト プラクティス</h3>
+
+<p>関数を正確に定義することは、
+できます。各関数は、その動作を導く特定のパラメータに依存します
+モデルとやり取りできます次のリストは、<code dir="ltr" translate="no">functions_declarations</code> 配列内の個々の関数のパラメータを定義する際のガイダンスを示しています。</p>
+
+<ul>
+<li><p><strong><code dir="ltr" translate="no">name</code></strong>: スペース、ピリオド（<code dir="ltr" translate="no">.</code>）、ダッシュ（<code dir="ltr" translate="no">-</code>）文字を使用せず、わかりやすい名前を付けます。代わりに、アンダースコア（<code dir="ltr" translate="no">_</code>）かキャメルケースを使用します。</p></li>
+<li><p><strong><code dir="ltr" translate="no">description</code></strong>: 関数の詳細、明確で具体的な説明を入力し、必要に応じて例を入力します。たとえば、
+<code dir="ltr" translate="no">find theaters</code>: <code dir="ltr" translate="no">find theaters based on location and optionally movie
+title that is currently playing in theaters.</code> を使用し、過度に広範囲またはあいまいな表現は避ける
+説明があります。</p></li>
+<li><p><strong><code dir="ltr" translate="no">properties</code> 件 ><code dir="ltr" translate="no">type</code></strong>: 厳密に型指定されたパラメータを使用して、
+モデルハルシネーションですたとえば、パラメータ値が有限集合の場合、説明に値を一覧表示するのではなく、<code dir="ltr" translate="no">enum</code> フィールドを使用します（例: <code dir="ltr" translate="no">&quot;type&quot;: &quot;enum&quot;, &quot;values&quot;: [&quot;now_playing&quot;, &quot;upcoming&quot;]</code>）。もし
+パラメータの値は常に整数なので、型を <code dir="ltr" translate="no">integer</code> に設定します
+<code dir="ltr" translate="no">number</code>。</p></li>
+<li><p><strong><code dir="ltr" translate="no">properties</code> > <code dir="ltr" translate="no">description</code></strong>: 具体的な例と制約を指定します。たとえば、<code dir="ltr" translate="no">the location to search</code> ではなく <code dir="ltr" translate="no">The city and state,
+e.g. San Francisco, CA or a zip code e.g. 95616</code> を使用します。</p></li>
+</ul>
+
+<p>関数呼び出しを使用する際のベスト プラクティスについては、
+<a href="#best-practices">ベスト プラクティス</a> セクションをご覧ください。</p>
+
+<h2 data-text="関数呼び出しモード" id="function_calling_mode" tabindex="-1">関数呼び出しモード</h2>
+
+<p>関数呼び出しの <em><code dir="ltr" translate="no">mode</code></em> パラメータを使用して、特徴の実行動作を変更できます。次の 3 つのモードがあります。</p>
+
+<ul>
+<li><strong><code dir="ltr" translate="no">AUTO</code></strong>: モデルのデフォルトの動作。関数呼び出しと自然言語によるレスポンスのどちらを予測するかは、モデルが決定します。</li>
+<li><strong><code dir="ltr" translate="no">ANY</code></strong>: モデルは常に関数呼び出しを予測するように制約されます。<code dir="ltr" translate="no">allowed_function_names</code> が指定<em>されていない</em>場合、モデルは使用可能なすべての関数宣言から選択します。<code dir="ltr" translate="no">allowed_function_names</code> が指定されている場合は、<em></em>
+モデルは使用可能な関数のセットから選択し</li>
+<li><strong><code dir="ltr" translate="no">NONE</code></strong>: モデルは関数呼び出しを予測しません。今回の例では
+動作は、関数宣言を渡しない場合と同じです。</li>
+</ul>
+
+<p><code dir="ltr" translate="no">ANY</code> モード（「強制関数呼び出し」）の使用は、<strong><code dir="ltr" translate="no">Gemini 1.5 Pro</code></strong> モデルと <strong><code dir="ltr" translate="no">Gemini 1.5 Flash</code></strong> モデルでのみサポートされています。</p>
+
+<p><code dir="ltr" translate="no">allowed_function_names</code> のセットを渡すこともできます。この場合、モデルが呼び出す関数を制限できます。説明に
+モードが <code dir="ltr" translate="no">ANY</code> の場合は <code dir="ltr" translate="no">allowed_function_names</code>。関数名は関数宣言名と一致する必要があります。モードを <code dir="ltr" translate="no">ANY</code> に設定し、
+<code dir="ltr" translate="no">allowed_function_names</code> が設定されている場合、モデルは
+関数名のセットが提供されます。</p>
+<aside class="key-point"><strong>キーポイント:</strong><span> モードを <code dir="ltr" translate="no">ANY</code> に設定して <code dir="ltr" translate="no">allowed_function_names</code> を指定すると、モデルは許可された関数のセットから選択します。モードを <code dir="ltr" translate="no">ANY</code> に設定し、<code dir="ltr" translate="no">allowed_function_names</code> を<em>指定しない</em>場合、モデルは使用可能なすべての関数から選択します。</span></aside><p>次のコード スニペットは、
+<a href="#single-turn-using-mode-and-allowed-functions">リクエストの例</a>では、
+<code dir="ltr" translate="no">mode</code> を <code dir="ltr" translate="no">ANY</code> に設定し、使用できる関数のリストを指定します。</p>
+<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
+  &#34;function_calling_config&#34;: {
+    &#34;mode&#34;: &#34;ANY&#34;,
+    &#34;allowed_function_names&#34;: [&#34;find_theaters&#34;, &#34;get_showtimes&#34;]
+  },
+}
+</code></pre>
+<h2 data-text="関数呼び出しの例" id="function-calling-curl-samples" tabindex="-1">関数呼び出しの例</h2>
+
+<p>このセクションでは、cURL コマンドを使用して関数呼び出しを行うプロンプトの例を示します。
+例には、単一ターンと複数ターンのシナリオ、さまざまな関数呼び出しモードの有効化が含まれています。</p>
+
+<p>この機能で cURL コマンドを使用する場合、関数とパラメータの情報は <code dir="ltr" translate="no">tools</code> 要素に含まれます。Deployment に含まれる各関数宣言
+<code dir="ltr" translate="no">tools</code> 要素には関数名が含まれます。パラメータは、
+<a href="https://spec.openapis.org/oas/v3.0.3#schema">OpenAPI 互換スキーマ</a>
+関数の説明を入力します</p>
+
+<h3 data-text="シングルターンの例" id="function-calling-single-turn-curl-sample" tabindex="-1">シングルターンの例</h3>
+
+<p>シングルターンでは、言語モデルを 1 回呼び出します。関数呼び出しでは、モデルに自然言語クエリと関数のリストを提供する場合にシングルターン手法を採用する場合があります。この場合、モデルは関数名、パラメータ、説明を含む関数宣言を使用して、呼び出す関数と、関数を呼び出すために使用する引数を予測します。</p>
+
+<p>次の curl サンプルは、ある映画が上映されている場所に関する情報を返す関数の説明を渡す例です。複数
+リクエストに関数宣言が含まれている（<code dir="ltr" translate="no">find_movies</code> や
+<code dir="ltr" translate="no">find_theaters</code>。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="シングルターン関数呼び出しのサンプル リクエスト" id="single-turn-function-calling-example-request" tabindex="-1">シングルターン関数呼び出しのサンプル リクエスト</h4>
+   <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": {
+      "role": "user",
+      "parts": {
+        "text": "Which theaters in Mountain View show Barbie movie?"
+    }
+  },
+  "tools": [
+    {
+      "function_declarations": [
+        {
+          "name": "find_movies",
+          "description": "find movie titles currently playing in theaters based on any description, genre, title words, etc.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "description": {
+                "type": "string",
+                "description": "Any kind of description including category or genre, title words, attributes, etc."
+              }
+            },
+            "required": [
+              "description"
+            ]
+          }
+        },
+        {
+          "name": "find_theaters",
+          "description": "find theaters based on location and optionally movie title which is currently playing in theaters",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        },
+        {
+          "name": "get_showtimes",
+          "description": "Find the start times for movies playing in a specific theater",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              },
+              "theater": {
+                "type": "string",
+                "description": "Name of the theater"
+              },
+              "date": {
+                "type": "string",
+                "description": "Date for requested showtime"
+              }
+            },
+            "required": [
+              "location",
+              "movie",
+              "theater",
+              "date"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}'
+    </pre>
+  </devsite-expandable>
+</div>
+
+<p>この curl の例に対するレスポンスは次のようになります。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="シングルターン関数呼び出し curl のサンプル レスポンス" id="single-turn-function-calling-curl-example-response" tabindex="-1">シングルターン関数呼び出し curl のサンプル レスポンス</h4>
+   <pre translate="no" dir="ltr">
+[{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "name": "find_theaters",
+              "args": {
+                "movie": "Barbie",
+                "location": "Mountain View, CA"
+              }
+            }
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 9,
+    "totalTokenCount": 9
+  }
+}]
+    </pre>
+  </devsite-expandable>
+</div>
+
+<h3 data-text="ANY モードを使用した単一ターンの例" id="single-turn-any-mode" tabindex="-1">ANY モードを使用した単一ターンの例</h3>
+
+<p>次の curl の例は、
+<a href="#function-calling-single-turn-curl-sample">シングルターンの例</a>ですが、
+<a href="#function_calling_mode">mode</a> を <code dir="ltr" translate="no">ANY</code> に設定します。</p>
+<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
+  &#34;function_calling_config&#34;: {
+    &#34;mode&#34;: &#34;ANY&#34;
+  },
+}
+</code></pre>
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="ANY モード（リクエスト）を使用したシングルターン関数呼び出し" id="single-turn-function-calling-using-any-mode-request" tabindex="-1">ANY モード（リクエスト）を使用したシングルターン関数呼び出し</h4>
+   <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": {
+      "role": "user",
+      "parts": {
+        "text": "What movies are showing in North Seattle tonight?"
+    }
+  },
+  "tools": [
+    {
+      "function_declarations": [
+        {
+          "name": "find_movies",
+          "description": "find movie titles currently playing in theaters based on any description, genre, title words, etc.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "description": {
+                "type": "string",
+                "description": "Any kind of description including category or genre, title words, attributes, etc."
+              }
+            },
+            "required": [
+              "description"
+            ]
+          }
+        },
+        {
+          "name": "find_theaters",
+          "description": "find theaters based on location and optionally movie title which is currently playing in theaters",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        },
+        {
+          "name": "get_showtimes",
+          "description": "Find the start times for movies playing in a specific theater",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              },
+              "theater": {
+                "type": "string",
+                "description": "Name of the theater"
+              },
+              "date": {
+                "type": "string",
+                "description": "Date for requested showtime"
+              }
+            },
+            "required": [
+              "location",
+              "movie",
+              "theater",
+              "date"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tool_config": {
+    "function_calling_config": {
+      "mode": "ANY"
+    },
+  }
+}'
+    </pre>
+  </devsite-expandable>
+</div>
+
+<p>レスポンスは次のようになります。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="ANY モードを使用したシングルターン関数呼び出し（レスポンス）" id="single-turn-function-calling-using-any-mode-response" tabindex="-1">ANY モードを使用したシングルターン関数呼び出し（レスポンス）</h4>
+   <pre translate="no" dir="ltr">
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "name": "find_movies",
+              "args": {
+                "description": "",
+                "location": "North Seattle, WA"
+              }
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "promptFeedback": {
+    "safetyRatings": [
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "probability": "NEGLIGIBLE"
+      }
+    ]
+  }
+}
+    </pre>
+  </devsite-expandable>
+</div>
+
+<h3 data-text="ANY モードと許可された機能を使用したシングルターンの例" id="single-turn-using-mode-and-allowed-functions" tabindex="-1">ANY モードと許可された機能を使用したシングルターンの例</h3>
+
+<p>次の curl の例は、
+<a href="#function-calling-single-turn-curl-sample">シングルターンの例</a>ですが、
+<a href="#function_calling_mode">mode</a> を <code dir="ltr" translate="no">ANY</code> に設定して、許可されるリソースのリストと
+関数:</p>
+<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
+  &#34;function_calling_config&#34;: {
+    &#34;mode&#34;: &#34;ANY&#34;,
+    &#34;allowed_function_names&#34;: [&#34;find_theaters&#34;, &#34;get_showtimes&#34;]
+  },
+}
+</code></pre>
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="ANY モードと許可された関数を使用したシングルターン関数呼び出し（リクエスト）" id="single-turn-function-calling-using-any-mode-and-allowed-functions-request" tabindex="-1">ANY モードと許可された関数を使用したシングルターン関数呼び出し（リクエスト）</h4>
+   <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": {
+      "role": "user",
+      "parts": {
+        "text": "What movies are showing in North Seattle tonight?"
+    }
+  },
+  "tools": [
+    {
+      "function_declarations": [
+        {
+          "name": "find_movies",
+          "description": "find movie titles currently playing in theaters based on any description, genre, title words, etc.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "description": {
+                "type": "string",
+                "description": "Any kind of description including category or genre, title words, attributes, etc."
+              }
+            },
+            "required": [
+              "description"
+            ]
+          }
+        },
+        {
+          "name": "find_theaters",
+          "description": "find theaters based on location and optionally movie title which is currently playing in theaters",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        },
+        {
+          "name": "get_showtimes",
+          "description": "Find the start times for movies playing in a specific theater",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+              },
+              "movie": {
+                "type": "string",
+                "description": "Any movie title"
+              },
+              "theater": {
+                "type": "string",
+                "description": "Name of the theater"
+              },
+              "date": {
+                "type": "string",
+                "description": "Date for requested showtime"
+              }
+            },
+            "required": [
+              "location",
+              "movie",
+              "theater",
+              "date"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tool_config": {
+    "function_calling_config": {
+      "mode": "ANY",
+      "allowed_function_names": ["find_theaters", "get_showtimes"]
+    },
+  }
+}'
+    </pre>
+  </devsite-expandable>
+</div>
+
+<p><code dir="ltr" translate="no">find_movies</code> 関数は許可された関数のリストにないため、モデルは <code dir="ltr" translate="no">find_movies</code> 関数を予測できません。代わりに、別の関数を予測します。レスポンス
+次のようになります。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="ANY モードと許可された関数を使用したシングルターン関数呼び出し（レスポンス）" id="single-turn-function-calling-using-any-mode-and-allowed-functions-response" tabindex="-1">ANY モードと許可された関数を使用したシングルターン関数呼び出し（レスポンス）</h4>
+   <pre translate="no" dir="ltr">
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "name": "find_theaters",
+              "args": {
+                "location": "North Seattle, WA",
+                "movie": null
+              }
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "promptFeedback": {
+    "safetyRatings": [
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "probability": "NEGLIGIBLE"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "probability": "NEGLIGIBLE"
+      }
+    ]
+  }
+}
+    </pre>
+  </devsite-expandable>
+</div>
+
+<h3 data-text="マルチターンの例" id="function-calling-one-and-a-half-turn-curl-sample" tabindex="-1">マルチターンの例</h3>
+
+<p>マルチターン関数呼び出しのシナリオは、次の手順で実施できます。</p>
+
+<ol>
+<li>言語モデルを呼び出して、関数呼び出しのレスポンスを取得します。これが最初のターンです。</li>
+<li>最初のターンの関数呼び出しレスポンスと、その関数の呼び出しで取得した関数レスポンスを使用して、言語モデルを呼び出します。次は 2 回目のターンです。</li>
+</ol>
+
+<p>2 回目のターンで得られるレスポンスは、最初のターンでクエリに応答するために結果を要約するか、クエリの詳細情報を取得するために使用できる 2 番目の関数呼び出しを格納します。</p>
+
+<p>このトピックには、2 つのマルチターン curl の例が含まれています。</p>
+
+<ul>
+<li><a href="#multi-turn-example-1">前のターンの関数レスポンスを使用する curl の例</a></li>
+<li><a href="#multi-turn-example-2">言語モデルを複数回呼び出す curl の例</a></li>
+</ul>
+
+<h4 data-text="前のターンのレスポンスを使用する" id="multi-turn-example-1" tabindex="-1">前のターンのレスポンスを使用する</h4>
+
+<p>次の curl サンプルは、前述のシングルターンの例で返された関数と引数を呼び出して、レスポンスを取得します。メソッドとパラメータ
+次の JSON を参照してください。</p>
+<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;functionCall&#34;: {
+  &#34;name&#34;: &#34;find_theaters&#34;,
+  &#34;args&#34;: {
+    &#34;movie&#34;: &#34;Barbie&#34;,
+    &#34;location&#34;: &#34;Mountain View, CA&#34;
+  }
+}
+</code></pre>
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="マルチターン関数呼び出し curl のサンプル リクエスト" id="multi-turn-function-calling-curl-example-request" tabindex="-1">マルチターン関数呼び出し curl のサンプル リクエスト</h4>
+   <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": [{
+      "role": "user",
+      "parts": [{
+        "text": "Which theaters in Mountain View show Barbie movie?"
+    }]
+  }, {
+    "role": "model",
+    "parts": [{
+      "functionCall": {
+        "name": "find_theaters",
+        "args": {
+          "location": "Mountain View, CA",
+          "movie": "Barbie"
+        }
+      }
+    }]
+  }, {
+    "role": "user",
+    "parts": [{
+      "functionResponse": {
+        "name": "find_theaters",
+        "response": {
+          "name": "find_theaters",
+          "content": {
+            "movie": "Barbie",
+            "theaters": [{
+              "name": "AMC Mountain View 16",
+              "address": "2000 W El Camino Real, Mountain View, CA 94040"
+            }, {
+              "name": "Regal Edwards 14",
+              "address": "245 Castro St, Mountain View, CA 94040"
+            }]
+          }
+        }
+      }
+    }]
+  }],
+  "tools": [{
+    "functionDeclarations": [{
+      "name": "find_movies",
+      "description": "find movie titles currently playing in theaters based on any description, genre, title words, etc.",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "description": {
+            "type": "STRING",
+            "description": "Any kind of description including category or genre, title words, attributes, etc."
+          }
+        },
+        "required": ["description"]
+      }
+    }, {
+      "name": "find_theaters",
+      "description": "find theaters based on location and optionally movie title which is currently playing in theaters",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "movie": {
+            "type": "STRING",
+            "description": "Any movie title"
+          }
+        },
+        "required": ["location"]
+      }
+    }, {
+      "name": "get_showtimes",
+      "description": "Find the start times for movies playing in a specific theater",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "movie": {
+            "type": "STRING",
+            "description": "Any movie title"
+          },
+          "theater": {
+            "type": "STRING",
+            "description": "Name of the theater"
+          },
+          "date": {
+            "type": "STRING",
+            "description": "Date for requested showtime"
+          }
+        },
+        "required": ["location", "movie", "theater", "date"]
+      }
+    }]
+  }]
+}'
+    </pre>
+  </devsite-expandable>
+</div>
+
+<p>この curl の例に対するレスポンスには、<code dir="ltr" translate="no">find_theaters</code> メソッドを呼び出した結果が含まれます。レスポンスは次のようになります。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="マルチターン関数呼び出し curl のサンプル レスポンス" id="multi-turn-function-calling-curl-example-response" tabindex="-1">マルチターン関数呼び出し curl のサンプル レスポンス</h4>
+   <pre translate="no" dir="ltr">
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": " OK. Barbie is showing in two theaters in Mountain View, CA: AMC Mountain View 16 and Regal Edwards 14."
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 9,
+    "candidatesTokenCount": 27,
+    "totalTokenCount": 36
+  }
+}
+    </pre>
+  </devsite-expandable>
+</div>
+
+<h4 data-text="モデルを複数回呼び出す" id="multi-turn-example-2" tabindex="-1">モデルを複数回呼び出す</h4>
+
+<p>次の cURL の例では、生成 AI モデルを複数回呼び出して、
+作成します。言語モデルが関数を呼び出すたびに、異なる関数を使用して、リクエスト内の異なるユーザークエリに応答できます。</p>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="マルチターン関数呼び出し curl のサンプル リクエスト" id="multi-turn-function-calling-curl-example-request_1" tabindex="-1">マルチターン関数呼び出し curl のサンプル リクエスト</h4>
+  <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": [{
+      "role": "user",
+      "parts": [{
+        "text": "Which theaters in Mountain View show Barbie movie?"
+    }]
+  }, {
+    "role": "model",
+    "parts": [{
+      "functionCall": {
+        "name": "find_theaters",
+        "args": {
+          "location": "Mountain View, CA",
+          "movie": "Barbie"
+        }
+      }
+    }]
+  }, {
+    "role": "user",
+    "parts": [{
+      "functionResponse": {
+        "name": "find_theaters",
+        "response": {
+          "name": "find_theaters",
+          "content": {
+            "movie": "Barbie",
+            "theaters": [{
+              "name": "AMC Mountain View 16",
+              "address": "2000 W El Camino Real, Mountain View, CA 94040"
+            }, {
+              "name": "Regal Edwards 14",
+              "address": "245 Castro St, Mountain View, CA 94040"
+            }]
+          }
+        }
+      }
+    }]
+  },
+  {
+    "role": "model",
+    "parts": [{
+      "text": " OK. Barbie is showing in two theaters in Mountain View, CA: AMC Mountain View 16 and Regal Edwards 14."
+    }]
+  },{
+    "role": "user",
+    "parts": [{
+      "text": "Can we recommend some comedy movies on show in Mountain View?"
+    }]
+  }],
+  "tools": [{
+    "functionDeclarations": [{
+      "name": "find_movies",
+      "description": "find movie titles currently playing in theaters based on any description, genre, title words, etc.",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "description": {
+            "type": "STRING",
+            "description": "Any kind of description including category or genre, title words, attributes, etc."
+          }
+        },
+        "required": ["description"]
+      }
+    }, {
+      "name": "find_theaters",
+      "description": "find theaters based on location and optionally movie title which is currently playing in theaters",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "movie": {
+            "type": "STRING",
+            "description": "Any movie title"
+          }
+        },
+        "required": ["location"]
+      }
+    }, {
+      "name": "get_showtimes",
+      "description": "Find the start times for movies playing in a specific theater",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+          },
+          "movie": {
+            "type": "STRING",
+            "description": "Any movie title"
+          },
+          "theater": {
+            "type": "STRING",
+            "description": "Name of the theater"
+          },
+          "date": {
+            "type": "STRING",
+            "description": "Date for requested showtime"
+          }
+        },
+        "required": ["location", "movie", "theater", "date"]
+      }
+    }]
+  }]
+}'
+    </pre>
+  </devsite-expandable>
+</div>
+
+<div>
+  <devsite-expandable>
+    <h4 class="showalways" data-text="マルチターン関数呼び出し curl のサンプル レスポンス" id="multi-turn-function-calling-curl-example-response_1" tabindex="-1">マルチターン関数呼び出し curl のサンプル レスポンス</h4>
+   <pre translate="no" dir="ltr">
+[{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "name": "find_movies",
+              "args": {
+                "description": "comedy",
+                "location": "Mountain View, CA"
+              }
+            }
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 48,
+    "totalTokenCount": 48
+  }
+}
+]
+    </pre>
+  </devsite-expandable>
+</div>
+
+<h2 data-text="ベスト プラクティス" id="best-practices" tabindex="-1">ベスト プラクティス</h2>
+
+<p>関数呼び出しの精度と信頼性を向上させるには、次のベスト プラクティスに従ってください。</p>
+
+<h3 data-text="ユーザーによるプロンプト" id="prompt-best-practices" tabindex="-1">ユーザーによるプロンプト</h3>
+
+<p>最適な結果を得るには、ユーザークエリの先頭に次の詳細を付加します。</p>
+
+<ul>
+<li>モデルの追加コンテキスト。例: <code dir="ltr" translate="no">You are a movie API assistant
+to help users find movies and showtimes based on their preferences.</code></li>
+<li>関数を使用する方法とタイミングに関する詳細や手順。例: <code dir="ltr" translate="no">Don&#39;t make assumptions on showtimes. Always use a future date for showtimes.</code></li>
+<li>ユーザーからの質問があいまいな場合に、質問を明確にするための指示。例: <code dir="ltr" translate="no">Ask clarifying questions if not enough information is available to
+complete the request.</code></li>
+</ul>
+
+<h3 data-text="サンプリング パラメータ" id="sampling-parameters-best-practices" tabindex="-1">サンプリング パラメータ</h3>
+
+<p>Temperature パラメータには、<code dir="ltr" translate="no">0</code> または別の小さい値を使用します。これにより、より確信度の高い結果を生成してハルシネーションを減らすようにモデルに指示します。</p>
+
+<h3 data-text="API 呼び出し" id="invoke-api-best-practices" tabindex="-1">API 呼び出し</h3>
+
+<p>注文の送信やデータベースの更新など、重大な結果をもたらすような関数の呼び出しをモデルが提案する場合は、それを実行する前にユーザーにその関数呼び出しの妥当性を確認してください。</p>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=ja" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    フィードバックを送信
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>特に記載のない限り、このページのコンテンツは<a href="https://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズの表示 4.0 ライセンス</a>により使用許諾されます。コードサンプルは <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 ライセンス</a>により使用許諾されます。詳しくは、<a href="https://developers.google.com/site-policies?hl=ja">Google Developers サイトのポリシー</a>をご覧ください。Java は Oracle および関連会社の登録商標です。</p>
+  <p>最終更新日 2024-10-14 UTC。</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    ご意見をお聞かせください
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2024-10-14 UTC。"],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="フッターのリンク">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="ユーティリティのリンク">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=ja"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          利用規約
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=ja"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          プライバシー
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;ja&#34;, &#34;served&#34;: &#34;ja&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="HopbfhrFLxtdIj5CMgMcZq3LvRmHxO">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"ja",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Experiments__reqs_query_experiments","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__developers_footer_dark_image","Profiles__require_profile_eligibility_for_signin","Profiles__enable_awarding_url","DevPro__enable_developer_subscriptions","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_view_transitions","Cloud__enable_cloudx_ping","Profiles__enable_profile_collections","Profiles__enable_page_saving","Concierge__enable_pushui","CloudShell__cloud_code_overflow_menu","Profiles__enable_complete_playlist_endpoint","Cloud__enable_legacy_calculator_redirect","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_dlp_service","Cloud__enable_llm_concierge_chat","Cloud__enable_free_trial_server_call","Profiles__enable_recognition_badges","MiscFeatureFlags__enable_project_variables","Profiles__enable_release_notes_notifications","TpcFeatures__enable_required_headers","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__emergency_css","MiscFeatureFlags__developers_footer_image","OnSwitch__enable","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__enable_variable_operator","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_public_developer_profiles","Search__enable_ai_eligibility_checks","Profiles__enable_dashboard_curated_recommendations","Search__enable_page_map","BookNav__enable_tenant_cache_key","Search__enable_suggestions_from_borg","MiscFeatureFlags__enable_explain_this_code","Analytics__enable_clearcut_logging","Cloud__enable_cloud_facet_chat","CloudShell__cloud_shell_button","Cloud__enable_cloud_shell","Cloud__enable_cloud_shell_fte_user_flow","EngEduTelemetry__enable_engedu_telemetry"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

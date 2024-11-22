@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function doit() {
+  rm -f _gateway.html;
+  GET http://_gateway/ | tidy  | tee _gateway.html
+}
+export -f doit
+bash -c "$(declare -f doit); doit "$@";" -- "$@"

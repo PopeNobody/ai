@@ -1,0 +1,3350 @@
+<!doctype html>
+<html 
+      lang="vi-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com">
+    <meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award">
+    <meta property="og:site_name" content="Google AI for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1967d2"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/googledevai/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//apis.google.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"><link rel="canonical" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=vi"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google AI for Developers" href="https://ai.google.dev/s/opensearch.xml?hl=vi">
+      <link rel="alternate" hreflang="en"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="x-default" href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" /><link rel="alternate" hreflang="ar"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=vi" /><title>Chiến lược nhắc tệp &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers</title>
+
+<meta property="og:title" content="Chiến lược nhắc tệp &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"><meta property="og:url" content="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=vi"><meta property="og:image" content="https://ai.google.dev/static/site-assets/images/share-gemini-api.png?hl=vi">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="vi"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "Chiến lược nhắc tệp"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Gemini API",
+      "item": "https://ai.google.dev/gemini-api"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Chiến lược nhắc tệp",
+      "item": "https://ai.google.dev/gemini-api/docs/file-prompting-strategies"
+    }]
+  }
+  </script><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies?hl=en">
+  
+
+  
+
+  
+
+
+    
+      <link rel="stylesheet" href="/extras.css"></head>
+  <body class=""
+        template="page"
+        theme="googledevai-theme"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        display-toc
+        pending>
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar><devsite-header role="banner" keep-tabs-visible>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner nocontent">
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Mở trình đơn">
+        </button>
+        <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=vi" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Thẻ cấp trên">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemini api"
+       track-metadata-module="primary nav"
+       aria-label="Gemini API, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemini API"
+         
+           track-name="gemini api"
+         
+       >
+    Gemini API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://aistudio.google.com?hl=vi"
+      track-metadata-eventdetail="https://aistudio.google.com?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - google ai studio"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google AI Studio"
+         
+           track-name="google ai studio"
+         
+       >
+    Google AI Studio
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/gemma?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/gemma?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - gemma"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Gemma"
+         
+           track-name="gemma"
+         
+       >
+    Gemma
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/edge?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/edge?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - ai edge của google"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: AI Edge của Google"
+         
+           track-name="ai edge của google"
+         
+       >
+    AI Edge của Google
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab class="devsite-dropdown
+    
+    
+    
+    ">
+  
+    <span
+  
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - công cụ"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Công cụ"
+         
+           track-name="công cụ"
+         
+       >
+    Công cụ
+  
+    </span>
+  
+  
+    <a href="#"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="false"
+       aria-label="Trình đơn thả xuống cho Công cụ"
+       track-type="nav"
+       track-metadata-eventdetail=""
+       track-metadata-position="nav - công cụ"
+       track-metadata-module="primary nav"
+       
+        
+          data-category="Site-Wide Custom Events"
+        
+          data-label="Tab: Công cụ"
+        
+          track-name="công cụ"
+        
+      
+       class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></a>
+  
+  <div class="devsite-tabs-dropdown" aria-label="submenu" hidden>
+    
+    <div class="devsite-tabs-dropdown-content">
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       ">
+              
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://ai.google.dev/responsible?hl=vi"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://ai.google.dev/responsible?hl=vi"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Bộ công cụ AI tạo sinh có trách nhiệm
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://colab.google/?hl=vi"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://colab.google/?hl=vi"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Colab
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://firebase.google.com/docs/genkit?hl=vi"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://firebase.google.com/docs/genkit?hl=vi"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Firebase Genkit
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://jax.readthedocs.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://jax.readthedocs.io/"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Tiếng JAX
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://keras.io/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://keras.io/"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Keras
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://www.tensorflow.org/?hl=vi"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://www.tensorflow.org/?hl=vi"
+                     track-metadata-position="nav - công cụ"
+                     track-metadata-module="tertiary nav"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      TensorFlow
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://discuss.ai.google.dev/?hl=vi"
+      track-metadata-eventdetail="https://discuss.ai.google.dev/?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - cộng đồng"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Cộng đồng"
+         
+           track-name="cộng đồng"
+         
+       >
+    Cộng đồng
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    project-name="Gemini API"
+    tenant-name="Google AI for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://ai.google.dev/s/results?hl=vi" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Mở hộp tìm kiếm"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Tìm kiếm"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Tìm kiếm"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Đóng hộp tìm kiếm"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+        
+
+        
+          
+          
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Đăng nhập</span>
+            
+        </devsite-user>
+           
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Thẻ cấp dưới">
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://ai.google.dev/gemini-api/docs?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/gemini-api/docs?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - tài liệu"
+       track-metadata-module="primary nav"
+       aria-label="Tài liệu, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Tài liệu"
+         
+           track-name="tài liệu"
+         
+       >
+    Tài liệu
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/api?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/api?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - tài liệu tham khảo api"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Tài liệu tham khảo API"
+         
+           track-name="tài liệu tham khảo api"
+         
+       >
+    Tài liệu tham khảo API
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://ai.google.dev/pricing?hl=vi"
+      track-metadata-eventdetail="https://ai.google.dev/pricing?hl=vi"
+    
+       class="devsite-tabs-content gc-analytics-event "
+       track-type="nav"
+       track-metadata-position="nav - giá"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Giá"
+         
+           track-name="giá"
+         
+       >
+    Giá
+  
+    </a>
+  
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+      <devsite-book-nav scrollbars >
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Lọc"
+         
+         aria-label="Nhập để lọc"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Xoá bộ lọc"
+        aria-label="Xoá bộ lọc"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent"
+     aria-label="Trình đơn bên">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Đóng trình đơn điều hướng">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="geminiAPI" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://ai.google.dev/_static/googledevai/images/lockup-new.svg?hl=vi" class="devsite-site-logo" alt="Gemini API">
+  </picture>
+  
+</a>
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemini API"
+      
+        track-name="gemini api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemini API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemini API
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+                <ul class="devsite-nav-responsive-tabs">
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/gemini-api/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Tài liệu"
+      
+        track-name="tài liệu"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Tài liệu"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip menu="_book">
+      Tài liệu
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="_book">
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/api"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Tài liệu tham khảo API"
+      
+        track-name="tài liệu tham khảo api"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Tài liệu tham khảo API"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Tài liệu tham khảo API
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                    
+                    
+                    
+                    <li class="devsite-nav-item">
+                      
+  
+  <a href="/pricing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Giá"
+      
+        track-name="giá"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Giá"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Giá
+   </span>
+    
+  
+  </a>
+  
+
+  
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://aistudio.google.com"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Google AI Studio"
+      
+        track-name="google ai studio"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Google AI Studio"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Google AI Studio
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/gemma"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Gemma"
+      
+        track-name="gemma"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Gemma"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Gemma
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/edge"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: AI Edge của Google"
+      
+        track-name="ai edge của google"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: AI Edge của Google"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      AI Edge của Google
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Công cụ"
+      
+        track-name="công cụ"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Công cụ
+   </span>
+    
+  
+  </span>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Công cụ"
+      
+        track-name="công cụ"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="Công cụ">
+      Xem thêm
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="Công cụ">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="https://discuss.ai.google.dev/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Cộng đồng"
+      
+        track-name="cộng đồng"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Cộng đồng"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Cộng đồng
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/gemini-api/docs"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs"
+      ><span class="devsite-nav-text" tooltip>Tổng quan</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Bắt đầu</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/api-key"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/api-key"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/api-key"
+      ><span class="devsite-nav-text" tooltip>Khóa API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quickstart"
+      ><span class="devsite-nav-text" tooltip>Bắt đầu nhanh</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/downloads"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/downloads"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/downloads"
+      data-synonyms="SDKs, python, go, node.js, node, typescript, flutter, dart, install, library, libraries, swift, android"><span class="devsite-nav-text" tooltip>Thư viện</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/changelog"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/changelog"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/changelog"
+      ><span class="devsite-nav-text" tooltip>Ghi chú phát hành</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Mô hình</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/gemini"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/gemini"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/gemini"
+      data-synonyms="gemini-pro, gemini-pro-1.0, gemini-pro-vision, gemini 1.5 flash, gemini-1.5-flash, gemini, flash, pro, gemini-pro-1.5, gemini pro, text embedding, text embeddings, text-embedding-004"><span class="devsite-nav-text" tooltip>Gemini</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/models/experimental-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/experimental-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/experimental-models"
+      ><span class="devsite-nav-text" tooltip>Mô hình thử nghiệm</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Thử nghiệm!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Chức năng</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/text-generation"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/text-generation"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/text-generation"
+      ><span class="devsite-nav-text" tooltip>Tạo văn bản</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/document-processing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/document-processing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/document-processing"
+      ><span class="devsite-nav-text" tooltip>Xử lý tài liệu</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/vision"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/vision"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/vision"
+      ><span class="devsite-nav-text" tooltip>Vision</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/audio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/audio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/audio"
+      ><span class="devsite-nav-text" tooltip>Âm thanh</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/long-context"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/long-context"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/long-context"
+      ><span class="devsite-nav-text" tooltip>Ngữ cảnh dài</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Mặt đất</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding"
+      ><span class="devsite-nav-text" tooltip>Tìm hiểu thông tin cơ bản trên Google Tìm kiếm</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/grounding/search-suggestions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/grounding/search-suggestions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/grounding/search-suggestions"
+      ><span class="devsite-nav-text" tooltip>Sử dụng tính năng Đề xuất của Google Tìm kiếm</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/code-execution"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/code-execution"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/code-execution"
+      ><span class="devsite-nav-text" tooltip>Thực thi mã</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/structured-output"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/structured-output"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/structured-output"
+      ><span class="devsite-nav-text" tooltip>Kết quả có cấu trúc</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Tinh chỉnh</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning"
+      ><span class="devsite-nav-text" tooltip>Giới thiệu về tính năng tinh chỉnh</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/model-tuning/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/model-tuning/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/model-tuning/tutorial"
+      ><span class="devsite-nav-text" tooltip>Hướng dẫn tinh chỉnh</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Gọi hàm</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling"
+      ><span class="devsite-nav-text" tooltip>Giới thiệu về tính năng gọi hàm</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/function-calling/tutorial"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/function-calling/tutorial"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/function-calling/tutorial"
+      ><span class="devsite-nav-text" tooltip>Hướng dẫn gọi hàm</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/extract_structured_data"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/extract_structured_data"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/extract_structured_data"
+      ><span class="devsite-nav-text" tooltip>Trích xuất dữ liệu có cấu trúc</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/system-instructions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/system-instructions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/system-instructions"
+      ><span class="devsite-nav-text" tooltip>Hướng dẫn hệ thống</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/embeddings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/embeddings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/embeddings"
+      ><span class="devsite-nav-text" tooltip>Nhúng</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>An toàn</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-settings"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-settings"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-settings"
+      ><span class="devsite-nav-text" tooltip>Cài đặt an toàn</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/safety-guidance"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/safety-guidance"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/safety-guidance"
+      ><span class="devsite-nav-text" tooltip>Hướng dẫn về an toàn</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Hướng dẫn</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/caching"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/caching"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/caching"
+      ><span class="devsite-nav-text" tooltip>Lưu ngữ cảnh vào bộ nhớ đệm</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/imagen"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/imagen"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/imagen"
+      ><span class="devsite-nav-text" tooltip>Imagen 3</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/tokens"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/tokens"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/tokens"
+      ><span class="devsite-nav-text" tooltip>Mã</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Nhắc nhở</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-intro"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-intro"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-intro"
+      ><span class="devsite-nav-text" tooltip>Giới thiệu về lời nhắc</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>Chiến lược nhắc</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/file-prompting-strategies"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/file-prompting-strategies"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/file-prompting-strategies"
+      ><span class="devsite-nav-text" tooltip>Chiến lược nhắc tệp</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/semantic_retrieval"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/semantic_retrieval"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/semantic_retrieval"
+      ><span class="devsite-nav-text" tooltip>Truy xuất ngữ nghĩa</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/models/generative-models"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/models/generative-models"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/models/generative-models"
+      ><span class="devsite-nav-text" tooltip>Giới thiệu về các mô hình tạo sinh</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/billing"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/billing"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/billing"
+      ><span class="devsite-nav-text" tooltip>Thanh toán</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/openai"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/openai"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/openai"
+      ><span class="devsite-nav-text" tooltip>Khả năng tương thích với OpenAI</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Thử nghiệm!"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/migrate-to-cloud"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/migrate-to-cloud"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/migrate-to-cloud"
+      ><span class="devsite-nav-text" tooltip>Di chuyển sang nền tảng đám mây</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Tài nguyên khác</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/docs/ai-studio-quickstart"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/ai-studio-quickstart"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/ai-studio-quickstart"
+      ><span class="devsite-nav-text" tooltip>Hướng dẫn nhanh về Google AI Studio</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/get-started/android_aicore"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/get-started/android_aicore"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/get-started/android_aicore"
+      ><span class="devsite-nav-text" tooltip>Android (trên thiết bị)</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/firebase-extensions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/firebase-extensions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/firebase-extensions"
+      ><span class="devsite-nav-text" tooltip>Tiện ích Firebase</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/docs/oauth"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/oauth"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/oauth"
+      ><span class="devsite-nav-text" tooltip>Xác thực OAuth</span></a></li><li class="devsite-nav-item
+           devsite-nav-experimental"><a href="/gemini-api/docs/learnlm"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/learnlm"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/learnlm"
+      ><span class="devsite-nav-text" tooltip>LearnLM</span><span class="devsite-nav-icon material-icons"
+        data-icon="experimental"
+        data-title="Thử nghiệm!"
+        aria-hidden="true"></span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Trường hợp sử dụng</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Ứng dụng</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/gemini-api/tutorials/pipet-code-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/pipet-code-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/pipet-code-agent"
+      ><span class="devsite-nav-text" tooltip>Trợ lý mã</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/flutter-theme-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/flutter-theme-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/flutter-theme-agent"
+      ><span class="devsite-nav-text" tooltip>Trình tạo mã Flutter</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/docs-agent"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/docs-agent"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/docs-agent"
+      ><span class="devsite-nav-text" tooltip>Tìm kiếm nội dung</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/sql-talk"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/sql-talk"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/sql-talk"
+      ><span class="devsite-nav-text" tooltip>Nhân viên hỗ trợ khám phá dữ liệu</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/wordcraft"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/wordcraft"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/wordcraft"
+      ><span class="devsite-nav-text" tooltip>Trợ lý viết</span></a></li><li class="devsite-nav-item"><a href="/gemini-api/tutorials/slides-advisor"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/tutorials/slides-advisor"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/tutorials/slides-advisor"
+      ><span class="devsite-nav-text" tooltip>Người đánh giá trang trình bày</span></a></li></ul></div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Khắc phục sự cố</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshooting"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshooting"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshooting"
+      ><span class="devsite-nav-text" tooltip>Khắc phục sự cố API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/troubleshoot-ai-studio"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/troubleshoot-ai-studio"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/troubleshoot-ai-studio"
+      ><span class="devsite-nav-text" tooltip>Khắc phục sự cố với AI Studio</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/workspace"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/workspace"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/workspace"
+      ><span class="devsite-nav-text" tooltip>AI Studio với Google Workspace</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/quota"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/quota"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/quota"
+      ><span class="devsite-nav-text" tooltip>Yêu cầu tăng hạn mức</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Cộng đồng</span>
+      </div></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-external"><a href="https://discuss.ai.google.dev/"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: https://discuss.ai.google.dev/"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="https://discuss.ai.google.dev/"
+      ><span class="devsite-nav-text" tooltip>Diễn đàn dành cho nhà phát triển</span><span class="devsite-nav-icon material-icons"
+        data-icon="external"
+        data-title="Bên ngoài"
+        aria-hidden="true"></span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Pháp lý</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/terms"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/terms"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/terms"
+      ><span class="devsite-nav-text" tooltip>Điều khoản dịch vụ</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/available-regions"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/available-regions"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/available-regions"
+      ><span class="devsite-nav-text" tooltip>Khu vực khả dụng</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/gemini-api/docs/abuse-monitoring"
+        class="devsite-nav-title gc-analytics-event"
+        data-category="Site-Wide Custom Events"
+        data-label="Book nav link, pathname: /gemini-api/docs/abuse-monitoring"
+        track-type="bookNav"
+        track-name="click"
+        track-metadata-eventdetail="/gemini-api/docs/abuse-monitoring"
+      ><span class="devsite-nav-text" tooltip>Giám sát hành vi sai trái</span></a></li>
+          </ul>
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <ul class="devsite-nav-list" menu="Công cụ"
+          aria-label="Trình đơn bên" hidden>
+        
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/responsible"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Bộ công cụ AI tạo sinh có trách nhiệm"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Bộ công cụ AI tạo sinh có trách nhiệm
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://colab.google/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Colab"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Colab
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://firebase.google.com/docs/genkit"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Firebase Genkit"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Firebase Genkit
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://jax.readthedocs.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Tiếng JAX"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Tiếng JAX
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://keras.io/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Keras"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Keras
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://www.tensorflow.org/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: TensorFlow"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      TensorFlow
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+        
+        
+          
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+        
+      </devsite-book-nav>
+      <section id="gc-wrapper">
+        <main role="main" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          
+          
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="Trên trang này"
+                            depth="2"
+                            scrollbars
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav">
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+    <div class="devsite-banner devsite-banner-announcement nocontent"
+      
+        
+    background="google-blue"
+  
+      >
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          
+    Tính năng Tìm hiểu thông tin cơ bản bằng Google Tìm kiếm hiện đã ra mắt! <a class="button button-primary"   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Tìm hiểu thêm</a>
+
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="devsite-banner devsite-banner-translated nocontent">
+      <div class="devsite-banner-message">
+        <div class="devsite-banner-message-text">
+          <img src="https://ai.google.dev/_static/images/translated.svg?hl=vi"
+               class="devsite-banner-translated-image invert"
+               alt="">
+          <span class="devsite-banner-translated-text">
+            
+            Trang này được dịch bởi <a href="//cloud.google.com/translate/?hl=vi">Cloud Translation API</a>.
+          </span>
+        </div>
+        <devsite-switch-to-english-button></devsite-switch-to-english-button>
+      </div>
+    </div>
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation">
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="Tập hợp liên kết phân cấp">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+  <a href="https://ai.google.dev/?hl=vi"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Trang chủ
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api?hl=vi"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Gemini API"
+      
+    >
+    
+        Gemini API
+      
+  </a>
+  
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+  <a href="https://ai.google.dev/gemini-api/docs?hl=vi"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+        Tài liệu
+      
+  </a>
+  
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <devsite-feedback
+  position="header"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="header"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Gửi ý kiến phản hồi
+  
+  </button>
+</devsite-feedback>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Chiến lược nhắc tệp
+      
+    </h1>
+  <devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Đóng"
+
+      
+      close-button-text="Đã hiểu">
+
+    
+    <devsite-bookmark></devsite-bookmark>
+
+    <span slot="popout-heading">
+      
+      Sử dụng bộ sưu tập để sắp xếp ngăn nắp các trang
+    </span>
+    <span slot="popout-contents">
+      
+      Lưu và phân loại nội dung dựa trên lựa chọn ưu tiên của bạn.
+    </span>
+  </devsite-feature-tooltip>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  
+
+  
+
+
+
+
+
+
+<div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+<p>
+</p>
+
+
+
+
+
+<p>Nhóm mô hình trí tuệ nhân tạo (AI) Gemini được xây dựng để xử lý
+nhiều loại dữ liệu đầu vào, bao gồm văn bản, hình ảnh và âm thanh. Vì những
+các mô hình có thể xử lý nhiều loại hoặc <em>chế độ</em> dữ liệu, thì mô hình Gemini
+được gọi là <em>mô hình đa phương thức</em> hay được giải thích là có <em>khả năng đa phương thức</em>.</p>
+<aside class="note"><strong>Lưu ý:</strong><span> Một số mô hình Gemini cụ thể hỗ trợ câu lệnh bằng tệp nội dung nghe nhìn.
+Để biết thêm thông tin về các mô hình hỗ trợ tính năng này, hãy xem
+Hướng dẫn về <a href="https://ai.google.dev/gemini-api/docs/vision?hl=vi">Tầm nhìn</a> và <a href="https://ai.google.dev/gemini-api/docs/audio?hl=vi">Âm thanh</a>.</span></aside>
+<p>Trang này cung cấp hướng dẫn và các phương pháp hay nhất để sử dụng tệp đa phương tiện với
+các câu lệnh cho Gemini API. Để biết thông tin về cách sử dụng Gemini Files API cho
+tải các tệp đa phương tiện lên và đưa chúng vào câu lệnh của bạn, hãy xem
+<a href="https://ai.google.dev/gemini-api/docs/vision?hl=vi">Tầm nhìn</a>, <a href="https://ai.google.dev/gemini-api/docs/audio?hl=vi">Âm thanh</a> và
+Hướng dẫn <a href="https://ai.google.dev/gemini-api/docs/document-processing?hl=vi">Xử lý tài liệu</a>.</p>
+
+<h2 data-text="Dùng tệp nội dung nghe nhìn với câu lệnh" id="media-prompts" tabindex="-1">Dùng tệp nội dung nghe nhìn với câu lệnh</h2>
+
+<p>Việc có thể sử dụng nhiều loại dữ liệu trong câu lệnh sẽ giúp bạn
+tính linh hoạt trong những công việc mà bạn có thể giải quyết bằng Gemini API. Cho
+ví dụ: bạn có thể gửi cho mô hình ảnh chụp một bữa ăn ngon và yêu cầu mô hình đó viết
+một blog ngắn về bữa ăn.</p>
+
+<table style="border: 1px solid #D3D3D3">
+  <tbody><tr>
+    <td width="50%"><b>Câu lệnh</b></td>
+    <td width="50%"><b>Đáp</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #D3D3D3">
+      <p>Viết một bài đăng ngắn và hấp dẫn trên blog dựa trên bức ảnh này. Phải
+      thêm nội dung mô tả về bữa ăn trong ảnh và nói về hành trình của tôi
+      chuẩn bị bữa ăn.</p>
+      <br />
+      <img alt="Bánh quy" src="https://ai.google.dev/static/gemini-api/docs/images/image_prompt.png?hl=vi" style="width: 100%; border: 1px solid black" />
+    </td>
+    <td style="background-color:#f3f3ff">
+      <p>Chuẩn bị bữa ăn là một cách tuyệt vời để tiết kiệm thời gian và tiền bạc, đồng thời nó cũng có thể
+      giúp bạn ăn uống lành mạnh hơn. Bữa ăn này là ví dụ tuyệt vời về một bữa ăn lành mạnh
+      và ngon miệng có thể dễ dàng được chuẩn bị trước.</p>
+
+      <p>Bữa ăn này có cơm lứt, rau củ nướng và sốt teriyaki gà.
+      Gạo lứt là một loại carbohydrate lành mạnh và phức tạp sẽ cung cấp cho bạn
+      năng lượng bền vững. Rau củ nướng là cách tuyệt vời để bạn ăn uống mỗi ngày
+      vitamin và khoáng chất, và sốt teriyaki gà là một món ăn ngon
+      thức ăn giàu protein.</p>
+
+      <p>Món này cũng rất dễ chế biến. Chỉ cần nấu gạo lứt, rang
+      rau củ và nấu món sốt teriyaki gà. Sau khi nấu xong mọi thứ,
+      chia thành các hộp đựng thức ăn chuẩn bị sẵn rồi bảo quản trong tủ lạnh.
+      Sau đó, bạn có thể lấy một chiếc hộp đựng và bắt đầu những buổi sáng bận rộn!</p>
+
+      <p>Nếu bạn đang tìm kiếm một bữa ăn lành mạnh, ngon lành có thể dễ dàng
+      được chuẩn bị trước, bữa ăn này là một lựa chọn tuyệt vời. Trong đó có rất nhiều
+      chất dinh dưỡng và hương vị và món ăn này chắc chắn sẽ giúp bạn cảm thấy đầy đủ và hài lòng.</p>
+
+      <p>Sau đây là phần chuẩn bị bữa ăn lành mạnh và ngon lành!</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h2 data-text="Chiến lược nhắc bằng nội dung nghe nhìn" id="strategies" tabindex="-1">Chiến lược nhắc bằng nội dung nghe nhìn</h2>
+
+<p>Nếu bạn gặp khó khăn trong việc nhận kết quả mong muốn từ những câu lệnh sử dụng
+tệp đa phương tiện, có một số chiến lược có thể giúp bạn đạt được kết quả mong muốn
+muốn. Các phần sau đây cung cấp phương pháp thiết kế và cách khắc phục sự cố
+các mẹo cải thiện những câu lệnh sử dụng phương thức nhập đa phương thức.</p>
+
+
+
+<p>Bạn có thể cải thiện các câu lệnh đa phương thức bằng cách làm theo các phương pháp hay nhất sau đây:</p>
+
+<ul>
+    <li>
+        <h3 data-text="Kiến thức cơ bản về thiết kế câu lệnh" id="prompt-design-fundamentals" tabindex="-1"><a href="#fundamentals">Kiến thức cơ bản về thiết kế câu lệnh</a></h3>
+        <ul>
+            <li><strong>Trình bày cụ thể trong chỉ dẫn</strong>: Soạn hướng dẫn rõ ràng và súc tích, không để người dùng hiểu sai.</li>
+            <li><strong>Thêm một vài ví dụ vào câu lệnh của bạn:</strong> Sử dụng các ví dụ thực tế chỉ dựa trên thực tế để minh hoạ mục tiêu bạn muốn đạt được.</li>
+            <li><strong>Chia nhỏ từng bước</strong>: Chia các công việc phức tạp thành các mục tiêu phụ dễ quản lý nhằm hướng dẫn mô hình xuyên suốt quy trình này.</li>
+            <li><strong>Chỉ định định dạng đầu ra</strong>: Trong câu lệnh của bạn, hãy yêu cầu đầu ra ở định dạng bạn muốn, chẳng hạn như Markdown, JSON, HTML, v.v. </li>
+            
+            <li><strong>Đặt hình ảnh lên trước cho những câu lệnh chỉ có một hình ảnh</strong>: Mặc dù Gemini có thể xử lý các câu lệnh dạng hình ảnh và văn bản theo bất kỳ thứ tự nào, nhưng đối với những câu lệnh chứa một hình ảnh duy nhất, Gemini có thể hoạt động hiệu quả hơn nếu bạn đặt hình ảnh đó trước câu lệnh dạng văn bản.</li>
+            
+        </ul>
+    </li>
+
+    <li>
+        <h3 data-text="Khắc phục sự cố cho câu lệnh đa phương thức" id="troubleshooting-your-multimodal-prompt" tabindex="-1"><a href="#troubleshooting">Khắc phục sự cố cho câu lệnh đa phương thức</a></h3>
+        <ul>
+            <li><strong>Nếu mô hình không vẽ thông tin từ phần có liên quan của hình ảnh:</strong> Hãy thả gợi ý về các khía cạnh của hình ảnh mà bạn muốn câu lệnh lấy thông tin.</li>
+            
+            <li><strong>Nếu kết quả mô hình quá chung chung (chưa đủ phù hợp với hình ảnh): </strong>Khi bắt đầu câu lệnh, hãy thử yêu cầu mô hình mô tả(các) hình ảnh trước khi đưa ra hướng dẫn nhiệm vụ hoặc thử yêu cầu mô hình tham chiếu đến nội dung trong hình ảnh.</li>
+            
+        </ul>
+    </li>
+</ul>
+
+<h2 data-text="Nguyên tắc cơ bản về thiết kế câu lệnh" id="fundamentals" tabindex="-1">Nguyên tắc cơ bản về thiết kế câu lệnh</h2>
+
+<p>Phần này mở rộng các phương pháp hay nhất được liệt kê trong phần trước.</p>
+<p>Lưu ý: Kết quả lập mô hình từ các ví dụ về Gemini sau đây có thể khác nhau giữa các lần chạy.</p>
+
+<h3 data-text="Hãy nêu cụ thể trong chỉ dẫn của bạn" id="be-specific-in-your-instructions" tabindex="-1">Hãy nêu cụ thể trong chỉ dẫn của bạn</h3>
+
+<p>Câu lệnh hiệu quả nhất khi rõ ràng và chi tiết. Nếu đã có một kết quả cụ thể, bạn nên đưa yêu cầu đó vào lời nhắc để đảm bảo nhận được kết quả mong muốn. </p>
+<p>Đôi khi, ý định của câu lệnh có vẻ rõ ràng đối với người viết câu lệnh, nhưng thực ra lại không được chỉ định rõ ràng. Để tuỳ chỉnh hoạt động của mô hình, hãy cân nhắc xem câu lệnh của bạn có thể bị diễn giải (sai) như thế nào, đồng thời đảm bảo rằng hướng dẫn bạn đưa ra cụ thể và rõ ràng. Đừng quên chừa ra một khoảng trống nhỏ để người dùng hiểu sai</p>
+<p>Đối với hình ảnh bảng máy bay tại sân bay này, hãy yêu cầu mô hình chỉ "mô tả hình ảnh này" có thể tạo ra nội dung mô tả chung. Nếu cần mô hình phân tích cú pháp thời gian và thành phố trong hình ảnh, bạn có thể đưa trực tiếp yêu cầu đó vào câu lệnh của mình.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=vi" /><p>Mô tả hình ảnh này.</p></td>
+        <td><p>Hình ảnh thể hiện bảng thông tin về chuyến bay đến và đi của sân bay.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img alt="Lịch trình di chuyển" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/timetable.png?hl=vi" /><p>Phân tích cú pháp thời gian và thành phố từ bảng thông tin sân bay hiển thị trong hình ảnh này thành một danh sách.</p></td>
+      <td><p></p><li>10:50 Mát-xcơ-va</li>
+        <li>11:05 ở Scotland</li>
+        <li>11:05 London</li>
+        <li>11:10 Bucharest</li>
+        <li>11:30 Kiev</li>
+        <li>11:35 Dublin</li>
+        <li>11:45 Phía Đông Trung du</li>
+        <li>12:15 Sofia</li>
+        <li>12:30 giờ London</li>
+        <li>12:30 Newcastle</li>
+        <li>12:40 St{/7}</li>
+        <li>12:40 London</li>
+        <li>12:45 ở London</li><p></p></td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="Thêm một vài ví dụ" id="add-a-few-examples" tabindex="-1">Thêm một vài ví dụ</h3>
+
+<p>Mô hình Gemini có thể chấp nhận nhiều thông tin đầu vào và có thể dùng làm ví dụ để hiểu rõ
+đầu ra mà bạn muốn. Việc thêm những ví dụ này có thể giúp mô hình này xác định các quy luật và áp dụng
+  mối quan hệ giữa hình ảnh đã cho và câu trả lời trong ví dụ mới. Quá trình này còn được gọi là
+  "một vài cảnh" học tập.</p>
+
+<p>Trong ví dụ dưới đây, kết quả ban đầu được viết ở dạng câu và cũng chứa giá trị
+quốc gia (Brazil). Giả sử bạn muốn dữ liệu đầu ra ở một định dạng hoặc kiểu khác và bạn muốn
+thành phố chứ không phải quốc gia. Việc thêm các ví dụ vài lần vào câu lệnh của bạn có thể giúp định hướng cho mô hình
+để phản hồi theo cách bạn muốn.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh</b></th>
+      <th width="30%"><b>Phản hồi của mô hình</b></th>
+    </tr>
+    <tr>
+      <td><img alt="Lịch trình di chuyển" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=vi" /><p>Xác định thành phố dọc theo địa danh.</p></td>
+      <td><p>Địa danh là tượng Chúa Cứu thế ở thành phố Rio de Janeiro, Brazil.</p></td>
+    </tr>
+</tbody></table>
+
+<table>
+</table><table class="alternating-even-rows">
+  <tbody><tr>
+    <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+    <th width="30%"><b>Cải thiện câu trả lời</b></th>
+  </tr>
+  <tr>
+    <td>
+      <p>Xác định thành phố dọc theo địa danh.</p>
+      <img alt="đấu trường La Mã" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/colosseum.png?hl=vi" />
+    </td>
+    <td>
+      <p>thành phố: Rome, địa danh: Đấu trường La Mã.</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="Tử Cấm Thành" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/forbidden-city.png?hl=vi" />
+    </td>
+    <td>
+      <p>thành phố: Bắc Kinh, địa danh: Tử Cấm Thành</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="thành phố bị cấm" class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/redeemer.png?hl=vi" />
+    </td>
+    <td>
+      <p>thành phố: Rio de Janeiro, địa danh: tượng Chúa Cứu thế</p>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3 data-text="Chia nhỏ từng bước" id="break-it-down-step-by-step" tabindex="-1">Chia nhỏ từng bước</h3>
+
+<p>Đối với những nhiệm vụ phức tạp như những nhiệm vụ đòi hỏi cả hiểu hình ảnh và lý luận, tính năng này có thể hữu ích
+để chia công việc thành các bước nhỏ hơn, đơn giản hơn. Ngoài ra, phương pháp này cũng có thể hiệu quả nếu bạn
+trực tiếp yêu cầu mô hình đó "nghĩ từng bước" trong câu lệnh của bạn.</p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=vi" /><p>Khi nào tôi sẽ hết giấy vệ sinh?</p></td>
+        <td><p>Sắp tới, bạn chỉ còn 3 lần tung.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=vi" /><p>
+          </p><ol>1. Trước tiên, hãy đếm xem có bao nhiêu cuộn giấy vệ sinh trong bức ảnh này.</ol>
+          <ol>2. Sau đó, hãy xác định lượng giấy vệ sinh mà một người thông thường dùng mỗi ngày.</ol>
+          <ol>3. Hãy tính xem những cuộn giấy vệ sinh này sẽ tồn tại trong bao lâu.</ol>
+          <p></p></td>
+      <td><p>
+          </p><ol>1. Hình này có 3 cuộn giấy vệ sinh.</ol>
+          <ol>2. Một người bình thường dùng khoảng 20 tờ giấy vệ sinh mỗi ngày.</ol>
+          <ol>3. Nếu mỗi cuộn chứa 200 trang tính thì mỗi cuộn sẽ dùng được khoảng 10 ngày. Do đó, 3 lần tung sẽ kéo dài trong khoảng một tháng.</ol>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>Các bài toán hoặc các dạng bài toán đố khác là những bài toán rất phù hợp để yêu cầu mô hình tư duy theo từng bước.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh</b></th>
+      <th width="30%"><b>Đáp</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=vi" /><p>
+          </p><p>Số hạng thứ 4 trong dãy số là gì?</p>
+          <p></p></td>
+      <td><p>-135
+        </p></td>
+    </tr>
+</tbody></table>
+
+<p>Phản hồi từ mô hình không chính xác. Một số cách để cải thiện việc này là yêu cầu mô hình phân tích cú pháp vấn đề trước khi trả lời câu lệnh.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh</b></th>
+      <th width="30%"><b>Đáp</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=vi" /><p>
+          </p><p>Trước tiên, hãy phân tích cú pháp công thức trong hình ảnh này.</p>
+          <p>Sau đó dựa vào công thức, hãy trả lời "số hạng thứ 4 trong dãy là gì?".</p>
+          <p></p></td>
+      <td><p></p><details>
+        <summary><em>Nhấp để mở rộng kết quả</em></summary>
+<p>$$ b(n) = b(n-1) * (-3) $$</p>
+<p>$$ b(1) = 15 $$</p>
+<ol>
+<li>Thay n = 4 vào công thức:</li>
+<p>$$ b(4) = b(4-1) * (-3) $$</p>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<li>Chúng ta không biết giá trị của b(3), vì vậy hãy thế n = 3 vào công thức:</li>
+<p>$$ b(3) = b(3-1) * (-3) $$</p>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<li>Chúng ta không biết giá trị của b(2), vì vậy hãy thay n = 2 vào công thức:</li>
+<p>$$ b(2) = b(2-1) * (-3) $$</p>
+<p>$$ b(2) = b(1) * (-3) $$</p>
+<li>Chúng ta biết giá trị của b(1) là 15, vì vậy hãy thay nó vào công thức:</li>
+<p>$$ b(2) = 15 * (-3) $$</p>
+<p>$$ b(2) = -45 $$</p>
+<li>Bây giờ, chúng ta đã biết giá trị của b(2), hãy thế nó vào công thức cho b(3):</li>
+<p>$$ b(3) = b(2) * (-3) $$</p>
+<p>$$ b(3) = -45 * (-3) $$</p>
+<p>$$ b(3) = 135 $$</p>
+<li>Bây giờ, chúng ta đã biết giá trị của b(3), hãy thế nó vào công thức cho b(4):</li>
+<p>$$ b(4) = b(3) * (-3) $$</p>
+<p>$$ b(4) = 135 * (-3) $$</p>
+<p>$$ b(4) = -405 $$</p>
+</ol>
+<p>Do đó, số hạng thứ 4 trong dãy là -405.</p>
+      </details>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<p>Câu trả lời này của mô hình là chính xác. Giờ đây, để làm cho câu trả lời đơn giản hơn, bạn có thể yêu cầu mô hình suy nghĩ theo từng bước.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/math.jpg?hl=vi" /><p>
+          </p><p>Số hạng thứ 4 trong dãy số là gì? Hãy suy nghĩ theo từng bước.</p>
+          <p></p></td>
+      <td><p>Số hạng đầu tiên là 15.</p>
+        <p>Số hạng thứ hai là b(1) * (-3) = 15 * (-3) = -45.</p>
+          <p>Số hạng thứ ba là b(2) * (-3) = -45 * (-3) = 135.</p>
+            <p>Số hạng thứ tư là b(3) * (-3) = 135 * (-3) = -405.</p>
+        <p></p></td>
+    </tr>
+</tbody></table>
+
+<h3 data-text="Hãy thử chỉ định định dạng đầu ra" id="try-specifying-the-output-format" tabindex="-1">Hãy thử chỉ định định dạng đầu ra</h3>
+
+<p>Một vấn đề phổ biến là đầu ra của mô hình cần phải ở một định dạng nhất định (ví dụ: Markdown, JSON, HTML), đặc biệt là khi đầu ra của mô hình cần phải
+  được nhập bởi tác vụ hạ nguồn. Bạn có thể cố gắng tạo kết quả ở định dạng đó bằng cách hướng dẫn mô hình làm như vậy trong câu lệnh. Dưới đây là hai ví dụ:</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/excel-example.png?hl=vi" /><p>Phân tích cú pháp bảng trong hình ảnh này thành định dạng Markdown</p></td>
+        <td>
+          <p>| Tiêu đề | Trạng thái | Thời gian | Ngày bắt đầu | Ngày đến hạn |</p>
+          <p> | ------- | ------ | ---- | --------- | ------ |</p>
+          <p>| Toán học | Xong | 1,5 giờ | 29/11/2023 | 1/12/2023 |</p>
+          <p>| Địa lý | Xong | 30 phút | 2/12/2023 | 4/12/2023 |</p>
+          <p>| Vật lý | Đang tiến hành | 2 giờ | 3/12/2023 | 5/12/2023 |</p>
+          <p>| Sinh học | Chưa bắt đầu | 6 giờ | 2/11/2016 | 6/12/2023 |</p>
+          </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh</b></th>
+      <th width="30%"><b>Phản hồi của mô hình</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/spanish-meal.png?hl=vi" />
+        <p>Cung cấp danh sách tất cả các thuộc tính sau đây:</p>
+        <p>nguyên liệu, loại món ăn, ăn chay hoặc không, ở định dạng JSON</p></td>
+      <td><p><code dir="ltr" translate="no">
+        </code></p><p><code dir="ltr" translate="no">```json```</code></p>
+        <p><code dir="ltr" translate="no">{</code></p>
+          <p><code dir="ltr" translate="no">"ingredients": [</code></p>
+            <p><code dir="ltr" translate="no">"rice",</code></p>
+              <p><code dir="ltr" translate="no">"shrimp",</code></p>
+                <p><code dir="ltr" translate="no">"clams",</code></p>
+                  <p><code dir="ltr" translate="no">"mussels",</code></p>
+                    <p><code dir="ltr" translate="no">"peas",</code></p>
+                      <p><code dir="ltr" translate="no">"tomatoes",</code></p>
+                        <p><code dir="ltr" translate="no">"onions",</code></p>
+                          <p><code dir="ltr" translate="no">"garlic",</code></p>
+                            <p><code dir="ltr" translate="no">"olive oil",</code></p>
+                              <p><code dir="ltr" translate="no">"paprika",</code></p>
+                                <p><code dir="ltr" translate="no">"salt",</code></p>
+                                  <p><code dir="ltr" translate="no">"pepper"</code></p>
+                                    <p><code dir="ltr" translate="no">],</code></p>
+                                      <p><code dir="ltr" translate="no">"type of cuisine": "Spanish",</code></p>
+                                        <p><code dir="ltr" translate="no">"vegetarian": false</code></p>
+</td>
+</tr>
+</tbody></table>
+
+<h3 data-text="Đặt hình ảnh của bạn lên đầu tiên cho các lời nhắc chỉ có một hình ảnh" id="put-your-image-first-for-single-image-prompts" tabindex="-1">Đặt hình ảnh của bạn lên đầu tiên cho các lời nhắc chỉ có một hình ảnh</h3>
+
+<p>Mặc dù Gemini có thể diễn giải hình ảnh và văn bản theo thứ tự bất kỳ trong câu lệnh, nhưng hãy đặt một hình ảnh duy nhất
+trước khi lời nhắc qua văn bản có thể mang lại kết quả tốt hơn. Trong các mẫu sau, bạn sẽ thấy hình ảnh
+xuất hiện trước nội dung trong mỗi câu lệnh.</p>
+
+
+<h2 data-text="Khắc phục sự cố với câu lệnh đa phương thức" id="troubleshooting" tabindex="-1">Khắc phục sự cố với câu lệnh đa phương thức</h2>
+
+<p>Bạn có thể cần phải khắc phục sự cố cho câu lệnh của mình nếu không nhận được câu trả lời hữu ích. Dưới đây là một vài chiến lược bạn có thể thử.</p>
+
+<h3 data-text="Nếu mô hình không lấy thông tin từ phần có liên quan của hình ảnh" id="if-the-model-is-not-drawing-information-from-the-relevant-part-of-the-image" tabindex="-1">Nếu mô hình không lấy thông tin từ phần có liên quan của hình ảnh</h3>
+
+<p>Để nhận được câu trả lời cụ thể hơn, bạn có thể chỉ ra khía cạnh của hình ảnh mà bạn muốn nhận được câu lệnh
+lấy thông tin từ để cung cấp thông tin phản hồi.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=vi" /><p>Tã này sẽ dùng được cho em bé trong bao nhiêu ngày?</p></td>
+        <td><p>Tã sẽ tồn tại trong 198 ngày trước khi hết.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/diapers.png?hl=vi" />
+        <p>Tã lót này sẽ dùng được bao lâu trước khi tôi hết?</p>
+        <p>Sử dụng trọng lượng hiển thị trên hộp để xác định tuổi của trẻ và sử dụng tổng số tã có trong hộp.</p>
+        <p>Chia tổng số cho số lượng tã mà trẻ trải qua mỗi ngày.</p></td>
+      <td>
+        <p>Hộp có 198 tã. Hộp có ghi rõ tã dành cho trẻ nặng 22-37 pao.</p>
+        <p>Trẻ em trung bình trong khoảng cân nặng này có khả năng từ 1 đến 2 tuổi.</p>
+        <p>Một đứa trẻ 2 tuổi thường trải qua 6 tã mỗi ngày, do đó, tã sẽ kéo dài khoảng 33 ngày (198/6).</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<h3 data-text="Nếu đầu ra mô hình quá chung chung và không đủ phù hợp với đầu vào hình ảnh" id="if-the-model-output-is-too-generic-and-not-tailored-enough-to-the-image-input" tabindex="-1">Nếu đầu ra mô hình quá chung chung và không đủ phù hợp với đầu vào hình ảnh</h3>
+
+
+<p>Để giúp mô hình điều chỉnh phản hồi cho phù hợp với(các) hình ảnh, hãy thử yêu cầu mô hình mô tả hình ảnh trước khi thực hiện nhiệm vụ lập luận.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=vi" />
+          <p>Điểm chung giữa những hình ảnh này là gì?</p></td>
+        <td><p>Cả 4 hình ảnh đều là ví dụ về ảnh phong cảnh.</p></td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=vi" />
+        <p>Đầu tiên, hãy mô tả chi tiết nội dung trong mỗi hình ảnh. Điểm chung giữa những hình ảnh này là gì?</p></td>
+      <td>
+        <p>Hình ảnh đầu tiên là một người đang đóng gói vali. Hình ảnh thứ hai là hành lang trống trong một trung tâm mua sắm. Hình ảnh thứ ba cho thấy một cuộn giấy vệ sinh. Hình ảnh thứ tư cho thấy biển tối và bão bão.</p>
+        <p>Điểm chung giữa những hình ảnh này là chúng đều là ví dụ về không gian tối giản. Không gian ước chừng là những địa điểm hoặc tình huống nằm giữa hai địa điểm hoặc tình huống khác. Chúng thường có đặc điểm là không chắc chắn hoặc không rõ ràng.</p>
+        <p>Hình ảnh đầu tiên cho thấy một người đang ở nhà và đang đi du lịch. Hình ảnh thứ hai là hành lang giữa hai cửa hàng. Hình ảnh thứ ba là giấy vệ sinh, có thể tượng trưng cho một phòng tắm. Phòng tắm là không gian chuyển tiếp giữa không gian riêng tư
+        và lĩnh vực công cộng. Đó là nơi chúng ta chuẩn bị bước vào hoặc rời khỏi thế giới bên ngoài.</p>
+        <p>Hình ảnh thứ tư cho thấy biển ở giữa bình lặng và bão.</p>
+        <p>Không gian gần gũi có thể vừa thú vị vừa đáng lo ngại. Chúng có thể là nơi có sự bắt đầu mới hoặc nơi kết thúc. Nội dung có thể là một nơi suy ngẫm hoặc một nơi hành động.</p>
+          <p></p>
+      </td>
+    </tr>
+</tbody></table>
+
+<p>Bạn cũng có thể thử yêu cầu mô hình một cách rõ ràng tham chiếu đến nội dung trong hình ảnh.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/packing.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/mall.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/toilet-paper.jpg?hl=vi" />
+        <img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/ocean.jpg?hl=vi" />
+        <p>Điểm chung giữa những hình ảnh này là gì? Tham khảo nội dung trong các hình ảnh trong câu trả lời của bạn.</p></td>
+      <td>
+        <p>Tất cả hình ảnh này đều liên quan đến du lịch. Hình ảnh đầu tiên là một người đang đóng gói vali, hình ảnh thứ hai cho thấy
+          hành lang trống trong một trung tâm mua sắm, hình ảnh thứ ba cho thấy một chồng giấy vệ sinh và hình ảnh thứ tư cho thấy
+          biển tối đen bão bùng.</p>
+        <p>Tất cả những hình ảnh này đều liên quan đến du lịch vì chúng là tất cả những thứ mà mọi người cần hoặc sử dụng khi
+          họ đi du lịch. Hình ảnh đầu tiên là một người đang đóng gói vali. Đây là hành động mà mọi người thường làm khi sắp xếp hành lý
+          khi đang thực hiện một chuyến đi. Hình ảnh thứ hai cho thấy hành lang trống rỗng trong một trung tâm mua sắm, nơi mọi người
+          thường tìm mua đồ cho chuyến đi của mình. Hình ảnh thứ ba cho thấy một chồng giấy vệ sinh, đó là
+          mà mọi người thường sử dụng khi đi du lịch. Hình ảnh thứ tư cho thấy biển tối và bão bão,
+          thứ mà mọi người thường gặp khi đi du lịch.</p>
+      </td>
+    </tr>
+</tbody></table>
+
+
+<p>Các mẹo tương tự cũng áp dụng cho sản phẩm sáng tạo từ hình ảnh. Trong ví dụ sau với
+  chú thỏ, việc yêu cầu mô hình bao gồm các khía cạnh từ hình ảnh một cách rõ ràng có thể cải thiện kết quả.</p><p>
+
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Phản hồi của mô hình</th>
+    </tr><tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=vi" />
+          <p>Bạn có thể viết cho tôi một bài thơ về hình ảnh này không?</p></td>
+        <td>
+          <p>Chú thỏ nhỏ, rất mềm và nâu,<br />
+          Nhảy lên nhảy xuống.<br />
+          Tai bạn thật dài, đuôi bạn thật nhỏ,<br />
+          Bạn là sinh vật dễ thương nhất trong số đó.</p>
+          <p>Bạn gặm cỏ, thật xanh và ngọt ngào,<br />
+          Và biến đi khi bạn thấy tôi.<br />
+          Nhưng tôi sẽ luôn là bạn của bạn,<br />
+          Thỏ nhỏ, cho đến cuối video.</p>
+        </td>
+      </tr>
+</tbody></table>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody><tr>
+      <th width="40%"><b>Câu lệnh đã cập nhật</b></th>
+      <th width="30%"><b>Cải thiện câu trả lời</b></th>
+    </tr>
+    <tr>
+      <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/rabbit.jpg?hl=vi" />
+        <p>Bạn có thể viết cho tôi một bài thơ mang tính mô tả và kịch tính về hình ảnh này kèm theo thông tin về vị trí không?</p></td>
+      <td>
+          <p>Chú thỏ nhỏ trên xanh lục,<br />
+          Đôi tai dài quá, hóm hỉnh quá.<br />
+          Bạn thấy gì ngoài kia,<br />
+          Ở phía xa, bạn nhìn chằm chằm ở đâu?</p>
+          <p>Đó có phải là màu xanh đại dương không,<br />
+          Lấp lánh dưới ánh nắng mặt trời?<br />
+          Hoặc những con sóng ập đến và gầm thét,<br />
+          Một giai điệu mà bạn yêu thích?</p>
+          <p>Thỏ nhỏ, nói thật đi,<br />
+          Điều gì thu hút sự chú ý của bạn?<br />
+          Đó có phải là làn gió thổi mặn,<br />
+          Hoặc chim hải âu khóc điều đó được không?</p>
+          <p>Có thể là do sức bao hàm của chúng,<br />
+          Một thế giới thật rộng lớn và nhỏ bé.<br />
+          Nơi mơ ước lang thang,<br />
+          Và các cuộc phiêu lưu là điều có thể gieo hạt.</p>
+          <p>Thỏ nhỏ, không biết bạn mơ ước gì,<br />
+          Thật bình yên khi bạn ngồi trên bãi cỏ.<br />
+          Bạn có khao khát khám phá biển sâu,<br />
+          Hoặc ở trên mặt đất, nơi bạn có thể nhảy?</p>
+          <p>Dù là gì, bạn thỏ nhỏ nào!<br />
+          Hãy giữ cho ngọn lửa diệu kỳ đó cháy sáng.<br />
+          Theo ước mơ và khát vọng của bạn,<br />
+          Một thế giới rộng lớn đang chờ đợi tác phẩm của bạn.</p>
+      </td>
+    </tr>
+</tbody></table>
+
+</p><h3 data-text="Khắc phục vấn đề không thực hiện được phần nào của câu lệnh" id="troubleshooting-which-part-of-the-prompt-failed" tabindex="-1">Khắc phục vấn đề không thực hiện được phần nào của câu lệnh</h3>
+<p>Có thể khó biết được liệu một câu lệnh có thành công hay không do mô hình
+không <strong>hiểu hình ảnh</strong> khi bắt đầu hoặc liệu có hiểu hình ảnh nhưng
+không thực hiện <strong> các bước lập luận</strong> chính xác sau đó.</p>
+<p>Để phân biệt những lý do đó, hãy yêu cầu mô hình mô tả nội dung trong hình ảnh.</p>
+<p>Trong ví dụ dưới đây, nếu mô hình phản hồi bằng một món ăn vặt có vẻ bất ngờ khi đi đôi với
+(ví dụ: bỏng ngô), trước tiên bạn có thể khắc phục sự cố để xác định xem mô hình có được nhận dạng chính xác không
+mà hình ảnh có chứa trà.</p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Lời nhắc khắc phục sự cố</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=vi" /><p>Tôi có thể làm món ăn vặt nào trong 1 phút mà hợp lý với việc này nhỉ?</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=vi" /><p>Mô tả nội dung trong hình ảnh này.
+          </p></td>
+      </tr>
+</tbody></table>
+
+<p>Một chiến lược khác là yêu cầu mô hình giải thích lý do của nó. Điều này có thể giúp bạn thu hẹp phần nào của nguyên nhân gây ra vấn đề, nếu có.</p><p>
+
+<table>
+  </table><table class="alternating-even-rows">
+    <tbody>
+    <tr>
+    <th style="width:40%">Câu lệnh</th>
+    <th style="width:30%">Lời nhắc khắc phục sự cố</th>
+      </tr>
+      <tr>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=vi" /><p>Tôi có thể làm món ăn vặt nào trong 1 phút mà hợp lý với việc này nhỉ?</p></td>
+        <td><img class="fit-picture" src="https://ai.google.dev/static/gemini-api/docs/images/tea-set.png?hl=vi" /><p>Tôi có thể làm món ăn vặt nào trong 1 phút mà hợp lý với việc này nhỉ? Vui lòng giải thích lý do.</p></td>
+      </tr>
+</tbody></table>
+
+</p><h3 data-text="Điều chỉnh tham số lấy mẫu" id="tuning-the-sampling-parameters" tabindex="-1">Điều chỉnh tham số lấy mẫu</h3>
+<p>Trong mỗi yêu cầu, không chỉ lời nhắc đa phương thức mà bạn còn gửi một nhóm thông số lấy mẫu cho mô hình.
+Mô hình có thể tạo ra kết quả khác nhau cho các giá trị thông số khác nhau. Thử nghiệm với
+để nhận được giá trị tốt nhất cho tác vụ. Sau đây là các thông số thường được điều chỉnh nhất:</p>
+<ul>
+<li>Nhiệt độ</li>
+<li>trên cùng</li>
+<li>hàng đầu</li>
+</ul>
+
+<h4 data-text="Nhiệt độ" id="temperature" tabindex="-1">Nhiệt độ</h4>
+<p>Nhiệt độ được dùng để lấy mẫu trong quá trình tạo phản hồi, xảy ra khi áp dụng giá trị đỉnh P và K trên cùng.
+Nhiệt độ kiểm soát mức độ ngẫu nhiên trong việc lựa chọn mã thông báo. Nhiệt độ thấp hơn sẽ phù hợp với những câu lệnh
+đòi hỏi câu trả lời sáng tạo hoặc mang tính quyết định hơn, ít cởi mở hoặc sáng tạo hơn, trong khi nhiệt độ cao hơn có thể dẫn đến
+kết quả sáng tạo hoặc đa dạng. Nhiệt độ bằng 0 có tính xác định, nghĩa là phản hồi xác suất cao nhất
+luôn được chọn.<br />
+</p><p>Đối với hầu hết các trường hợp sử dụng, hãy thử bắt đầu ở mức nhiệt độ là 0,4. Nếu bạn cần nhiều kết quả sáng tạo hơn, hãy thử tăng
+nhiệt độ. Nếu bạn quan sát thấy ảo giác rõ ràng, hãy thử giảm nhiệt độ.</p>
+
+<h4 data-text="Hàng đầu" id="top-k" tabindex="-1">Hàng đầu</h4>
+
+<p>Top-K thay đổi cách mô hình chọn mã thông báo cho đầu ra. K hàng đầu là 1 có nghĩa là mã thông báo được chọn tiếp theo là
+có khả năng cao nhất trong số tất cả mã thông báo trong vốn từ của mô hình (còn được gọi là giải mã tham lam), trong khi
+hàng đầu là 3 có nghĩa là mã thông báo tiếp theo được chọn trong số ba mã thông báo có khả năng xuất hiện nhất theo
+sử dụng nhiệt độ.<br />
+</p><p>Đối với mỗi bước chọn mã thông báo, những mã thông báo hàng đầu có xác suất cao nhất sẽ được lấy mẫu. Sau đó
+các mã thông báo được lọc thêm dựa trên bên trên cùng với mã thông báo cuối cùng được chọn bằng cách lấy mẫu nhiệt độ.</p>
+
+<p>Hãy chỉ định một giá trị thấp hơn để có ít câu trả lời ngẫu nhiên hơn và giá trị cao hơn để có nhiều câu trả lời ngẫu nhiên hơn.
+Giá trị mặc định của top-K là 32.</p>
+
+<h4 data-text="Hàng đầu" id="top-p" tabindex="-1">Hàng đầu</h4>
+
+<p>P hàng đầu thay đổi cách mô hình chọn mã thông báo cho đầu ra. Mã thông báo được chọn trong số nhiều mã thông báo nhất (xem top-K)
+tối thiểu có thể xảy ra cho đến khi tổng xác suất của chúng bằng giá trị P hàng đầu. Ví dụ: nếu mã thông báo
+A, B và C có xác suất là 0,6, 0,3, 0,1 và giá trị đỉnh P là 0,9, thì mô hình sẽ
+chọn A hoặc B làm mã thông báo tiếp theo bằng cách sử dụng nhiệt độ và loại trừ C làm ứng viên.<br />
+</p><p>Hãy chỉ định một giá trị thấp hơn để có ít câu trả lời ngẫu nhiên hơn và giá trị cao hơn để có nhiều câu trả lời ngẫu nhiên hơn.
+Giá trị mặc định của đỉnh P là 1,0.</p>
+
+<h2 data-text="Các bước tiếp theo" id="next-steps" tabindex="-1">Các bước tiếp theo</h2>
+
+<ul>
+<li>Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng <a href="http://aistudio.google.com?hl=vi">AI của Google
+Studio</a>.</li>
+<li>Để được hướng dẫn thêm về cách thiết kế câu lệnh, hãy tham khảo
+<a href="https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi">Chiến lược lời nhắc</a>.</li>
+</ul>
+<link data-page-link="" href="https://ai.google.dev/site-assets/css/style.css?v=2&hl=vi" rel="stylesheet" /><link data-page-link="" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+
+  
+
+  
+</div>
+
+  
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+         <devsite-feedback
+  position="footer"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="footer"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    
+    Gửi ý kiến phản hồi
+  
+  </button>
+</devsite-feedback>
+       
+    
+    
+  
+
+  
+  <div class="devsite-floating-action-buttons">
+  
+  
+</div>
+</article>
+
+
+<devsite-content-footer class="nocontent">
+  <p>Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo <a href="https://creativecommons.org/licenses/by/4.0/">Giấy phép ghi nhận tác giả 4.0 của Creative Commons</a> và các mẫu mã lập trình được cấp phép theo <a href="https://www.apache.org/licenses/LICENSE-2.0">Giấy phép Apache 2.0</a>. Để biết thông tin chi tiết, vui lòng tham khảo <a href="https://developers.google.com/site-policies?hl=vi">Chính sách trang web của Google Developers</a>. Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.</p>
+  <p>Cập nhật lần gần đây nhất: 2024-08-22 UTC.</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+    
+    
+    <template class="devsite-thumb-rating-feedback">
+      <devsite-feedback
+  position="thumb-rating"
+  project-name="Gemini API"
+  product-id="5292923"
+  bucket="documentation"
+  context=""
+  version="t-devsite-webserver-20241114-r00-rc02.464921008191574316"
+  data-label="Send Feedback Button"
+  track-type="feedback"
+  track-name="sendFeedbackLink"
+  track-metadata-position="thumb-rating"
+  class="nocontent"
+  
+  
+  
+    project-icon="https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/touchicon-180-new.png"
+  
+  
+  
+  >
+
+  <button>
+  
+    Bạn muốn chia sẻ thêm với chúng tôi?
+  
+  </button>
+</devsite-feedback>
+    </template>
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2024-08-22 UTC."],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent" aria-label="Đường liên kết ở chân trang">
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent">
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Đường liên kết tiện ích">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms?hl=vi"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Điều khoản
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=vi"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Quyền riêng tư
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel></devsite-panel>
+        
+      </section></section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-TC2MQKS8&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;True&#34;, &#34;requested&#34;: &#34;vi&#34;, &#34;served&#34;: &#34;vi&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Gemini API&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;googledevai&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    <script nonce="4e+DeEAK6/NAxiJVnnfOCtOtT252VV">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"vi",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["TpcFeatures__enable_required_headers","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__emergency_css","Cloud__enable_cloud_shell","OnSwitch__enable","MiscFeatureFlags__enable_variable_operator","Search__enable_page_map","Profiles__enable_release_notes_notifications","CloudShell__cloud_shell_button","Profiles__enable_completecodelab_endpoint","Search__enable_dynamic_content_confidential_banner","Search__enable_ai_eligibility_checks","MiscFeatureFlags__enable_project_variables","Analytics__enable_clearcut_logging","Profiles__enable_page_saving","Cloud__enable_legacy_calculator_redirect","CloudShell__cloud_code_overflow_menu","Profiles__enable_complete_playlist_endpoint","Profiles__require_profile_eligibility_for_signin","EngEduTelemetry__enable_engedu_telemetry","Concierge__enable_pushui","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_facet_chat","Profiles__enable_developer_profiles_callout","Cloud__enable_llm_concierge_chat","BookNav__enable_tenant_cache_key","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_public_developer_profiles","Profiles__enable_recognition_badges","Search__enable_suggestions_from_borg","DevPro__enable_cloud_innovators_plus","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_free_trial_server_call","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_awarding_url","Cloud__enable_cloudx_ping","DevPro__enable_developer_subscriptions","Profiles__enable_profile_collections","TpcFeatures__enable_mirror_tenant_redirects","Experiments__reqs_query_experiments","Cloud__enable_cloud_dlp_service"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+  
+</script>
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

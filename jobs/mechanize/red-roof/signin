@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+# vim: ts=2 sw=2 ft=perl
+eval 'exec perl -x -wS $0 ${1+"$@"}'
+  if 0;
+use FindBin qw($Bin $Script);
+use Nobody::Util;
+BEGIN { ddx( \$Bin, \$Script ); chdir($Bin); }
+use autodie;
+BEGIN {
+  $ENV{PWD}=readlink("/proc/self/cwd");
+};
+END {
+  no autodie "close";
+  close(STDOUT);
+};
+use lib $ENV{PWD};
+
+$|++;
+use Nobody::Util;
+use common::sense;
+our(@VERSION) = qw( 0 1 0 );
+use Mech;
+
+sub main(@);
+sub main(@) {
+  my ($mech,$html)=Mech->new;
+
+  $mech->get("http://_gateway/");
+  $mech->follow_link(n=>1);
+  ($html)=$mech->content;
+  ddx({html=>$html});
+  #$mech->get(shift);
+  #($html)=$mech->content;
+}
+main @ARGV;
