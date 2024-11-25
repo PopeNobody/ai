@@ -30,7 +30,9 @@ std::string generate_response(api_t &api, const string& prompt)
     CURL* curl;
     CURLcode res;
     std::string readBuffer;
-
+    cout << "prompt: " << prompt << endl;
+    cout << "   url: " << api.url()  << endl;
+    cout << "   key: " << api.api_key() << endl;
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
     if(curl) {
@@ -112,6 +114,16 @@ int main(int argc, char** argv) {
       return 1;
     }
 
+    {
+      api_t api("cat-gem");
+       cout << setw(2) << api.payload("<THIS IS THE PROMPT>") << endl;
+       cout << endl << endl;
+    };
+    {
+      api_t api("cat-gpt");
+      cout << setw(2) << api.payload("<THIS IS THE PROMPT>") << endl;
+      cout << endl << endl;
+    };
     string prompt = read_file(cin);
     prompt=trim(prompt);
     if(prompt.empty()){

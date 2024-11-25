@@ -3,7 +3,7 @@ CXX:=$(shell cat etc/cxx)
 ARC:=$(shell cat etc/arc)
 all:
 
-exe:= bin/cat-gpt bin/cat-gem bin/mmap_array_test
+exe:= bin/cat-gpt bin/mmap_array_test
 lib:= lib/libcat-gpt.a
 
 include etc/source.mk $(wildcard */*.d)

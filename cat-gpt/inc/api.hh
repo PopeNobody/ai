@@ -24,7 +24,7 @@ namespace api {
       string name_;
       string env_key_;
       string url_;
-      body_t(csr name);
+      body_t(csr name, csr url, csr env_key);
       ~body_t(){
       };
       virtual vector<string> &headers() const=0;

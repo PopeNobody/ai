@@ -66,7 +66,8 @@ string generate_response(const string& prompt, const string& api_key) {
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
     if(curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, "https://api.openai.com/v1/chat/completions");
+        curl_easy_setopt(curl, CURLOPT_URL, 
+            "https://api.openai.com/v1/chat/completions");
 
         // Set up headers
         struct curl_slist* headers = NULL;
