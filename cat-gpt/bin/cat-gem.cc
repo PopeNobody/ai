@@ -13,8 +13,6 @@ using std::string;
 using boost::lexical_cast;
 using namespace std;
 
-const string host="generativelanguage.googleapis.com";
-const string path="v1beta/models/gemini-1.5-flash:generateContent";
 // Function to handle the response from the API
 size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
   size_t newLength = size*nmemb;
