@@ -2117,20 +2117,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2527,13 +2513,13 @@ available functions.</span></aside>
 <p>The following code snippet from an
 <a href="#single-turn-using-mode-and-allowed-functions">example request</a> shows how to
 set the <code translate="no" dir="ltr">mode</code> to <code translate="no" dir="ltr">ANY</code> and specify a list of allowed functions:</p>
-<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
-  &#34;function_calling_config&#34;: {
-    &#34;mode&#34;: &#34;ANY&#34;,
-    &#34;allowed_function_names&#34;: [&#34;find_theaters&#34;, &#34;get_showtimes&#34;]
-  },
-}
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-s2">"tool_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s2">"function_calling_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"mode"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"ANY"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"allowed_function_names"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"find_theaters"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"get_showtimes"</span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
 <h2 id="function-calling-curl-samples" data-text="Function calling examples" tabindex="-1">Function calling examples</h2>
 
 <p>This section provides example prompts for function calling using cURL commands.
@@ -2562,7 +2548,7 @@ function declarations are included in the request, such as <code translate="no" 
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-example-request" data-text="Single-turn function calling example request" tabindex="-1">Single-turn function calling example request</h4>
-    <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+    <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded>
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2650,7 +2636,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     }
   ]
 }'
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -2659,7 +2645,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-curl-example-response" data-text="Single-turn function calling curl example response" tabindex="-1">Single-turn function calling curl example response</h4>
-    <pre translate="no" dir="ltr">
+    <div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 [{
   "candidates": [
     {
@@ -2702,7 +2688,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     "totalTokenCount": 9
   }
 }]
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -2711,16 +2697,16 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
 <p>The following curl example is similar to the
 <a href="#function-calling-single-turn-curl-sample">single-turn example</a>, but it sets
 the <a href="#function_calling_mode">mode</a> to <code translate="no" dir="ltr">ANY</code>:</p>
-<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
-  &#34;function_calling_config&#34;: {
-    &#34;mode&#34;: &#34;ANY&#34;
-  },
-}
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-s2">"tool_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s2">"function_calling_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"mode"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"ANY"</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-using-any-mode-request" data-text="Single-turn function calling using ANY mode (request)" tabindex="-1">Single-turn function calling using ANY mode (request)</h4>
-    <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+    <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded>
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2813,7 +2799,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     },
   }
 }'
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -2822,7 +2808,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-using-any-mode-response" data-text="Single-turn function calling using ANY mode (response)" tabindex="-1">Single-turn function calling using ANY mode (response)</h4>
-    <pre translate="no" dir="ltr">
+    <div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 {
   "candidates": [
     {
@@ -2883,7 +2869,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     ]
   }
 }
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -2893,17 +2879,17 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
 <a href="#function-calling-single-turn-curl-sample">single-turn example</a>, but it sets
 the <a href="#function_calling_mode">mode</a> to <code translate="no" dir="ltr">ANY</code> and includes a list of allowed
 functions:</p>
-<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;tool_config&#34;: {
-  &#34;function_calling_config&#34;: {
-    &#34;mode&#34;: &#34;ANY&#34;,
-    &#34;allowed_function_names&#34;: [&#34;find_theaters&#34;, &#34;get_showtimes&#34;]
-  },
-}
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-s2">"tool_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s2">"function_calling_config"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"mode"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"ANY"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"allowed_function_names"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"find_theaters"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"get_showtimes"</span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-using-any-mode-and-allowed-functions-request" data-text="Single-turn function calling using ANY mode and allowed functions (request)" tabindex="-1">Single-turn function calling using ANY mode and allowed functions (request)</h4>
-    <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+    <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded>
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2997,7 +2983,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     },
   }
 }'
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -3008,7 +2994,7 @@ might be similar to the following:</p>
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="single-turn-function-calling-using-any-mode-and-allowed-functions-response" data-text="Single-turn function calling using ANY mode and allowed functions (response)" tabindex="-1">Single-turn function calling using ANY mode and allowed functions (response)</h4>
-    <pre translate="no" dir="ltr">
+    <div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 {
   "candidates": [
     {
@@ -3069,7 +3055,7 @@ might be similar to the following:</p>
     ]
   }
 }
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -3101,18 +3087,18 @@ more information for your query.</p>
 <p>The following curl sample calls the function and arguments returned by the
 previous single-turn example to get a response. The method and parameters
 returned by the single-turn example are in this JSON.</p>
-<pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;functionCall&#34;: {
-  &#34;name&#34;: &#34;find_theaters&#34;,
-  &#34;args&#34;: {
-    &#34;movie&#34;: &#34;Barbie&#34;,
-    &#34;location&#34;: &#34;Mountain View, CA&#34;
-  }
-}
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-s2">"functionCall"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s2">"name"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"find_theaters"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s2">"args"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"movie"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Barbie"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s2">"location"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Mountain View, CA"</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="multi-turn-function-calling-curl-example-request" data-text="Multi-turn function calling curl example request" tabindex="-1">Multi-turn function calling curl example request</h4>
-    <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+    <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded>
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
   -H 'Content-Type: application/json' \
   -d '{
@@ -3216,7 +3202,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     }]
   }]
 }'
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -3226,7 +3212,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="multi-turn-function-calling-curl-example-response" data-text="Multi-turn function calling curl example response" tabindex="-1">Multi-turn function calling curl example response</h4>
-    <pre translate="no" dir="ltr">
+    <div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 {
   "candidates": [
     {
@@ -3245,7 +3231,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     "totalTokenCount": 36
   }
 }
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -3258,7 +3244,7 @@ function to answer a different user query in the request.</p>
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="multi-turn-function-calling-curl-example-request_1" data-text="Multi-turn function calling curl example request" tabindex="-1">Multi-turn function calling curl example request</h4>
-   <pre class="devsite-click-to-copy" translate="no" dir="ltr">
+   <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded>
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY \
   -H 'Content-Type: application/json' \
   -d '{
@@ -3373,14 +3359,14 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
     }]
   }]
 }'
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
 <div>
   <devsite-expandable>
     <h4 class="showalways" id="multi-turn-function-calling-curl-example-response_1" data-text="Multi-turn function calling curl example response" tabindex="-1">Multi-turn function calling curl example response</h4>
-    <pre translate="no" dir="ltr">
+    <div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 [{
   "candidates": [
     {
@@ -3424,7 +3410,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generate
   }
 }
 ]
-    </pre>
+    </pre></devsite-code>
   </devsite-expandable>
 </div>
 
@@ -3774,12 +3760,12 @@ function call with the user before executing it.</p>
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="pd5cX8a6zthiYAEcH5SAVzJbmGNf68">
+    <script nonce="0Ky0mC/iJwAeSu3vl8Qm/N2aOnvADj">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Cloud__enable_llm_concierge_chat","OnSwitch__enable","Cloud__enable_cloud_shell","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_explain_this_code","Search__enable_ai_eligibility_checks","Profiles__enable_dashboard_curated_recommendations","Search__enable_suggestions_from_borg","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_release_notes_notifications","Profiles__enable_awarding_url","MiscFeatureFlags__enable_view_transitions","Profiles__enable_public_developer_profiles","CloudShell__cloud_shell_button","MiscFeatureFlags__developers_footer_image","BookNav__enable_tenant_cache_key","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_complete_playlist_endpoint","Profiles__enable_developer_profiles_callout","DevPro__enable_cloud_innovators_plus","Profiles__enable_profile_collections","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__emergency_css","Search__enable_page_map","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_completecodelab_endpoint","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__enable_project_variables","Profiles__enable_page_saving","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_facet_chat","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloudx_ping","Analytics__enable_clearcut_logging","TpcFeatures__enable_required_headers","MiscFeatureFlags__enable_variable_operator","Concierge__enable_pushui","Cloud__enable_cloudx_experiment_ids","Experiments__reqs_query_experiments","Profiles__enable_recognition_badges","DevPro__enable_developer_subscriptions","Cloud__enable_cloud_dlp_service","Cloud__enable_free_trial_server_call"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["MiscFeatureFlags__developers_footer_image","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_profile_collections","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__developers_footer_dark_image","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__emergency_css","Experiments__reqs_query_experiments","Search__enable_dynamic_content_confidential_banner","Cloud__enable_cloud_shell","CloudShell__cloud_shell_button","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_dlp_service","Analytics__enable_clearcut_logging","Cloud__enable_llm_concierge_chat","Profiles__enable_complete_playlist_endpoint","Cloud__enable_free_trial_server_call","Search__enable_ai_eligibility_checks","Profiles__enable_page_saving","Concierge__enable_pushui","Cloud__enable_cloud_facet_chat","Profiles__enable_public_developer_profiles","Cloud__enable_cloudx_experiment_ids","Cloud__enable_legacy_calculator_redirect","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_release_notes_notifications","Search__enable_suggestions_from_borg","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_recognition_badges","Profiles__enable_developer_profiles_callout","Profiles__enable_awarding_url","BookNav__enable_tenant_cache_key","MiscFeatureFlags__enable_project_variables","TpcFeatures__enable_required_headers","DevPro__enable_cloud_innovators_plus","Cloud__enable_cloudx_ping","CloudShell__cloud_code_overflow_menu","DevPro__enable_developer_subscriptions","OnSwitch__enable","MiscFeatureFlags__enable_explain_this_code"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

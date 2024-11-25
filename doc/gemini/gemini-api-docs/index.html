@@ -2529,20 +2529,6 @@ body[theme="googledevai-theme"].color-scheme--dark {
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2768,43 +2754,43 @@ body[theme="googledevai-theme"].color-scheme--dark {
     <h1 class="devsite-page-title" id="get-started-with-the-gemini-api" data-text="Get started with the Gemini API" tabindex="-1">Get started with the Gemini API</h1>
   </div>
   <div>
-    <a href="https://aistudio.google.com/apikey" class="button button-primary ais">Get API Key</a>
+    <a href="https://aistudio.google.com/apikey" class="button button-primary ais">Get a Gemini API Key</a>
   </div>
 </div>
 
 <p>The Gemini API and Google AI Studio help you start working with Google&#39;s latest
 models and turn your ideas into applications that scale.</p>
 <div class="ds-selector-tabs" data-ds-scope="code-sample">
-<section><h3 id="python" data-text="Python" tabindex="-1">Python</h3><pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import google.generativeai as genai
+<section><h3 id="python" data-text="Python" tabindex="-1">Python</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.generativeai</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">genai</span>
 
-genai.configure(api_key=&#34;<var translate="no">YOUR_API_KEY</var>&#34;)
-model = genai.GenerativeModel(&#34;gemini-1.5-flash&#34;)
-response = model.generate_content(&#34;Explain how AI works&#34;)
-print(response.text)
-</code></pre></section>
-<section><h3 id="node.js" data-text="Node.js" tabindex="-1">Node.js</h3><pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">const { GoogleGenerativeAI } = require(&#34;@google/generative-ai&#34;);
+<span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">configure</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">api_key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"<var translate="no">YOUR_API_KEY</var>"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"Explain how AI works"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code></section>
+<section><h3 id="node.js" data-text="Node.js" tabindex="-1">Node.js</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">GoogleGenerativeAI</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">require</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"@google/generative-ai"</span><span class="devsite-syntax-p">);</span>
 
-const genAI = new GoogleGenerativeAI(&#34;<var translate="no">YOUR_API_KEY</var>&#34;);
-const model = genAI.getGenerativeModel({ model: &#34;gemini-1.5-flash&#34; });
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">genAI</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">GoogleGenerativeAI</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"<var translate="no">YOUR_API_KEY</var>"</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">genAI</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">getGenerativeModel</span><span class="devsite-syntax-p">({</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">model</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
 
-const prompt = &#34;Explain how AI works&#34;;
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">prompt</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Explain how AI works"</span><span class="devsite-syntax-p">;</span>
 
-const result = await model.generateContent(prompt);
-console.log(result.response.text());
-</code></pre></section>
-<section><h3 id="rest" data-text="REST" tabindex="-1">REST</h3><pre class="prettyprint lang-bash" translate="no" dir="ltr"><code translate="no" dir="ltr">curl &#34;https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$<var translate="no">YOUR_API_KEY</var>&#34; \
--H &#39;Content-Type: application/json&#39; \
--X POST \
--d &#39;{
-  &#34;contents&#34;: [{
-    &#34;parts&#34;:[{&#34;text&#34;: &#34;Write a story about a magic backpack.&#34;}]
-    }]
-   }&#39;
-</code></pre></section>
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">await</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">model</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">generateContent</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">prompt</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">result</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">response</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">text</span><span class="devsite-syntax-p">());</span>
+</code></pre></devsite-code></section>
+<section><h3 id="rest" data-text="REST" tabindex="-1">REST</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code translate="no" dir="ltr">curl<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=</span><span class="devsite-syntax-nv">$<var translate="no">YOUR_API_KEY</span></var><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+-H<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'Content-Type: application/json'</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+-X<span class="devsite-syntax-w"> </span>POST<span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+-d<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'{</span>
+<span class="devsite-syntax-s1">  "contents": [{</span>
+<span class="devsite-syntax-s1">    "parts":[{"text": "Write a story about a magic backpack."}]</span>
+<span class="devsite-syntax-s1">    }]</span>
+<span class="devsite-syntax-s1">   }'</span>
+</code></pre></devsite-code></section>
 </div>
 <div class="main-content">
     <div class="models-section">
-        <h2 id="meet-the-models" data-text="Meet the models" tabindex="-1">Meet the models</h2>
+        <h2 class="hide-from-toc" id="meet-the-models" data-text="Meet the models" tabindex="-1">Meet the models</h2>
         <p>
             <a href="https://aistudio.google.com" class="button button-primary ais">Try Gemini in Google AI Studio</a>
         </p>
@@ -2841,11 +2827,11 @@ console.log(result.response.text());
         <a href="/gemini-api/docs/models/gemini#gemini-1.5-pro" aria-label="Learn more about 1.5 Pro"></a>
       </div>
     </div>
-    <h2 id="explore-the-api" data-text="Explore the API" tabindex="-1">Explore the API</h2>
+    <h2 class="hide-from-toc" id="explore-the-api" data-text="Explore the API" tabindex="-1">Explore the API</h2>
     <div class="card">
       <img src="/static/site-assets/images/long-context-overview.png" aria-hidden="true" class="card-image">
       <div class="card-text-content">
-        <h3 id="explore-long-context" data-text="Explore long context" tabindex="-1">Explore long context</h3>
+        <h3 class="hide-from-toc" id="explore-long-context" data-text="Explore long context" tabindex="-1">Explore long context</h3>
         <p>Input millions of tokens to Gemini models and derive understanding from unstructured images, videos, and documents.</p>
       </div>
       <a href="/gemini-api/docs/long-context"></a>
@@ -2853,7 +2839,7 @@ console.log(result.response.text());
     <div class="card">
       <img src="/static/site-assets/images/tuning-overview.png" aria-hidden="true" class="card-image">
       <div class="card-text-content">
-        <h3 id="solve-tasks-with-fine-tuning" data-text="Solve tasks with fine-tuning" tabindex="-1">Solve tasks with fine-tuning</h3>
+        <h3 class="hide-from-toc" id="solve-tasks-with-fine-tuning" data-text="Solve tasks with fine-tuning" tabindex="-1">Solve tasks with fine-tuning</h3>
         <p>Modify the behavior of Gemini models to adapt to specific tasks, recognize data, and solve problems. Tune models with your own data to make production deployments more robust and reliable.</p>
       </div>
       <a href="/gemini-api/docs/model-tuning/tutorial"></a>
@@ -2861,13 +2847,13 @@ console.log(result.response.text());
     <div class="card">
       <img src="/static/site-assets/images/structured-overview.png" aria-hidden="true" class="card-image">
       <div class="card-text-content">
-        <h3 id="generate-structured-outputs" data-text="Generate structured outputs" tabindex="-1">Generate structured outputs</h3>
+        <h3 class="hide-from-toc" id="generate-structured-outputs" data-text="Generate structured outputs" tabindex="-1">Generate structured outputs</h3>
         <p>Constrain Gemini to respond with JSON, a structured data format suitable for automated processing.</p>
       </div>
       <a href="/gemini-api/docs/structured-output"></a>
     </div>
     <div class="card-overview-bottom">
-        <h3 id="start-building-with-the-gemini-api" data-text="Start building with the Gemini API" tabindex="-1">Start building with the Gemini API</h3>
+        <h3 class="hide-from-toc" id="start-building-with-the-gemini-api" data-text="Start building with the Gemini API" tabindex="-1">Start building with the Gemini API</h3>
         <a href="/gemini-api/docs/quickstart" class="button button-secondary">Get started</a>
     </div>
 </div>
@@ -2895,7 +2881,7 @@ console.log(result.response.text());
 
 <devsite-content-footer class="nocontent">
   <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
-  <p>Last updated 2024-11-21 UTC.</p>
+  <p>Last updated 2024-11-22 UTC.</p>
 </devsite-content-footer>
 
 
@@ -2909,7 +2895,7 @@ console.log(result.response.text());
   
   
     <template class="devsite-content-data-template">
-      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-11-21 UTC."],[],[]]
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-11-22 UTC."],[],[]]
     </template>
   
 </div>
@@ -3121,12 +3107,12 @@ console.log(result.response.text());
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="vLjL4uy65qx3n0Gl3hbMmc4p6IGf8m">
+    <script nonce="0SzC6UTMV2Rz/Eido2TbdKF8yYGEgX">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Cloud__enable_legacy_calculator_redirect","Search__enable_ai_eligibility_checks","Search__enable_suggestions_from_borg","Cloud__enable_cloud_dlp_service","BookNav__enable_tenant_cache_key","CloudShell__cloud_shell_button","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__enable_explain_this_code","Search__enable_page_map","MiscFeatureFlags__developers_footer_dark_image","MiscFeatureFlags__developers_footer_image","Cloud__enable_cloudx_ping","Concierge__enable_pushui","MiscFeatureFlags__enable_view_transitions","DevPro__enable_cloud_innovators_plus","Profiles__enable_recognition_badges","Cloud__enable_cloud_shell","Analytics__enable_clearcut_logging","Cloud__enable_free_trial_server_call","CloudShell__cloud_code_overflow_menu","OnSwitch__enable","MiscFeatureFlags__enable_project_variables","TpcFeatures__enable_required_headers","Profiles__enable_profile_collections","Profiles__require_profile_eligibility_for_signin","Profiles__enable_awarding_url","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_release_notes_notifications","Cloud__enable_llm_concierge_chat","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_facet_chat","Cloud__enable_cloudx_experiment_ids","Experiments__reqs_query_experiments","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__emergency_css","EngEduTelemetry__enable_engedu_telemetry","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_variable_operator","Profiles__enable_public_developer_profiles","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_developer_subscriptions","Profiles__enable_page_saving"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_profile_collections","MiscFeatureFlags__enable_project_variables","MiscFeatureFlags__enable_explain_this_code","CloudShell__cloud_shell_button","Cloud__enable_cloudx_experiment_ids","Profiles__require_profile_eligibility_for_signin","OnSwitch__enable","Concierge__enable_pushui","Profiles__enable_public_developer_profiles","Cloud__enable_llm_concierge_chat","Search__enable_page_map","MiscFeatureFlags__emergency_css","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_shell","Profiles__enable_page_saving","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloud_shell_fte_user_flow","Analytics__enable_clearcut_logging","Cloud__enable_cloud_dlp_service","Search__enable_ai_eligibility_checks","Cloud__enable_cloud_facet_chat","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__enable_variable_operator","Cloud__enable_free_trial_server_call","Profiles__enable_developer_profiles_callout","Experiments__reqs_query_experiments","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_recognition_badges","Profiles__enable_completecodelab_endpoint","Search__enable_suggestions_from_borg","Search__enable_dynamic_content_confidential_banner","Cloud__enable_legacy_calculator_redirect","DevPro__enable_cloud_innovators_plus","Profiles__enable_release_notes_notifications","Cloud__enable_cloudx_ping","MiscFeatureFlags__enable_view_transitions","TpcFeatures__enable_required_headers","BookNav__enable_tenant_cache_key","TpcFeatures__enable_mirror_tenant_redirects","DevPro__enable_developer_subscriptions","Profiles__enable_complete_playlist_endpoint","Profiles__enable_awarding_url"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

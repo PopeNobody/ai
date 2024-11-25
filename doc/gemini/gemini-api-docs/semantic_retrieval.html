@@ -2121,20 +2121,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2372,10 +2358,8 @@
 
 <h3 id="import_the_generative_language_api" data-text="Import the Generative Language API" tabindex="-1">Import the Generative Language API</h3>
 
-<pre class="prettyprint lang-bsh" translate="no" dir="ltr">
-<code class='devsite-terminal' translate="no" dir="ltr"># Install the Client library (Semantic Retriever is only supported for versions >0.4.0)</code>
-<code class='devsite-terminal' translate="no" dir="ltr">pip install -U google.ai.generativelanguage</code>
-</pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class='devsite-terminal' translate="no" dir="ltr"><span class="devsite-syntax-c1"># Install the Client library (Semantic Retriever is only supported for versions >0.4.0)</span></code>
+<code class='devsite-terminal' translate="no" dir="ltr">pip<span class="devsite-syntax-w"> </span>install<span class="devsite-syntax-w"> </span>-U<span class="devsite-syntax-w"> </span>google.ai.generativelanguage</code></pre></devsite-code>
 
 <h2 id="authenticate" data-text="Authenticate" tabindex="-1">Authenticate</h2>
 
@@ -2413,24 +2397,22 @@
 
 <p><img width="400" src="https://ai.google.dev/tutorials/images/colab_upload.png"></p>
 
-<pre class="prettyprint lang-bsh" translate="no" dir="ltr">
-<code class='devsite-terminal' translate="no" dir="ltr">pip install -U google-auth-oauthlib</code>
-</pre>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">service_account_file_name = &#39;service_account_key.json&#39;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class='devsite-terminal' translate="no" dir="ltr">pip<span class="devsite-syntax-w"> </span>install<span class="devsite-syntax-w"> </span>-U<span class="devsite-syntax-w"> </span>google-auth-oauthlib</code></pre></devsite-code>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">service_account_file_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s1">'service_account_key.json'</span>
 
-from google.oauth2 import service_account
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google.oauth2</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">service_account</span>
 
-credentials = service_account.Credentials.from_service_account_file(service_account_file_name)
+<span class="devsite-syntax-n">credentials</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">service_account</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Credentials</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">from_service_account_file</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">service_account_file_name</span><span class="devsite-syntax-p">)</span>
 
-scoped_credentials = credentials.with_scopes(
-    [&#39;https://www.googleapis.com/auth/cloud-platform&#39;, &#39;https://www.googleapis.com/auth/generative-language.retriever&#39;])
-</code></pre>
+<span class="devsite-syntax-n">scoped_credentials</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">credentials</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">with_scopes</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-p">[</span><span class="devsite-syntax-s1">'https://www.googleapis.com/auth/cloud-platform'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s1">'https://www.googleapis.com/auth/generative-language.retriever'</span><span class="devsite-syntax-p">])</span>
+</code></pre></devsite-code>
 <p>Initialize the client library using the service account credentials.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">import google.ai.generativelanguage as glm
-generative_service_client = glm.GenerativeServiceClient(credentials=scoped_credentials)
-retriever_service_client = glm.RetrieverServiceClient(credentials=scoped_credentials)
-permission_service_client = glm.PermissionServiceClient(credentials=scoped_credentials)
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.ai.generativelanguage</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">glm</span>
+<span class="devsite-syntax-n">generative_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GenerativeServiceClient</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">credentials</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">scoped_credentials</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">retriever_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">RetrieverServiceClient</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">credentials</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">scoped_credentials</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">permission_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">PermissionServiceClient</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">credentials</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">scoped_credentials</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="create-corpus" data-text="Create a corpus" tabindex="-1">Create a corpus</h2>
 
 <p>The Semantic Retriever API lets you define up to 5 custom text corpora per project. You can specify either of the following fields while defining your corpora:</p>
@@ -2439,17 +2421,17 @@ permission_service_client = glm.PermissionServiceClient(credentials=scoped_crede
 <li><code translate="no" dir="ltr">name</code>: The <code translate="no" dir="ltr">Corpus</code> resource name (ID). Must contain only a maximum of 40 alphanumeric characters. If the <code translate="no" dir="ltr">name</code> is empty on creation, a unique name will be generated with a maximum length of 40 characters with a prefix from the <code translate="no" dir="ltr">display_name</code> and a 12 character random suffix.</li>
 <li><code translate="no" dir="ltr">display_name</code>: The human-readable display name for the <code translate="no" dir="ltr">Corpus</code>. Must contain only a maximum of 512 characters, including alphanumerics, spaces, and dashes.</li>
 </ul>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">example_corpus = glm.Corpus(display_name=&#34;Google for Developers Blog&#34;)
-create_corpus_request = glm.CreateCorpusRequest(corpus=example_corpus)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">example_corpus</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Corpus</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">display_name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"Google for Developers Blog"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">create_corpus_request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateCorpusRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">corpus</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">example_corpus</span><span class="devsite-syntax-p">)</span>
 
-# Make the request
-create_corpus_response = retriever_service_client.create_corpus(create_corpus_request)
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">create_corpus_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_corpus</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_corpus_request</span><span class="devsite-syntax-p">)</span>
 
-# Set the `corpus_resource_name` for subsequent sections.
-corpus_resource_name = create_corpus_response.name
-print(create_corpus_response)
-</code></pre>
-<pre class="tfo-notebook-code-cell-output" translate="no" dir="ltr">
+<span class="devsite-syntax-c1"># Set the `corpus_resource_name` for subsequent sections.</span>
+<span class="devsite-syntax-n">corpus_resource_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">create_corpus_response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_corpus_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<div></div><devsite-code><pre class="tfo-notebook-code-cell-output" translate="no" dir="ltr" is-upgraded>
 name&colon; &quot;corpora/google-for-developers-blog-dqrtz8rs0jg&quot;
 display_name&colon; &quot;Google for Developers Blog&quot;
 create_time {
@@ -2460,19 +2442,19 @@ update_time {
   seconds&colon; 1713497533
   nanos&colon; 587977000
 }
-</pre>
+</pre></devsite-code>
 
 <h3 id="get_the_created_corpus" data-text="Get the created corpus" tabindex="-1">Get the created corpus</h3>
 
 <p>Use the <code translate="no" dir="ltr">GetCorpusRequest</code> method to programmatically access the <code translate="no" dir="ltr">Corpus</code> you created above. The value of the <code translate="no" dir="ltr">name</code> parameter refers to the full resource name of the <code translate="no" dir="ltr">Corpus</code> and is set in the cell above as <code translate="no" dir="ltr">corpus_resource_name</code>. The expected format is <code translate="no" dir="ltr">corpora/corpus-123</code>.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">get_corpus_request = glm.GetCorpusRequest(name=corpus_resource_name)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">get_corpus_request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GetCorpusRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">)</span>
 
-# Make the request
-get_corpus_response = retriever_service_client.get_corpus(get_corpus_request)
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">get_corpus_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get_corpus</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">get_corpus_request</span><span class="devsite-syntax-p">)</span>
 
-# Print the response
-print(get_corpus_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Print the response</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">get_corpus_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="create_a_document" data-text="Create a document" tabindex="-1">Create a document</h2>
 
 <p>A <code translate="no" dir="ltr">Corpus</code> can contain up to 10,000 <code translate="no" dir="ltr">Document</code>s. You can specify either of the following fields while defining your documents:</p>
@@ -2485,36 +2467,36 @@ dash. If the name is empty on creation, a unique name will be derived from
 </ul>
 
 <p><code translate="no" dir="ltr">Document</code>s also support up to 20 user-specified <code translate="no" dir="ltr">custom_metadata</code> fields, specified as key-value pairs. Custom metadata can be strings, lists of strings, or numeric. Note that lists of strings can support a maximum of 10 values and numeric values are represented as floating-point numbers in the API.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Create a document with a custom display name.
-example_document = glm.Document(display_name=&#34;Introducing Project IDX, An Experiment to Improve Full-stack, Multiplatform App Development&#34;)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Create a document with a custom display name.</span>
+<span class="devsite-syntax-n">example_document</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Document</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">display_name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"Introducing Project IDX, An Experiment to Improve Full-stack, Multiplatform App Development"</span><span class="devsite-syntax-p">)</span>
 
-# Add metadata.
-# Metadata also supports numeric values not specified here
-document_metadata = [
-    glm.CustomMetadata(key=&#34;url&#34;, string_value=&#34;https://developers.googleblog.com/2023/08/introducing-project-idx-experiment-to-improve-full-stack-multiplatform-app-development.html&#34;)]
-example_document.custom_metadata.extend(document_metadata)
+<span class="devsite-syntax-c1"># Add metadata.</span>
+<span class="devsite-syntax-c1"># Metadata also supports numeric values not specified here</span>
+<span class="devsite-syntax-n">document_metadata</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"url"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"https://developers.googleblog.com/2023/08/introducing-project-idx-experiment-to-improve-full-stack-multiplatform-app-development.html"</span><span class="devsite-syntax-p">)]</span>
+<span class="devsite-syntax-n">example_document</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">extend</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">document_metadata</span><span class="devsite-syntax-p">)</span>
 
-# Make the request
-# corpus_resource_name is a variable set in the &#34;Create a corpus&#34; section.
-create_document_request = glm.CreateDocumentRequest(parent=corpus_resource_name, document=example_document)
-create_document_response = retriever_service_client.create_document(create_document_request)
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-c1"># corpus_resource_name is a variable set in the "Create a corpus" section.</span>
+<span class="devsite-syntax-n">create_document_request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateDocumentRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">document</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">example_document</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">create_document_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_document</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_document_request</span><span class="devsite-syntax-p">)</span>
 
-# Set the `document_resource_name` for subsequent sections.
-document_resource_name = create_document_response.name
-print(create_document_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Set the `document_resource_name` for subsequent sections.</span>
+<span class="devsite-syntax-n">document_resource_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">create_document_response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_document_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h3 id="get_the_created_document" data-text="Get the created document" tabindex="-1">Get the created document</h3>
 
 <p>Use the <code translate="no" dir="ltr">GetDocumentRequest</code> method to programmatically access the document you created above. The value of the <code translate="no" dir="ltr">name</code> parameter refers to the full resource name of the document and is set in the cell above as <code translate="no" dir="ltr">document_resource_name</code>. The expected format is <code translate="no" dir="ltr">corpora/corpus-123/documents/document-123</code>.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">get_document_request = glm.GetDocumentRequest(name=document_resource_name)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">get_document_request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GetDocumentRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">)</span>
 
-# Make the request
-# document_resource_name is a variable set in the &#34;Create a document&#34; section.
-get_document_response = retriever_service_client.get_document(get_document_request)
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-c1"># document_resource_name is a variable set in the "Create a document" section.</span>
+<span class="devsite-syntax-n">get_document_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get_document</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">get_document_request</span><span class="devsite-syntax-p">)</span>
 
-# Print the response
-print(get_document_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Print the response</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">get_document_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="ingest_chunk_a_document" data-text="Ingest &amp; Chunk a Document" tabindex="-1">Ingest &amp; Chunk a Document</h2>
 
 <p>To improve the relevance of content returned by the vector database during semantic retrieval, break down large documents into smaller pieces or <strong>chunks</strong> while ingesting the document.</p>
@@ -2528,80 +2510,80 @@ print(get_document_response)
 <p>Other chunkers you can use include <a href="https://python.langchain.com/docs/get_started/introduction" class="external">LangChain</a> or <a href="https://www.llamaindex.ai/" class="external">LlamaIndex</a>.</p>
 
 <h3 id="ingest_html_and_chunk_via_htmlchunker" data-text="Ingest HTML and chunk via HtmlChunker" tabindex="-1">Ingest HTML and chunk via HtmlChunker</h3>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">!pip install google-labs-html-chunker
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-err">!</span><span class="devsite-syntax-n">pip</span> <span class="devsite-syntax-n">install</span> <span class="devsite-syntax-n">google</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">labs</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">html</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">chunker</span>
 
-from google_labs_html_chunker.html_chunker import HtmlChunker
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google_labs_html_chunker.html_chunker</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">HtmlChunker</span>
 
-from urllib.request import urlopen
-</code></pre>
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">urllib.request</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">urlopen</span>
+</code></pre></devsite-code>
 <p>Get the HTML DOM for a website. Here, the HTML is read directly, but it would
 be better to get HTML post-rendering to include Javascript-injected HTML
 such as <code translate="no" dir="ltr">document.documentElement.innerHTML</code>.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">with(urlopen(&#34;https://developers.googleblog.com/2023/08/introducing-project-idx-experiment-to-improve-full-stack-multiplatform-app-development.html&#34;)) as f:
-  html = f.read().decode(&#34;utf-8&#34;)
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">with</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">urlopen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"https://developers.googleblog.com/2023/08/introducing-project-idx-experiment-to-improve-full-stack-multiplatform-app-development.html"</span><span class="devsite-syntax-p">))</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-n">f</span><span class="devsite-syntax-p">:</span>
+  <span class="devsite-syntax-n">html</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">f</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">read</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">decode</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"utf-8"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <p>Break down the text document into passages and create <code translate="no" dir="ltr">Chunk</code>s from these passages. This step creates the <code translate="no" dir="ltr">Chunk</code> objects themselves and the next section uploads them to the Semantic Retriever API.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Chunk the file using HtmlChunker
-chunker = HtmlChunker(
-    max_words_per_aggregate_passage=200,
-    greedily_aggregate_sibling_nodes=True,
-    html_tags_to_exclude={&#34;noscript&#34;, &#34;script&#34;, &#34;style&#34;},
-)
-passages = chunker.chunk(html)
-print(passages)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Chunk the file using HtmlChunker</span>
+<span class="devsite-syntax-n">chunker</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">HtmlChunker</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">max_words_per_aggregate_passage</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-mi">200</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">greedily_aggregate_sibling_nodes</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">True</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">html_tags_to_exclude</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s2">"noscript"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"script"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"style"</span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">passages</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">chunker</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">html</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">passages</span><span class="devsite-syntax-p">)</span>
 
 
-# Create `Chunk` entities.
-chunks = []
-for passage in passages:
-    chunk = glm.Chunk(data={&#39;string_value&#39;: passage})
-    # Optionally, you can add metadata to a chunk
-    chunk.custom_metadata.append(glm.CustomMetadata(key=&#34;tags&#34;,
-                                                    string_list_value=glm.StringList(
-                                                        values=[&#34;Google For Developers&#34;, &#34;Project IDX&#34;, &#34;Blog&#34;, &#34;Announcement&#34;])))
-    chunk.custom_metadata.append(glm.CustomMetadata(key=&#34;chunking_strategy&#34;,
-                                                    string_value=&#34;greedily_aggregate_sibling_nodes&#34;))
-    chunk.custom_metadata.append(glm.CustomMetadata(key = &#34;publish_date&#34;,
-                                                    numeric_value = 20230808))
-    chunks.append(chunk)
-print(chunks)
-</code></pre>
+<span class="devsite-syntax-c1"># Create `Chunk` entities.</span>
+<span class="devsite-syntax-n">chunks</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">passage</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">passages</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">chunk</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">data</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s1">'string_value'</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">passage</span><span class="devsite-syntax-p">})</span>
+    <span class="devsite-syntax-c1"># Optionally, you can add metadata to a chunk</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"tags"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">string_list_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">StringList</span><span class="devsite-syntax-p">(</span>
+                                                        <span class="devsite-syntax-n">values</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"Google For Developers"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Project IDX"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Blog"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Announcement"</span><span class="devsite-syntax-p">])))</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"chunking_strategy"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"greedily_aggregate_sibling_nodes"</span><span class="devsite-syntax-p">))</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"publish_date"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">numeric_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">20230808</span><span class="devsite-syntax-p">))</span>
+    <span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="batch_create_chunks" data-text="Batch create chunks" tabindex="-1">Batch create chunks</h2>
 
 <p>Create chunks in batches. You can specify a maximum of 100 chunks per batch request.</p>
 
 <p>Use <code translate="no" dir="ltr">CreateChunk()</code> for single chunk creation.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Option 1: Use HtmlChunker in the section above.
-# `chunks` is the variable set from the section above.
-create_chunk_requests = []
-for chunk in chunks:
-  create_chunk_requests.append(glm.CreateChunkRequest(parent=document_resource_name, chunk=chunk))
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Option 1: Use HtmlChunker in the section above.</span>
+<span class="devsite-syntax-c1"># `chunks` is the variable set from the section above.</span>
+<span class="devsite-syntax-n">create_chunk_requests</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">chunk</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-p">:</span>
+  <span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateChunkRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">))</span>
 
-# Make the request
-request = glm.BatchCreateChunksRequest(parent=document_resource_name, requests=create_chunk_requests)
-response = retriever_service_client.batch_create_chunks(request)
-print(response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">BatchCreateChunksRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">requests</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">batch_create_chunks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <p>Alternatively, you can make chunks without using the HtmlChunker.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Add up to 100 CreateChunk requests per batch request.
-# document_resource_name is a variable set in the &#34;Create a document&#34; section.
-chunks = []
-chunk_1 = glm.Chunk(data={&#39;string_value&#39;: &#34;Chunks support user specified metadata.&#34;})
-chunk_1.custom_metadata.append(glm.CustomMetadata(key=&#34;section&#34;,
-                                                  string_value=&#34;Custom metadata filters&#34;))
-chunk_2 = glm.Chunk(data={&#39;string_value&#39;: &#34;The maximum number of metadata supported is 20&#34;})
-chunk_2.custom_metadata.append(glm.CustomMetadata(key = &#34;num_keys&#34;,
-                                                  numeric_value = 20))
-chunks = [chunk_1, chunk_2]
-create_chunk_requests = []
-for chunk in chunks:
-  create_chunk_requests.append(glm.CreateChunkRequest(parent=document_resource_name, chunk=chunk))
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Add up to 100 CreateChunk requests per batch request.</span>
+<span class="devsite-syntax-c1"># document_resource_name is a variable set in the "Create a document" section.</span>
+<span class="devsite-syntax-n">chunks</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-n">chunk_1</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">data</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s1">'string_value'</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"Chunks support user specified metadata."</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-n">chunk_1</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"section"</span><span class="devsite-syntax-p">,</span>
+                                                  <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"Custom metadata filters"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">chunk_2</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">data</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s1">'string_value'</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"The maximum number of metadata supported is 20"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-n">chunk_2</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"num_keys"</span><span class="devsite-syntax-p">,</span>
+                                                  <span class="devsite-syntax-n">numeric_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">20</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">chunks</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">chunk_1</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">chunk_2</span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-n">create_chunk_requests</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">chunk</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-p">:</span>
+  <span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateChunkRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">))</span>
 
-# Make the request
-request = glm.BatchCreateChunksRequest(parent=document_resource_name, requests=create_chunk_requests)
-response = retriever_service_client.batch_create_chunks(request)
-print(response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">BatchCreateChunksRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">requests</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">batch_create_chunks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h3 id="list_chunks_and_get_state" data-text="List Chunks and get state" tabindex="-1">List <code translate="no" dir="ltr">Chunk</code>s and get state</h3>
 
 <p>Use the <code translate="no" dir="ltr">ListChunksRequest</code> method to get all available <code translate="no" dir="ltr">Chunk</code>s as a paginated list with a maximum size limit of 100 <code translate="no" dir="ltr">Chunk</code>s per page, sorted in ascending order of <a href="/api/python/google/generativeai/protos/Chunk#create_time%22"><code translate="no" dir="ltr">Chunk.create_time</code></a>. If you do not specify a limit, a maximum of 10 <code translate="no" dir="ltr">Chunk</code>s are returned.</p>
@@ -2609,68 +2591,68 @@ print(response)
 <p>Provide the <code translate="no" dir="ltr">next_page_token</code> returned in the <code translate="no" dir="ltr">ListChunksRequest</code> response as an argument to the next request to retrieve the next page. Note that when paginating, all other parameters provided to <code translate="no" dir="ltr">ListChunks</code> must match the call that provided the page token.</p>
 
 <p>All <code translate="no" dir="ltr">Chunk</code>s return a <code translate="no" dir="ltr">state</code>. Use this to check the state of the <code translate="no" dir="ltr">Chunks</code> before querying a <code translate="no" dir="ltr">Corpus</code>. <code translate="no" dir="ltr">Chunk</code> states include - <code translate="no" dir="ltr">UNSPECIFIED</code>, <code translate="no" dir="ltr">PENDING_PROCESSING</code>, <code translate="no" dir="ltr">ACTIVE</code>, and <code translate="no" dir="ltr">FAILED</code>. You can only query <code translate="no" dir="ltr">ACTIVE</code> <code translate="no" dir="ltr">Chunk</code>s.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Make the request
-request = glm.ListChunksRequest(parent=document_resource_name)
-list_chunks_response = retriever_service_client.list_chunks(request)
-for index, chunks in enumerate(list_chunks_response.chunks):
-  print(f&#39;\nChunk # {index + 1}&#39;)
-  print(f&#39;Resource Name: {chunks.name}&#39;)
-  # Only ACTIVE chunks can be queried.
-  print(f&#39;State: {glm.Chunk.State(chunks.state).name}&#39;)
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">ListChunksRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">list_chunks_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">list_chunks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">index</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">chunks</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-nb">enumerate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">list_chunks_response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-p">):</span>
+  <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s1">'</span><span class="devsite-syntax-se">\n</span><span class="devsite-syntax-s1">Chunk # </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">index</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">1</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s1">'</span><span class="devsite-syntax-p">)</span>
+  <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s1">'Resource Name: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s1">'</span><span class="devsite-syntax-p">)</span>
+  <span class="devsite-syntax-c1"># Only ACTIVE chunks can be queried.</span>
+  <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s1">'State: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">State</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">state</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s1">'</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="ingest_another_document" data-text="Ingest another document" tabindex="-1">Ingest another document</h2>
 
 <p>Add another <code translate="no" dir="ltr">Document</code> via HtmlChunker and add filters.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Create a document with a custom display name.
-example_document = glm.Document(display_name=&#34;How it’s Made: Interacting with Gemini through multimodal prompting&#34;)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Create a document with a custom display name.</span>
+<span class="devsite-syntax-n">example_document</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Document</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">display_name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"How it’s Made: Interacting with Gemini through multimodal prompting"</span><span class="devsite-syntax-p">)</span>
 
-# Add document metadata.
-# Metadata also supports numeric values not specified here
-document_metadata = [
-    glm.CustomMetadata(key=&#34;url&#34;, string_value=&#34;https://developers.googleblog.com/2023/12/how-its-made-gemini-multimodal-prompting.html&#34;)]
-example_document.custom_metadata.extend(document_metadata)
+<span class="devsite-syntax-c1"># Add document metadata.</span>
+<span class="devsite-syntax-c1"># Metadata also supports numeric values not specified here</span>
+<span class="devsite-syntax-n">document_metadata</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"url"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"https://developers.googleblog.com/2023/12/how-its-made-gemini-multimodal-prompting.html"</span><span class="devsite-syntax-p">)]</span>
+<span class="devsite-syntax-n">example_document</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">extend</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">document_metadata</span><span class="devsite-syntax-p">)</span>
 
-# Make the CreateDocument request
-# corpus_resource_name is a variable set in the &#34;Create a corpus&#34; section.
-create_document_request = glm.CreateDocumentRequest(parent=corpus_resource_name, document=example_document)
-create_document_response = retriever_service_client.create_document(create_document_request)
+<span class="devsite-syntax-c1"># Make the CreateDocument request</span>
+<span class="devsite-syntax-c1"># corpus_resource_name is a variable set in the "Create a corpus" section.</span>
+<span class="devsite-syntax-n">create_document_request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateDocumentRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">document</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">example_document</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">create_document_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_document</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_document_request</span><span class="devsite-syntax-p">)</span>
 
-# Set the `document_resource_name` for subsequent sections.
-document_resource_name = create_document_response.name
-print(create_document_response)
+<span class="devsite-syntax-c1"># Set the `document_resource_name` for subsequent sections.</span>
+<span class="devsite-syntax-n">document_resource_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">create_document_response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_document_response</span><span class="devsite-syntax-p">)</span>
 
-# Chunks - add another webpage from Google for Developers
-with(urlopen(&#34;https://developers.googleblog.com/2023/12/how-its-made-gemini-multimodal-prompting.html&#34;)) as f:
-  html = f.read().decode(&#34;utf-8&#34;)
+<span class="devsite-syntax-c1"># Chunks - add another webpage from Google for Developers</span>
+<span class="devsite-syntax-k">with</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">urlopen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"https://developers.googleblog.com/2023/12/how-its-made-gemini-multimodal-prompting.html"</span><span class="devsite-syntax-p">))</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-n">f</span><span class="devsite-syntax-p">:</span>
+  <span class="devsite-syntax-n">html</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">f</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">read</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">decode</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"utf-8"</span><span class="devsite-syntax-p">)</span>
 
-# Chunk the file using HtmlChunker
-chunker = HtmlChunker(
-    max_words_per_aggregate_passage=100,
-    greedily_aggregate_sibling_nodes=False,
-)
-passages = chunker.chunk(html)
+<span class="devsite-syntax-c1"># Chunk the file using HtmlChunker</span>
+<span class="devsite-syntax-n">chunker</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">HtmlChunker</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">max_words_per_aggregate_passage</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-mi">100</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">greedily_aggregate_sibling_nodes</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">False</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">passages</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">chunker</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">html</span><span class="devsite-syntax-p">)</span>
 
-# Create `Chunk` entities.
-chunks = []
-for passage in passages:
-    chunk = glm.Chunk(data={&#39;string_value&#39;: passage})
-    chunk.custom_metadata.append(glm.CustomMetadata(key=&#34;tags&#34;,
-                                                    string_list_value=glm.StringList(
-                                                        values=[&#34;Google For Developers&#34;, &#34;Gemini API&#34;, &#34;Blog&#34;, &#34;Announcement&#34;])))
-    chunk.custom_metadata.append(glm.CustomMetadata(key=&#34;chunking_strategy&#34;,
-                                                    string_value=&#34;no_aggregate_sibling_nodes&#34;))
-    chunk.custom_metadata.append(glm.CustomMetadata(key = &#34;publish_date&#34;,
-                                                    numeric_value = 20231206))
-    chunks.append(chunk)
+<span class="devsite-syntax-c1"># Create `Chunk` entities.</span>
+<span class="devsite-syntax-n">chunks</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">passage</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">passages</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">chunk</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">data</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s1">'string_value'</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">passage</span><span class="devsite-syntax-p">})</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"tags"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">string_list_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">StringList</span><span class="devsite-syntax-p">(</span>
+                                                        <span class="devsite-syntax-n">values</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"Google For Developers"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Gemini API"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Blog"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"Announcement"</span><span class="devsite-syntax-p">])))</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"chunking_strategy"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"no_aggregate_sibling_nodes"</span><span class="devsite-syntax-p">))</span>
+    <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">custom_metadata</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CustomMetadata</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"publish_date"</span><span class="devsite-syntax-p">,</span>
+                                                    <span class="devsite-syntax-n">numeric_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">20231206</span><span class="devsite-syntax-p">))</span>
+    <span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">)</span>
 
-# Make the request
-create_chunk_requests = []
-for chunk in chunks:
-  create_chunk_requests.append(glm.CreateChunkRequest(parent=document_resource_name, chunk=chunk))
-request = glm.BatchCreateChunksRequest(parent=document_resource_name, requests=create_chunk_requests)
-response = retriever_service_client.batch_create_chunks(request)
-print(response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-n">create_chunk_requests</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">chunk</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">chunks</span><span class="devsite-syntax-p">:</span>
+  <span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateChunkRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">chunk</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">BatchCreateChunksRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">document_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">requests</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">create_chunk_requests</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">batch_create_chunks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="query_the_corpus" data-text="Query the corpus" tabindex="-1">Query the corpus</h2>
 
 <p>Use the <code translate="no" dir="ltr">QueryCorpusRequest</code> method to perform semantic search to get relevant passages.</p>
@@ -2679,55 +2661,55 @@ print(response)
 <li><code translate="no" dir="ltr">results_count</code>: Specify the number of passages to return. Maximum is 100. If unspecified, the API returns a maximum of 10 <code translate="no" dir="ltr">Chunk</code>s.</li>
 <li><code translate="no" dir="ltr">metadata_filters</code>: Filter by <code translate="no" dir="ltr">chunk_metadata</code> or <code translate="no" dir="ltr">document_metadata</code>. Each <code translate="no" dir="ltr">MetadataFilter</code> needs to correspond to a unique key. Multiple <code translate="no" dir="ltr">MetadataFilter</code> objects are joined by logical <code translate="no" dir="ltr">AND</code>s. Similar metadata filter conditions are joined by logical <code translate="no" dir="ltr">OR</code>s. Some examples:</li>
 </ul>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">(year &gt;= 2020 OR year &lt; 2010) AND (genre = drama OR genre = action)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">year</span> &gt;<span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">2020</span> <span class="devsite-syntax-n">OR</span> <span class="devsite-syntax-n">year</span> &lt; <span class="devsite-syntax-mi">2010</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-n">AND</span> <span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">genre</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">drama</span> <span class="devsite-syntax-n">OR</span> <span class="devsite-syntax-n">genre</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">action</span><span class="devsite-syntax-p">)</span>
 
-metadata_filter = [
-  {
-    key = &#34;document.custom_metadata.year&#34;
-    conditions = [
-      {int_value = 2020, operation = GREATER_EQUAL},
-      {int_value = 2010, operation = LESS}]
-  },
-  {
-    key = &#34;document.custom_metadata.genre&#34;
-    conditions = [
-      {string_value = &#34;drama&#34;, operation = EQUAL},
-      {string_value = &#34;action&#34;, operation = EQUAL} }]
-  }]
-</code></pre>
+<span class="devsite-syntax-n">metadata_filter</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+  <span class="devsite-syntax-p">{</span>
+    <span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"document.custom_metadata.year"</span>
+    <span class="devsite-syntax-n">conditions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+      <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">int_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">2020</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GREATER_EQUAL</span><span class="devsite-syntax-p">},</span>
+      <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">int_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">2010</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">LESS</span><span class="devsite-syntax-p">}]</span>
+  <span class="devsite-syntax-p">},</span>
+  <span class="devsite-syntax-p">{</span>
+    <span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"document.custom_metadata.genre"</span>
+    <span class="devsite-syntax-n">conditions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+      <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">string_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"drama"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">EQUAL</span><span class="devsite-syntax-p">},</span>
+      <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">string_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"action"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">EQUAL</span><span class="devsite-syntax-p">}</span> <span class="devsite-syntax-p">}]</span>
+  <span class="devsite-syntax-p">}]</span>
+</code></pre></devsite-code>
 <p>Note that only numeric values support &quot;AND&quot;s for the same key. String
 values only support &quot;OR&quot;s for the same key.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">(&#34;Google for Developers&#34; in tags) and (20230314 &gt; publish_date)
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"Google for Developers"</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">tags</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-ow">and</span> <span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">20230314</span> &gt; <span class="devsite-syntax-n">publish_date</span><span class="devsite-syntax-p">)</span>
 
-metadata_filter = [
- {
-    key = &#34;chunk.custom_metadata.tags&#34;
-    conditions = [
-    {string_value = &#39;Google for Developers&#39;, operation = INCLUDES},
-  },
-  {
-    key = &#34;chunk.custom_metadata.publish_date&#34;
-    conditions = [
-    {numeric_value = 20230314, operation = GREATER_EQUAL}]
-  }]
-</code></pre><pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">user_query = &#34;What is the purpose of Project IDX?&#34;
-results_count = 5
+<span class="devsite-syntax-n">metadata_filter</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+ <span class="devsite-syntax-p">{</span>
+    <span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"chunk.custom_metadata.tags"</span>
+    <span class="devsite-syntax-n">conditions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">string_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s1">'Google for Developers'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">INCLUDES</span><span class="devsite-syntax-p">},</span>
+  <span class="devsite-syntax-p">},</span>
+  <span class="devsite-syntax-p">{</span>
+    <span class="devsite-syntax-n">key</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"chunk.custom_metadata.publish_date"</span>
+    <span class="devsite-syntax-n">conditions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">numeric_value</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">20230314</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">operation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GREATER_EQUAL</span><span class="devsite-syntax-p">}]</span>
+  <span class="devsite-syntax-p">}]</span>
+</code></pre></devsite-code><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">user_query</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"What is the purpose of Project IDX?"</span>
+<span class="devsite-syntax-n">results_count</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">5</span>
 
-# Add metadata filters for both chunk and document.
-chunk_metadata_filter = glm.MetadataFilter(key=&#39;chunk.custom_metadata.tags&#39;,
-                                           conditions=[glm.Condition(
-                                              string_value=&#39;Google For Developers&#39;,
-                                              operation=glm.Condition.Operator.INCLUDES)])
+<span class="devsite-syntax-c1"># Add metadata filters for both chunk and document.</span>
+<span class="devsite-syntax-n">chunk_metadata_filter</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">MetadataFilter</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s1">'chunk.custom_metadata.tags'</span><span class="devsite-syntax-p">,</span>
+                                           <span class="devsite-syntax-n">conditions</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Condition</span><span class="devsite-syntax-p">(</span>
+                                              <span class="devsite-syntax-n">string_value</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s1">'Google For Developers'</span><span class="devsite-syntax-p">,</span>
+                                              <span class="devsite-syntax-n">operation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Condition</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Operator</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">INCLUDES</span><span class="devsite-syntax-p">)])</span>
 
-# Make the request
-# corpus_resource_name is a variable set in the &#34;Create a corpus&#34; section.
-request = glm.QueryCorpusRequest(name=corpus_resource_name,
-                                 query=user_query,
-                                 results_count=results_count,
-                                 metadata_filters=[chunk_metadata_filter])
-query_corpus_response = retriever_service_client.query_corpus(request)
-print(query_corpus_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-c1"># corpus_resource_name is a variable set in the "Create a corpus" section.</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">QueryCorpusRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span>
+                                 <span class="devsite-syntax-n">query</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">user_query</span><span class="devsite-syntax-p">,</span>
+                                 <span class="devsite-syntax-n">results_count</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">results_count</span><span class="devsite-syntax-p">,</span>
+                                 <span class="devsite-syntax-n">metadata_filters</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">chunk_metadata_filter</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-n">query_corpus_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">query_corpus</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">query_corpus_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="attributed_question-answering" data-text="Attributed Question-Answering" tabindex="-1">Attributed Question-Answering</h2>
 
 <p>Use the <a href="https://ai.google.dev/api/python/google/ai/generativelanguage/GenerateAnswerRequest"><code translate="no" dir="ltr">GenerateAnswer</code></a> method to perform Attributed Question-Answering over your document, corpus, or a set of passages.</p>
@@ -2794,50 +2776,50 @@ print(query_corpus_response)
 <li>If your use case relies on deterministic outputs, then set temperature=0.</li>
 </ul></li>
 </ul>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">user_query = &#34;What is the purpose of Project IDX?&#34;
-answer_style = &#34;ABSTRACTIVE&#34; # Or VERBOSE, EXTRACTIVE
-MODEL_NAME = &#34;models/aqa&#34;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">user_query</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"What is the purpose of Project IDX?"</span>
+<span class="devsite-syntax-n">answer_style</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"ABSTRACTIVE"</span> <span class="devsite-syntax-c1"># Or VERBOSE, EXTRACTIVE</span>
+<span class="devsite-syntax-n">MODEL_NAME</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"models/aqa"</span>
 
-# Make the request
-# corpus_resource_name is a variable set in the &#34;Create a corpus&#34; section.
-content = glm.Content(parts=[glm.Part(text=user_query)])
-retriever_config = glm.SemanticRetrieverConfig(source=corpus_resource_name, query=content)
-req = glm.GenerateAnswerRequest(model=MODEL_NAME,
-                                contents=[content],
-                                semantic_retriever=retriever_config,
-                                answer_style=answer_style)
-aqa_response = generative_service_client.generate_answer(req)
-print(aqa_response)
-</code></pre><pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Get the metadata from the first attributed passages for the source
-chunk_resource_name = aqa_response.answer.grounding_attributions[0].source_id.semantic_retriever_chunk.chunk
-get_chunk_response = retriever_service_client.get_chunk(name=chunk_resource_name)
-print(get_chunk_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-c1"># corpus_resource_name is a variable set in the "Create a corpus" section.</span>
+<span class="devsite-syntax-n">content</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parts</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Part</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">user_query</span><span class="devsite-syntax-p">)])</span>
+<span class="devsite-syntax-n">retriever_config</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">SemanticRetrieverConfig</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">source</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">query</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">req</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GenerateAnswerRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">MODEL_NAME</span><span class="devsite-syntax-p">,</span>
+                                <span class="devsite-syntax-n">contents</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-p">],</span>
+                                <span class="devsite-syntax-n">semantic_retriever</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">retriever_config</span><span class="devsite-syntax-p">,</span>
+                                <span class="devsite-syntax-n">answer_style</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">answer_style</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">aqa_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">generative_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_answer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">req</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">aqa_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Get the metadata from the first attributed passages for the source</span>
+<span class="devsite-syntax-n">chunk_resource_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">aqa_response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">answer</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">grounding_attributions</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">source_id</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">semantic_retriever_chunk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">chunk</span>
+<span class="devsite-syntax-n">get_chunk_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get_chunk</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">chunk_resource_name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">get_chunk_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h3 id="more_options_aqa_using_inline_passages" data-text="More Options: AQA Using Inline Passages" tabindex="-1">More Options: AQA Using Inline Passages</h3>
 
 <p>Alternatively, you can use the AQA endpoint directly, without using the Semantic Retriever API by passing <code translate="no" dir="ltr">inline_passages</code>.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">user_query = &#34;What is AQA from Google?&#34;
-user_query_content = glm.Content(parts=[glm.Part(text=user_query)])
-answer_style = &#34;VERBOSE&#34; # or ABSTRACTIVE, EXTRACTIVE
-MODEL_NAME = &#34;models/aqa&#34;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">user_query</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"What is AQA from Google?"</span>
+<span class="devsite-syntax-n">user_query_content</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parts</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Part</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">user_query</span><span class="devsite-syntax-p">)])</span>
+<span class="devsite-syntax-n">answer_style</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"VERBOSE"</span> <span class="devsite-syntax-c1"># or ABSTRACTIVE, EXTRACTIVE</span>
+<span class="devsite-syntax-n">MODEL_NAME</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"models/aqa"</span>
 
-# Create the grounding inline passages
-grounding_passages = glm.GroundingPassages()
-passage_a = glm.Content(parts=[glm.Part(text=&#34;Attributed Question and Answering (AQA) refers to answering questions grounded to a given corpus and providing citation&#34;)])
-grounding_passages.passages.append(glm.GroundingPassage(content=passage_a, id=&#34;001&#34;))
-passage_b = glm.Content(parts=[glm.Part(text=&#34;An LLM is not designed to generate content grounded in a set of passages. Although instructing an LLM to answer questions only based on a set of passages reduces hallucination, hallucination still often occurs when LLMs generate responses unsupported by facts provided by passages&#34;)])
-grounding_passages.passages.append(glm.GroundingPassage(content=passage_b, id=&#34;002&#34;))
-passage_c = glm.Content(parts=[glm.Part(text=&#34;Hallucination is one of the biggest problems in Large Language Models (LLM) development. Large Language Models (LLMs) could produce responses that are fictitious and incorrect, which significantly impacts the usefulness and trustworthiness of applications built with language models.&#34;)])
-grounding_passages.passages.append(glm.GroundingPassage(content=passage_c, id=&#34;003&#34;))
+<span class="devsite-syntax-c1"># Create the grounding inline passages</span>
+<span class="devsite-syntax-n">grounding_passages</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GroundingPassages</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">passage_a</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parts</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Part</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"Attributed Question and Answering (AQA) refers to answering questions grounded to a given corpus and providing citation"</span><span class="devsite-syntax-p">)])</span>
+<span class="devsite-syntax-n">grounding_passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GroundingPassage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">passage_a</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-nb">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"001"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">passage_b</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parts</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Part</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"An LLM is not designed to generate content grounded in a set of passages. Although instructing an LLM to answer questions only based on a set of passages reduces hallucination, hallucination still often occurs when LLMs generate responses unsupported by facts provided by passages"</span><span class="devsite-syntax-p">)])</span>
+<span class="devsite-syntax-n">grounding_passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GroundingPassage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">passage_b</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-nb">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"002"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">passage_c</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parts</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Part</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"Hallucination is one of the biggest problems in Large Language Models (LLM) development. Large Language Models (LLMs) could produce responses that are fictitious and incorrect, which significantly impacts the usefulness and trustworthiness of applications built with language models."</span><span class="devsite-syntax-p">)])</span>
+<span class="devsite-syntax-n">grounding_passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">passages</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">append</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GroundingPassage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">passage_c</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-nb">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"003"</span><span class="devsite-syntax-p">))</span>
 
-# Create the request
-req = glm.GenerateAnswerRequest(model=MODEL_NAME,
-                                contents=[user_query_content],
-                                inline_passages=grounding_passages,
-                                answer_style=answer_style)
-aqa_response = generative_service_client.generate_answer(req)
-print(aqa_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Create the request</span>
+<span class="devsite-syntax-n">req</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GenerateAnswerRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">MODEL_NAME</span><span class="devsite-syntax-p">,</span>
+                                <span class="devsite-syntax-n">contents</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">user_query_content</span><span class="devsite-syntax-p">],</span>
+                                <span class="devsite-syntax-n">inline_passages</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">grounding_passages</span><span class="devsite-syntax-p">,</span>
+                                <span class="devsite-syntax-n">answer_style</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">answer_style</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">aqa_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">generative_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_answer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">req</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">aqa_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="share_the_corpus" data-text="Share the corpus" tabindex="-1">Share the corpus</h2>
 
 <p>You can choose to share the corpus with others using the <a href="https://ai.google.dev/api/python/google/ai/generativelanguage/CreatePermissionRequest"><code translate="no" dir="ltr">CreatePermissionRequest</code></a> API.</p>
@@ -2852,21 +2834,21 @@ print(aqa_response)
 </ul></li>
 <li>A corpus can be public by granting <code translate="no" dir="ltr">EVERYONE</code> as <code translate="no" dir="ltr">user_type</code> read access.</li>
 </ul>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Replace your-email@gmail.com with the email added as a test user in the OAuth Quickstart
-shared_user_email = &#34;TODO-your-email@gmail.com&#34; #  @param {type:&#34;string&#34;}
-user_type = &#34;USER&#34;
-role = &#34;READER&#34;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Replace your-email@gmail.com with the email added as a test user in the OAuth Quickstart</span>
+<span class="devsite-syntax-n">shared_user_email</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"TODO-your-email@gmail.com"</span> <span class="devsite-syntax-c1">#  @param {type:"string"}</span>
+<span class="devsite-syntax-n">user_type</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"USER"</span>
+<span class="devsite-syntax-n">role</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"READER"</span>
 
-# Make the request
-# corpus_resource_name is a variable set in the &#34;Create a corpus&#34; section.
-request = glm.CreatePermissionRequest(
-    parent=corpus_resource_name,
-    permission=glm.Permission(grantee_type=user_type,
-                              email_address=shared_user_email,
-                              role=role))
-create_permission_response = permission_service_client.create_permission(request)
-print(create_permission_response)
-</code></pre>
+<span class="devsite-syntax-c1"># Make the request</span>
+<span class="devsite-syntax-c1"># corpus_resource_name is a variable set in the "Create a corpus" section.</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreatePermissionRequest</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">permission</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Permission</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">grantee_type</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">user_type</span><span class="devsite-syntax-p">,</span>
+                              <span class="devsite-syntax-n">email_address</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">shared_user_email</span><span class="devsite-syntax-p">,</span>
+                              <span class="devsite-syntax-n">role</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">role</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">create_permission_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">permission_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_permission</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">create_permission_response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="delete_the_corpus" data-text="Delete the corpus" tabindex="-1">Delete the corpus</h2>
 
 <p>Use <a href="https://ai.google.dev/api/python/google/ai/generativelanguage/DeleteCorpusRequest"><code translate="no" dir="ltr">DeleteCorpusRequest</code></a> to delete a user corpus and all associated <code translate="no" dir="ltr">Document</code>s &amp; <code translate="no" dir="ltr">Chunk</code>s.</p>
@@ -2874,11 +2856,11 @@ print(create_permission_response)
 <p>Note that non-empty corpora will throw an error without specifying an <code translate="no" dir="ltr">force=True</code> flag. If you set <code translate="no" dir="ltr">force=True</code>, any <code translate="no" dir="ltr">Chunk</code>s and objects related to this <code translate="no" dir="ltr">Document</code> will also be deleted.</p>
 
 <p>If <code translate="no" dir="ltr">force=False</code> (the default) and the <code translate="no" dir="ltr">Document</code> contains any <code translate="no" dir="ltr">Chunk</code>s, a <code translate="no" dir="ltr">FAILED_PRECONDITION</code> error will be returned.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Set force to False if you don&#39;t want to delete non-empty corpora.
-req = glm.DeleteCorpusRequest(name=corpus_resource_name, force=True)
-delete_corpus_response = retriever_service_client.delete_corpus(req)
-print(&#34;Successfully deleted corpus: &#34; + corpus_resource_name)
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Set force to False if you don't want to delete non-empty corpora.</span>
+<span class="devsite-syntax-n">req</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">DeleteCorpusRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">force</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">True</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">delete_corpus_response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">retriever_service_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">delete_corpus</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">req</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"Successfully deleted corpus: "</span> <span class="devsite-syntax-o">+</span> <span class="devsite-syntax-n">corpus_resource_name</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
 <h2 id="summary_and_further_reading" data-text="Summary and further reading" tabindex="-1">Summary and further reading</h2>
 
 <p>This guide introduced the Semantic Retriever and Attributed Question &amp; Answering (AQA) APIs of the Generative Language API and showed how you can use it to perform semantic information retrieval on your custom text data. Note that this API also works with the <a href="https://www.llamaindex.ai/" class="external">LlamaIndex</a> data framework. Refer to <a href="https://github.com/run-llama/llama_index/blob/main/docs/docs/examples/managed/GoogleDemo.ipynb" class="external">the tutorial</a> to learn more.</p>
@@ -2895,30 +2877,30 @@ print(&#34;Successfully deleted corpus: &#34; + corpus_resource_name)
 </ol>
 
 <p><img width="400" src="https://ai.google.dev/tutorials/images/colab_upload.png"></p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr"># Replace TODO-your-project-name with the project used in the OAuth Quickstart
-project_name = &#34;TODO-your-project-name&#34; #  @param {type:&#34;string&#34;}
-# Replace TODO-your-email@gmail.com with the email added as a test user in the OAuth Quickstart
-email = &#34;TODO-your-email@gmail.com&#34; #  @param {type:&#34;string&#34;}
-# Rename the uploaded file to `client_secret.json` OR
-# Change the variable `client_file_name` in the code below.
-client_file_name = &#34;client_secret.json&#34;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-c1"># Replace TODO-your-project-name with the project used in the OAuth Quickstart</span>
+<span class="devsite-syntax-n">project_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"TODO-your-project-name"</span> <span class="devsite-syntax-c1">#  @param {type:"string"}</span>
+<span class="devsite-syntax-c1"># Replace TODO-your-email@gmail.com with the email added as a test user in the OAuth Quickstart</span>
+<span class="devsite-syntax-n">email</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"TODO-your-email@gmail.com"</span> <span class="devsite-syntax-c1">#  @param {type:"string"}</span>
+<span class="devsite-syntax-c1"># Rename the uploaded file to `client_secret.json` OR</span>
+<span class="devsite-syntax-c1"># Change the variable `client_file_name` in the code below.</span>
+<span class="devsite-syntax-n">client_file_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"client_secret.json"</span>
 
-# IMPORTANT: Follow the instructions from the output - you must copy the command
-# to your terminal and copy the output after authentication back here.
-!gcloud config set project $project_name
-!gcloud config set account $email
+<span class="devsite-syntax-c1"># IMPORTANT: Follow the instructions from the output - you must copy the command</span>
+<span class="devsite-syntax-c1"># to your terminal and copy the output after authentication back here.</span>
+<span class="devsite-syntax-err">!</span><span class="devsite-syntax-n">gcloud</span> <span class="devsite-syntax-n">config</span> <span class="devsite-syntax-nb">set</span> <span class="devsite-syntax-n">project</span> <span class="devsite-syntax-err">$</span><span class="devsite-syntax-n">project_name</span>
+<span class="devsite-syntax-err">!</span><span class="devsite-syntax-n">gcloud</span> <span class="devsite-syntax-n">config</span> <span class="devsite-syntax-nb">set</span> <span class="devsite-syntax-n">account</span> <span class="devsite-syntax-err">$</span><span class="devsite-syntax-n">email</span>
 
-# NOTE: The simplified project setup in this tutorial triggers a &#34;Google hasn&#39;t verified this app.&#34; dialog.
-# This is normal, click &#34;Advanced&#34; -&gt; &#34;Go to [app name] (unsafe)&#34;
-!gcloud auth application-default login --no-browser --client-id-file=$client_file_name --scopes=&#34;https://www.googleapis.com/auth/generative-language.retriever,https://www.googleapis.com/auth/cloud-platform&#34;
-</code></pre>
+<span class="devsite-syntax-c1"># NOTE: The simplified project setup in this tutorial triggers a "Google hasn't verified this app." dialog.</span>
+<span class="devsite-syntax-c1"># This is normal, click "Advanced" -&gt; "Go to [app name] (unsafe)"</span>
+<span class="devsite-syntax-err">!</span><span class="devsite-syntax-n">gcloud</span> <span class="devsite-syntax-n">auth</span> <span class="devsite-syntax-n">application</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">default</span> <span class="devsite-syntax-n">login</span> <span class="devsite-syntax-o">--</span><span class="devsite-syntax-n">no</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">browser</span> <span class="devsite-syntax-o">--</span><span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-nb">id</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">file</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-n">client_file_name</span> <span class="devsite-syntax-o">--</span><span class="devsite-syntax-n">scopes</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"https://www.googleapis.com/auth/generative-language.retriever,https://www.googleapis.com/auth/cloud-platform"</span>
+</code></pre></devsite-code>
 <p>Initialize the client library and re-run the notebook starting from <a href="#create_corpus">Create a corpus</a>.</p>
-<pre class="prettyprint" translate="no" dir="ltr"><code translate="no" dir="ltr">import google.ai.generativelanguage as glm
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.ai.generativelanguage</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">glm</span>
 
-generative_service_client = glm.GenerativeServiceClient()
-retriever_service_client = glm.RetrieverServiceClient()
-permission_service_client = glm.PermissionServiceClient()
-</code></pre>
+<span class="devsite-syntax-n">generative_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GenerativeServiceClient</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">retriever_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">RetrieverServiceClient</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">permission_service_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">glm</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">PermissionServiceClient</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
 <link href="/site-assets/css/style.css?v=2" rel="stylesheet" data-page-link><link href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" data-page-link>
   
 
@@ -3236,12 +3218,12 @@ permission_service_client = glm.PermissionServiceClient()
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="QJARfpc2nXDabiIQiUwoBzk3hIa5hD">
+    <script nonce="9o2OgBe6Wf8eyZdYjJ7w1A7Vi3BbvU">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_release_notes_notifications","Cloud__enable_free_trial_server_call","Cloud__enable_cloudx_ping","Cloud__enable_cloud_shell_fte_user_flow","Search__enable_ai_eligibility_checks","Profiles__enable_dashboard_curated_recommendations","Experiments__reqs_query_experiments","Profiles__require_profile_eligibility_for_signin","EngEduTelemetry__enable_engedu_telemetry","BookNav__enable_tenant_cache_key","Profiles__enable_public_developer_profiles","Search__enable_suggestions_from_borg","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloud_dlp_service","Profiles__enable_completecodelab_endpoint","TpcFeatures__enable_required_headers","Profiles__enable_developer_profiles_callout","Profiles__enable_page_saving","Cloud__enable_llm_concierge_chat","Search__enable_dynamic_content_confidential_banner","Cloud__enable_cloud_facet_chat","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_complete_playlist_endpoint","DevPro__enable_developer_subscriptions","MiscFeatureFlags__developers_footer_dark_image","Concierge__enable_pushui","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_recognition_badges","MiscFeatureFlags__emergency_css","MiscFeatureFlags__enable_project_variables","Cloud__enable_legacy_calculator_redirect","Analytics__enable_clearcut_logging","DevPro__enable_cloud_innovators_plus","Cloud__enable_cloud_shell","CloudShell__cloud_shell_button","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_profile_collections","MiscFeatureFlags__developers_footer_image","OnSwitch__enable","Profiles__enable_awarding_url","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__enable_view_transitions"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_completecodelab_endpoint","Profiles__require_profile_eligibility_for_signin","CloudShell__cloud_shell_button","MiscFeatureFlags__emergency_css","Cloud__enable_legacy_calculator_redirect","Cloud__enable_cloud_dlp_service","Concierge__enable_pushui","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_view_transitions","Profiles__enable_awarding_url","Profiles__enable_page_saving","Profiles__enable_complete_playlist_endpoint","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_variable_operator","Profiles__enable_release_notes_notifications","Profiles__enable_profile_collections","DevPro__enable_developer_subscriptions","Profiles__enable_recognition_badges","Profiles__enable_developer_profiles_callout","Cloud__enable_free_trial_server_call","Cloud__enable_cloudx_ping","Experiments__reqs_query_experiments","Search__enable_suggestions_from_borg","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__enable_explain_this_code","Search__enable_ai_eligibility_checks","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloud_shell","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__developers_footer_dark_image","TpcFeatures__enable_required_headers","Search__enable_page_map","Cloud__enable_cloud_facet_chat","OnSwitch__enable","Profiles__enable_dashboard_curated_recommendations","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__enable_project_variables","Cloud__enable_llm_concierge_chat","BookNav__enable_tenant_cache_key","Analytics__enable_clearcut_logging","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__developers_footer_image","Profiles__enable_public_developer_profiles","Cloud__enable_cloudx_experiment_ids"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

@@ -2117,20 +2117,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2477,10 +2463,9 @@ and move it to your working directory.</p></li>
 <p>To convert the <code translate="no" dir="ltr">client_secret.json</code> file into usable credentials, pass its
 location the <code translate="no" dir="ltr">gcloud auth application-default login</code> command&#39;s
 <code translate="no" dir="ltr">--client-id-file</code> argument.</p>
-<pre class="prettyprint lang-sh" translate="no" dir="ltr"><code class="devsite-terminal" translate="no" dir="ltr">gcloud auth application-default login \
-    --client-id-file=client_secret.json \
-    --scopes=&#39;https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever&#39;</code>
-</pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class="devsite-terminal" translate="no" dir="ltr">gcloud<span class="devsite-syntax-w"> </span>auth<span class="devsite-syntax-w"> </span>application-default<span class="devsite-syntax-w"> </span>login<span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+<span class="devsite-syntax-w">    </span>--client-id-file<span class="devsite-syntax-o">=</span>client_secret.json<span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+<span class="devsite-syntax-w">    </span>--scopes<span class="devsite-syntax-o">=</span><span class="devsite-syntax-s1">'https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'</span></code></pre></devsite-code>
 <p>The simplified project setup in this tutorial triggers a <strong>&quot;Google hasn&#39;t
 verified this app.&quot;</strong> dialog. This is normal, choose <strong>&quot;continue&quot;</strong>.</p>
 
@@ -2490,12 +2475,12 @@ by <code translate="no" dir="ltr">gcloud</code> or the client libraries.</p>
 instructions it prints (don&#39;t just click the link). Also make sure your local
 <code translate="no" dir="ltr">gcloud --version</code> is the
 <a href="https://cloud.google.com/sdk/docs/release-notes">latest</a> to match Colab.</span></aside>
-<p><code translate="no" dir="ltr"><pre translate="no" dir="ltr">
+<p><code translate="no" dir="ltr"><div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>
 gcloud auth application-default login <br>
     <strong>--no-browser</strong>
     --client-id-file=client_secret.json <br>
     --scopes=&#39;https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever&#39;
-</pre></code></p>
+</pre></devsite-code></code></p>
 
 <p>Once you have the application default credentials (ACD) set, the client
 libraries in most languages need minimal to no help to find them.</p>
@@ -2504,23 +2489,22 @@ libraries in most languages need minimal to no help to find them.</p>
 
 <p>The quickest way to test that this is working is to use it to access the REST
 API using curl:</p>
-<pre class="prettyprint lang-sh" translate="no" dir="ltr"><code class="devsite-terminal" translate="no" dir="ltr">access_token=$(gcloud auth application-default print-access-token)
-project_id=&lt;MY PROJECT ID&gt;</code>
-<code class="devsite-terminal" translate="no" dir="ltr">curl -X GET https://generativelanguage.googleapis.com/v1/models \
-    -H &#39;Content-Type: application/json&#39; \
-    -H &#34;Authorization: Bearer ${access_token}&#34; \
-    -H &#34;x-goog-user-project: ${project_id}&#34; | grep &#39;&#34;name&#34;&#39;</code>
-</pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class="devsite-terminal" translate="no" dir="ltr"><span class="devsite-syntax-nv">access_token</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-k">$(</span>gcloud<span class="devsite-syntax-w"> </span>auth<span class="devsite-syntax-w"> </span>application-default<span class="devsite-syntax-w"> </span>print-access-token<span class="devsite-syntax-k">)</span>
+<span class="devsite-syntax-nv">project_id</span><span class="devsite-syntax-o">=</span>&lt;MY<span class="devsite-syntax-w"> </span>PROJECT<span class="devsite-syntax-w"> </span>ID&gt;</code>
+<code class="devsite-terminal" translate="no" dir="ltr">curl<span class="devsite-syntax-w"> </span>-X<span class="devsite-syntax-w"> </span>GET<span class="devsite-syntax-w"> </span>https://generativelanguage.googleapis.com/v1/models<span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+<span class="devsite-syntax-w">    </span>-H<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'Content-Type: application/json'</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+<span class="devsite-syntax-w">    </span>-H<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Authorization: Bearer </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nv">access_token</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-se">\</span>
+<span class="devsite-syntax-w">    </span>-H<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"x-goog-user-project: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nv">project_id</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">|</span><span class="devsite-syntax-w"> </span>grep<span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'"name"'</span></code></pre></devsite-code>
 <h3 id="python" data-text="Python" tabindex="-1">Python</h3>
 
 <p>In python the client libraries should find them automatically:</p>
-<pre class="prettyprint lang-bash" translate="no" dir="ltr"><code translate="no" dir="ltr">pip install google-generativeai
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code translate="no" dir="ltr">pip<span class="devsite-syntax-w"> </span>install<span class="devsite-syntax-w"> </span>google-generativeai
+</code></pre></devsite-code>
 <p>A minimal script to test it might be:</p>
-<pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import google.generativeai as genai
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.generativeai</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">genai</span>
 
-print(&#39;Available base models:&#39;, [m.name for m in genai.list_models()])
-</code></pre>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Available base models:'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">m</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">m</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">list_models</span><span class="devsite-syntax-p">()])</span>
+</code></pre></devsite-code>
 <h2 id="next-steps" data-text="Next steps" tabindex="-1">Next steps</h2>
 
 <p>If that&#39;s working you&#39;re ready to try
@@ -2538,9 +2522,8 @@ of procedure, for other languages, available in the
 <h3 id="install-libs" data-text="1. Install the necessary libraries" tabindex="-1">1. Install the necessary libraries</h3>
 
 <p>Install the Google client library for Python, and the Gemini client library.</p>
-<pre class="prettyprint lang-sh" translate="no" dir="ltr"><code class="devsite-terminal" translate="no" dir="ltr">pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib</code>
-<code class="devsite-terminal" translate="no" dir="ltr">pip install google-generativeai</code>
-</pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class="devsite-terminal" translate="no" dir="ltr">pip<span class="devsite-syntax-w"> </span>install<span class="devsite-syntax-w"> </span>--upgrade<span class="devsite-syntax-w"> </span>-q<span class="devsite-syntax-w"> </span>google-api-python-client<span class="devsite-syntax-w"> </span>google-auth-httplib2<span class="devsite-syntax-w"> </span>google-auth-oauthlib</code>
+<code class="devsite-terminal" translate="no" dir="ltr">pip<span class="devsite-syntax-w"> </span>install<span class="devsite-syntax-w"> </span>google-generativeai</code></pre></devsite-code>
 <h3 id="write-credentials" data-text="2. Write the credential manager" tabindex="-1">2. Write the credential manager</h3>
 
 <p>To minimize the number of times you have to click through the authorization
@@ -2550,58 +2533,57 @@ caches a <code translate="no" dir="ltr">token.json</code> file that it can reuse
 <p>Start with the
 following code to convert the <code translate="no" dir="ltr">client_secret.json</code> file to a token usable with
 <code translate="no" dir="ltr">genai.configure</code>:</p>
-<pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import os.path
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">os.path</span>
 
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google.auth.transport.requests</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">Request</span>
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google.oauth2.credentials</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">Credentials</span>
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google_auth_oauthlib.flow</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">InstalledAppFlow</span>
 
-SCOPES = [&#39;https://www.googleapis.com/auth/generative-language.retriever&#39;]
+<span class="devsite-syntax-n">SCOPES</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-s1">'https://www.googleapis.com/auth/generative-language.retriever'</span><span class="devsite-syntax-p">]</span>
 
-def load_creds():
-    &#34;&#34;&#34;Converts `client_secret.json` to a credential object.
+<span class="devsite-syntax-k">def</span> <span class="devsite-syntax-nf">load_creds</span><span class="devsite-syntax-p">():</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-sd">"""Converts `client_secret.json` to a credential object.</span>
 
-    This function caches the generated tokens to minimize the use of the
-    consent screen.
-    &#34;&#34;&#34;
-    creds = None
-    # The file token.json stores the user&#39;s access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists(&#39;token.json&#39;):
-        creds = Credentials.from_authorized_user_file(&#39;token.json&#39;, SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                &#39;client_secret.json&#39;, SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open(&#39;token.json&#39;, &#39;w&#39;) as token:
-            token.write(creds.to_json())
-    return creds
-</code></pre>
+<span class="devsite-syntax-sd">    This function caches the generated tokens to minimize the use of the</span>
+<span class="devsite-syntax-sd">    consent screen.</span>
+<span class="devsite-syntax-sd">    """</span>
+    <span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-kc">None</span>
+    <span class="devsite-syntax-c1"># The file token.json stores the user's access and refresh tokens, and is</span>
+    <span class="devsite-syntax-c1"># created automatically when the authorization flow completes for the first</span>
+    <span class="devsite-syntax-c1"># time.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-n">os</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">path</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">exists</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'token.json'</span><span class="devsite-syntax-p">):</span>
+        <span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">Credentials</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">from_authorized_user_file</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'token.json'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">SCOPES</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-c1"># If there are no (valid) credentials available, let the user log in.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-ow">or</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">creds</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">valid</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-ow">and</span> <span class="devsite-syntax-n">creds</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">expired</span> <span class="devsite-syntax-ow">and</span> <span class="devsite-syntax-n">creds</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">refresh_token</span><span class="devsite-syntax-p">:</span>
+            <span class="devsite-syntax-n">creds</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">refresh</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Request</span><span class="devsite-syntax-p">())</span>
+        <span class="devsite-syntax-k">else</span><span class="devsite-syntax-p">:</span>
+            <span class="devsite-syntax-n">flow</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">InstalledAppFlow</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">from_client_secrets_file</span><span class="devsite-syntax-p">(</span>
+                <span class="devsite-syntax-s1">'client_secret.json'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">SCOPES</span><span class="devsite-syntax-p">)</span>
+            <span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">flow</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">run_local_server</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">port</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-c1"># Save the credentials for the next run</span>
+        <span class="devsite-syntax-k">with</span> <span class="devsite-syntax-nb">open</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'token.json'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s1">'w'</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-n">token</span><span class="devsite-syntax-p">:</span>
+            <span class="devsite-syntax-n">token</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">write</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">creds</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">to_json</span><span class="devsite-syntax-p">())</span>
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">creds</span>
+</code></pre></devsite-code>
 <h3 id="write-program" data-text="3. Write your program" tabindex="-1">3. Write your program</h3>
 
 <p>Now create your <code translate="no" dir="ltr">script.py</code>:</p>
-<pre class="prettyprint lang-python" translate="no" dir="ltr"><code translate="no" dir="ltr">import pprint
-import google.generativeai as genai
-from load_creds import load_creds
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">pprint</span>
+<span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.generativeai</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">genai</span>
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">load_creds</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">load_creds</span>
 
-creds = load_creds()
+<span class="devsite-syntax-n">creds</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">load_creds</span><span class="devsite-syntax-p">()</span>
 
-genai.configure(credentials=creds)
+<span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">configure</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">credentials</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">creds</span><span class="devsite-syntax-p">)</span>
 
-print()
-print(&#39;Available base models:&#39;, [m.name for m in genai.list_models()])
-</code></pre>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Available base models:'</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">m</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">m</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">list_models</span><span class="devsite-syntax-p">()])</span>
+</code></pre></devsite-code>
 <h3 id="run-program" data-text="4. Run your program" tabindex="-1">4. Run your program</h3>
 
 <p>In your working directory, run the sample:</p>
-<pre class="prettyprint lang-sh" translate="no" dir="ltr"><code class="devsite-terminal" translate="no" dir="ltr">python script.py</code>
-</pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Bash"><code class="devsite-terminal" translate="no" dir="ltr">python<span class="devsite-syntax-w"> </span>script.py</code></pre></devsite-code>
 <p>The first time you run the script, it opens a browser window and prompts you
 to authorize access.</p>
 
@@ -2933,12 +2915,12 @@ run the sample code, you aren&#39;t prompted for authorization.</p></li>
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="mbkwL3aVfjEHL09dDKmpnVMf4ys91C">
+    <script nonce="QbE7MWrMFNwsu6Ll8FIY/bhctTPAF8">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Cloud__enable_cloud_dlp_service","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__emergency_css","Cloud__enable_cloud_shell","Search__enable_suggestions_from_borg","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__enable_explain_this_code","MiscFeatureFlags__developers_footer_image","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_shell_fte_user_flow","Cloud__enable_llm_concierge_chat","MiscFeatureFlags__enable_view_transitions","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_cloud_facet_chat","MiscFeatureFlags__enable_project_variables","TpcFeatures__enable_required_headers","Profiles__enable_release_notes_notifications","Profiles__require_profile_eligibility_for_signin","Profiles__enable_page_saving","MiscFeatureFlags__developers_footer_dark_image","MiscFeatureFlags__enable_variable_operator","Analytics__enable_clearcut_logging","Search__enable_ai_eligibility_checks","Cloud__enable_legacy_calculator_redirect","Profiles__enable_recognition_badges","Profiles__enable_public_developer_profiles","Cloud__enable_cloudx_ping","TpcFeatures__enable_mirror_tenant_redirects","Concierge__enable_pushui","DevPro__enable_developer_subscriptions","Profiles__enable_dashboard_curated_recommendations","Search__enable_dynamic_content_confidential_banner","Search__enable_page_map","OnSwitch__enable","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_firebase_utm","BookNav__enable_tenant_cache_key","Profiles__enable_developer_profiles_callout","Profiles__enable_awarding_url","DevPro__enable_cloud_innovators_plus","Profiles__enable_profile_collections","Experiments__reqs_query_experiments","Cloud__enable_free_trial_server_call","Cloud__enable_cloudx_experiment_ids"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_awarding_url","Search__enable_suggestions_from_borg","Search__enable_page_map","Cloud__enable_cloudx_ping","Profiles__enable_recognition_badges","Cloud__enable_cloud_shell_fte_user_flow","CloudShell__cloud_code_overflow_menu","Cloud__enable_free_trial_server_call","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_firebase_utm","BookNav__enable_tenant_cache_key","Search__enable_dynamic_content_confidential_banner","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__developers_footer_dark_image","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_completecodelab_endpoint","Cloud__enable_legacy_calculator_redirect","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__developers_footer_image","Search__enable_ai_eligibility_checks","TpcFeatures__enable_required_headers","MiscFeatureFlags__enable_variable_operator","MiscFeatureFlags__emergency_css","Cloud__enable_cloud_facet_chat","Profiles__enable_release_notes_notifications","Profiles__enable_public_developer_profiles","CloudShell__cloud_shell_button","Cloud__enable_llm_concierge_chat","Cloud__enable_cloud_dlp_service","Profiles__enable_developer_profiles_callout","DevPro__enable_cloud_innovators_plus","Profiles__enable_dashboard_curated_recommendations","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_shell","Analytics__enable_clearcut_logging","EngEduTelemetry__enable_engedu_telemetry","OnSwitch__enable","Experiments__reqs_query_experiments","Profiles__enable_page_saving","DevPro__enable_developer_subscriptions","Concierge__enable_pushui","Profiles__enable_profile_collections","MiscFeatureFlags__enable_project_variables"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

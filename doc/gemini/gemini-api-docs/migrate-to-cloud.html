@@ -2117,20 +2117,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2562,29 +2548,31 @@ User role</a>.
   <tr>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-c1"># To install the Python SDK, use this CLI command:</span>
-<span class="devsite-syntax-c1"># pip install google-generativeai</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+# To install the Python SDK, use this CLI command:
+# pip install google-generativeai
 
-<span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">google.generativeai</span> <span class="devsite-syntax-k">as</span> <span class="devsite-syntax-nn">genai</span>
-<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">google.generativeai</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">GenerativeModel</span>
+import google.generativeai as genai
+from google.generativeai import GenerativeModel
 
-<span class="devsite-syntax-n">API_KEY</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"<var translate="no">API_KEY</var>"</span>
-<span class="devsite-syntax-n">genai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">configure</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">api_key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">API_KEY</span><span class="devsite-syntax-p">)</span>
-        </pre></devsite-code>
+API_KEY="<var translate="no">API_KEY</var>"
+genai.configure(api_key=API_KEY)
+        </pre>
       </code>
     </td>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-c1"># To install the Python SDK, use this CLI command:</span>
-<span class="devsite-syntax-c1"># pip install google-cloud-aiplatform</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+# To install the Python SDK, use this CLI command:
+# pip install google-cloud-aiplatform
 
-<span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">vertexai</span>
-<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">vertexai.generative_models</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">Image</span>
+import vertexai
+from vertexai.generative_models import GenerativeModel, Image
 
-<span class="devsite-syntax-n">PROJECT_ID</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"<var translate="no">PROJECT_ID</var>"</span>
-<span class="devsite-syntax-n">REGION</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"<var translate="no">REGION</var>"</span>  <span class="devsite-syntax-c1"># e.g. us-central1</span>
-<span class="devsite-syntax-n">vertexai</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">init</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">project</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">PROJECT_ID</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">location</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">REGION</span><span class="devsite-syntax-p">)</span>
-        </pre></devsite-code>
+PROJECT_ID = "<var translate="no">PROJECT_ID</var>"
+REGION = "<var translate="no">REGION</var>"  # e.g. us-central1
+vertexai.init(project=PROJECT_ID, location=REGION)
+        </pre>
       </code>
     </td>
   </tr>
@@ -2600,20 +2588,22 @@ User role</a>.
   <tr>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"The opposite of hot is"</span><span class="devsite-syntax-p">)</span>
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-c1">#  The opposite of hot is cold.</span>
-        </pre></devsite-code>
+response = model.generate_content("The opposite of hot is")
+print(response.text) #  The opposite of hot is cold.
+        </pre>
       </code>
     </td>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_content</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"The opposite of hot is"</span><span class="devsite-syntax-p">)</span>
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-c1">#  The opposite of hot is cold.</span>
-        </pre></devsite-code>
+response = model.generate_content("The opposite of hot is")
+print(response.text) #  The opposite of hot is cold.
+        </pre>
       </code>
     </td>
   </tr>
@@ -2629,27 +2619,29 @@ User role</a>.
   <tr>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-nn">PIL.Image</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+import PIL.Image
 
-<span class="devsite-syntax-n">multimodal_model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+multimodal_model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">image</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">PIL</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">open</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"image.jpg"</span><span class="devsite-syntax-p">)</span>
+image = PIL.Image.open("image.jpg")
 
-<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">multimodal_model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_content</span><span class="devsite-syntax-p">([</span><span class="devsite-syntax-s2">"What is this picture?"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">image</span><span class="devsite-syntax-p">])</span>
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-c1"># A cat is shown in this picture.</span>
-        </pre></devsite-code>
+response = multimodal_model.generate_content(["What is this picture?", image])
+print(response.text) # A cat is shown in this picture.
+        </pre>
       </code>
     </td>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-n">multimodal_model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+multimodal_model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">image</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">Image</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">load_from_file</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"image.jpg"</span><span class="devsite-syntax-p">)</span>
+image = Image.load_from_file("image.jpg")
 
-<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">multimodal_model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">generate_content</span><span class="devsite-syntax-p">([</span><span class="devsite-syntax-s2">"What is shown in this image?"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">image</span><span class="devsite-syntax-p">])</span>
+response = multimodal_model.generate_content(["What is shown in this image?", image])
 
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-c1"># A cat is shown in this picture.</span>
-        </pre></devsite-code>
+print(response.text) # A cat is shown in this picture.
+        </pre>
       </code>
     </td>
   </tr>
@@ -2665,24 +2657,26 @@ User role</a>.
   <tr>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">chat</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">start_chat</span><span class="devsite-syntax-p">()</span>
+chat = model.start_chat()
 
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chat</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">send_message</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"How are you?"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chat</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">send_message</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"What can you do?"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
-        </pre></devsite-code>
+print(chat.send_message("How are you?").text)
+print(chat.send_message("What can you do?").text)
+        </pre>
       </code>
     </td>
     <td>
       <code translate="no" dir="ltr">
-        <div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">GenerativeModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">)</span>
+        <pre class="prettyprint lang-py" translate="no" dir="ltr">
+model = GenerativeModel("gemini-1.5-flash")
 
-<span class="devsite-syntax-n">chat</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">start_chat</span><span class="devsite-syntax-p">()</span>
+chat = model.start_chat()
 
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chat</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">send_message</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"How are you?"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
-<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">chat</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">send_message</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"What can you do?"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
-        </pre></devsite-code>
+print(chat.send_message("How are you?").text)
+print(chat.send_message("What can you do?").text)
+        </pre>
       </code>
     </td>
   </tr>
@@ -3034,12 +3028,12 @@ to learn more about generative AI solutions on Vertex AI.</li>
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="YLbEIONAroE//6Wr+EdhCZavgjqobH">
+    <script nonce="rsf6XVCzgaY2gmkn7mHf+8miVG2PZi">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["OnSwitch__enable","MiscFeatureFlags__enable_project_variables","MiscFeatureFlags__enable_view_transitions","Search__enable_ai_eligibility_checks","Concierge__enable_pushui","Profiles__enable_release_notes_notifications","Profiles__enable_profile_collections","Cloud__enable_free_trial_server_call","Profiles__enable_completecodelab_endpoint","EngEduTelemetry__enable_engedu_telemetry","DevPro__enable_cloud_innovators_plus","Profiles__enable_public_developer_profiles","Cloud__enable_cloud_shell","MiscFeatureFlags__enable_variable_operator","TpcFeatures__enable_mirror_tenant_redirects","Search__enable_suggestions_from_borg","Profiles__require_profile_eligibility_for_signin","Search__enable_page_map","Profiles__enable_developer_profiles_callout","Profiles__enable_awarding_url","Cloud__enable_cloudx_ping","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloudx_experiment_ids","Analytics__enable_clearcut_logging","Profiles__enable_recognition_badges","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__emergency_css","CloudShell__cloud_code_overflow_menu","Search__enable_dynamic_content_confidential_banner","Cloud__enable_llm_concierge_chat","Profiles__enable_page_saving","BookNav__enable_tenant_cache_key","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_explain_this_code","Cloud__enable_cloud_facet_chat","TpcFeatures__enable_required_headers","Cloud__enable_cloud_shell_fte_user_flow","CloudShell__cloud_shell_button","DevPro__enable_developer_subscriptions","Cloud__enable_cloud_dlp_service","Experiments__reqs_query_experiments","Profiles__enable_complete_playlist_endpoint"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Profiles__enable_release_notes_notifications","Search__enable_suggestions_from_borg","MiscFeatureFlags__emergency_css","Cloud__enable_cloud_facet_chat","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_variable_operator","MiscFeatureFlags__enable_project_variables","TpcFeatures__enable_mirror_tenant_redirects","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__developers_footer_image","Cloud__enable_cloud_shell_fte_user_flow","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_public_developer_profiles","Cloud__enable_free_trial_server_call","Profiles__enable_developer_profiles_callout","Cloud__enable_llm_concierge_chat","BookNav__enable_tenant_cache_key","DevPro__enable_developer_subscriptions","Profiles__require_profile_eligibility_for_signin","Concierge__enable_pushui","Cloud__enable_cloudx_experiment_ids","Experiments__reqs_query_experiments","MiscFeatureFlags__developers_footer_dark_image","Search__enable_page_map","TpcFeatures__enable_required_headers","Cloud__enable_cloud_shell","Analytics__enable_clearcut_logging","Cloud__enable_cloud_dlp_service","DevPro__enable_cloud_innovators_plus","Profiles__enable_page_saving","OnSwitch__enable","MiscFeatureFlags__enable_view_transitions","Profiles__enable_profile_collections","CloudShell__cloud_code_overflow_menu","Profiles__enable_awarding_url","Cloud__enable_cloudx_ping","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_complete_playlist_endpoint","Profiles__enable_recognition_badges","Search__enable_ai_eligibility_checks","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_completecodelab_endpoint"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

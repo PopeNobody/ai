@@ -2117,20 +2117,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2383,18 +2369,18 @@ generative model.</p>
 sure it rhymes.</code></p>
 
 <p>Model output:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Puppies are cute,
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Puppies are cute,
 Android phones are neat,
 They both bring joy,
 And make life complete.
-</code></pre>
+</code></pre></devsite-code>
 <h3 id="generate-list" data-text="Generate a list" tabindex="-1">Generate a list</h3>
 
 <p>User input: <code translate="no" dir="ltr">Generate a bulleted list of items I need to pack for a three-day
 camping trip.</code></p>
 
 <p>Model output:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">*   Tent
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">*   Tent
 *   Sleeping bag
 *   Sleeping pad
 *   Camp stove
@@ -2406,7 +2392,7 @@ camping trip.</code></p>
 *   Sunscreen
 *   Insect repellent
 *   ...
-</code></pre>
+</code></pre></devsite-code>
 <p>You can get generative models to produce all sorts of useful behaviors like
 this, just by crafting the right input text, also called a <strong>prompt</strong>. The art
 and science of figuring out the right wording to get generative models to do
@@ -2424,17 +2410,17 @@ recognizing and replicating patterns in text data. The idea is to send the
 generative model a text pattern that it learns to complete. For example, say you
 want to build an application that takes as input a country name and outputs its
 capital city. Here&#39;s a text prompt designed to do just that:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Italy : Rome
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Italy : Rome
 France : Paris
 Germany :
-</code></pre>
+</code></pre></devsite-code>
 <p>In this prompt, you establish a pattern: <code translate="no" dir="ltr">[country] : [capital]</code>. If you send
 this prompt to a large language model, it will autocomplete the pattern and
 return something like this:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">     Berlin
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">     Berlin
 Turkey : Ankara
 Greece : Athens
-</code></pre>
+</code></pre></devsite-code>
 <p>This model response may look a little strange. The model returned not only the
 capital of Germany (the last country in your hand-written prompt), but also a
 whole list of additional country and capital pairs. That&#39;s because the
@@ -2445,33 +2431,33 @@ generates after &quot;Berlin.&quot; Indeed, as application designers, you&#39;d 
 to truncate those extraneous examples. What&#39;s more, you&#39;d probably want to
 <strong>parameterize</strong> the input, so that Germany is not a fixed string but a variable
 that the end user provides:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Italy : Rome
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Italy : Rome
 France : Paris
 &lt;user input here&gt; :
-</code></pre>
+</code></pre></devsite-code>
 <p>You have just written a few-shot prompt for generating country capitals.</p>
 
 <p>You can accomplish a large number of tasks by following this <strong>few-shot prompt</strong>
 template. Here&#39;s a few-shot prompt with a slightly different format that
 converts Python to JavaScript:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Convert Python to JavaScript.
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Convert Python to JavaScript.
 Python: print(&#34;hello world&#34;)
 JavaScript: console.log(&#34;hello world&#34;)
 Python: for x in range(0, 100):
 JavaScript: for(var i = 0; i &lt; 100; i++) {
 Python: ${USER INPUT HERE}
 JavaScript:
-</code></pre>
+</code></pre></devsite-code>
 <p>Or, take this &quot;reverse dictionary&quot; prompt. Given a definition, it returns the
 word that fits that definition:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Given a definition, return the word it defines.
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Given a definition, return the word it defines.
 Definition: When you&#39;re happy that other people are also sad.
 Word: schadenfreude
 Definition: existing purely in the mind, but not in physical reality
 Word: abstract
 Definition: ${USER INPUT HERE}
 Word:
-</code></pre>
+</code></pre></devsite-code>
 <p>You might have noticed that the exact pattern of these few-shot prompts varies
 slightly. In addition to containing examples, providing instructions in your
 prompts is an additional strategy to consider when writing your own prompts, as
@@ -2542,11 +2528,11 @@ pre-existing knowledge to generate a plausible answer.</p>
 <ul>
 <li>Instruction-content</li>
 </ul>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;Overall instruction&gt;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">&lt;Overall instruction&gt;
 &lt;Content to operate on&gt;
-</code></pre>
+</code></pre></devsite-code>
 <p>For example,</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Summarize the following into two sentences at the third-grade level:
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Summarize the following into two sentences at the third-grade level:
 
 Hummingbirds are the smallest birds in the world, and they are also one of the
 most fascinating. They are found in North and South America, and they are known
@@ -2568,16 +2554,16 @@ in order to maintain their energy, and they often visit flowers to drink nectar.
 
 Hummingbirds are amazing creatures. They are small, but they are also very
 powerful. They are beautiful, and they are very important to the ecosystem.
-</code></pre>
+</code></pre></devsite-code>
 <ul>
 <li>Instruction-content-instruction</li>
 </ul>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;Overall instruction or context setting&gt;
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">&lt;Overall instruction or context setting&gt;
 &lt;Content to operate on&gt;
 &lt;Final instruction&gt;
-</code></pre>
+</code></pre></devsite-code>
 <p>For example,</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Here is some text I&#39;d like you to summarize:
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Here is some text I&#39;d like you to summarize:
 
 Hummingbirds are the smallest birds in the world, and they are also one of the
 most fascinating. They are found in North and South America, and they are known
@@ -2596,15 +2582,15 @@ they are also very powerful. They are beautiful, and they are very important to
 the ecosystem.
 
 Summarize it in two sentences at the third-grade reading level.
-</code></pre>
+</code></pre></devsite-code>
 <ul>
 <li>Continuation. Sometimes, you can have the model continue text without any
 instructions. For example, here is a zero-shot prompt where the model is
 intended to continue the input provided:</li>
 </ul>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Once upon a time, there was a little sparrow building a nest in a farmer&#39;s
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Once upon a time, there was a little sparrow building a nest in a farmer&#39;s
 barn. This sparrow
-</code></pre>
+</code></pre></devsite-code>
 <p>Use zero-shot prompts to generate creative text formats, such as poems, code,
 scripts, musical pieces, email, or letters.</p>
 
@@ -2615,11 +2601,11 @@ the pattern. This allows for the generation of predictable responses from the
 model.</p>
 
 <p>For example, you can generate food pairings like:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Food: Apple
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Food: Apple
 Pairs with: Cheese
 Food: Pear
 Pairs with:
-</code></pre>
+</code></pre></devsite-code>
 <h3 id="few-shot-prompts" data-text="Few-shot prompts" tabindex="-1">Few-shot prompts</h3>
 
 <p>These prompts provide the model with multiple examples to replicate. Use
@@ -2627,11 +2613,11 @@ few-shot prompts to complete complicated tasks, such as synthesizing data based
 on a pattern.</p>
 
 <p>An example prompt may be:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">Generate a grocery shopping list for a week for one person. Use the JSON format
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">Generate a grocery shopping list for a week for one person. Use the JSON format
 given below.
 {&#34;item&#34;: &#34;eggs&#34;, &#34;quantity&#34;: &#34;6&#34;}
 {&#34;item&#34;: &#34;bread&#34;, &#34;quantity&#34;: &#34;one loaf&#34;}
-</code></pre>
+</code></pre></devsite-code>
 <h2 id="under-the-hood" data-text="Generative models under the hood" tabindex="-1">Generative models under the hood</h2>
 
 <p>This section aims to answer the question - <strong><em>Is there randomness in generative
@@ -2643,8 +2629,8 @@ processes the input prompt and generates a <strong>probability distribution</str
 possible tokens (words) that are likely to come next. For example, if you prompt
 with the input text &quot;The dog jumped over the ... &quot;, the generative model will
 produce an array of probable next words:</p>
-<pre class="devsite-click-to-copy" translate="no" dir="ltr"><code translate="no" dir="ltr">[(&#34;fence&#34;, 0.77), (&#34;ledge&#34;, 0.12), (&#34;blanket&#34;, 0.03), ...]
-</code></pre>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded><code translate="no" dir="ltr">[(&#34;fence&#34;, 0.77), (&#34;ledge&#34;, 0.12), (&#34;blanket&#34;, 0.03), ...]
+</code></pre></devsite-code>
 <p>This process is deterministic; a generative model will produce this same
 distribution every time it&#39;s input the same prompt text.</p>
 
@@ -2986,12 +2972,12 @@ more about best practices for creating prompts.</li>
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="p/ZeEbwzYYbhgbuQYTJpINixLLD8SO">
+    <script nonce="+jnQFyMMwYNMNWn0sIoyC+M2Lu9hdm">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__developers_footer_image","DevPro__enable_cloud_innovators_plus","Profiles__enable_page_saving","MiscFeatureFlags__enable_project_variables","CloudShell__cloud_shell_button","Search__enable_dynamic_content_confidential_banner","DevPro__enable_developer_subscriptions","Profiles__enable_public_developer_profiles","Cloud__enable_cloudx_ping","BookNav__enable_tenant_cache_key","Analytics__enable_clearcut_logging","MiscFeatureFlags__enable_view_transitions","OnSwitch__enable","Profiles__enable_completecodelab_endpoint","Profiles__enable_developer_profiles_callout","Cloud__enable_cloud_shell","Cloud__enable_cloudx_experiment_ids","Cloud__enable_legacy_calculator_redirect","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_free_trial_server_call","Search__enable_ai_eligibility_checks","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_facet_chat","Profiles__enable_release_notes_notifications","TpcFeatures__enable_mirror_tenant_redirects","Cloud__enable_cloud_dlp_service","Cloud__enable_llm_concierge_chat","CloudShell__cloud_code_overflow_menu","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_recognition_badges","Concierge__enable_pushui","Search__enable_page_map","MiscFeatureFlags__enable_explain_this_code","Experiments__reqs_query_experiments","TpcFeatures__enable_required_headers","MiscFeatureFlags__emergency_css","MiscFeatureFlags__enable_variable_operator","Search__enable_suggestions_from_borg","Profiles__require_profile_eligibility_for_signin","Profiles__enable_awarding_url","Profiles__enable_profile_collections","Cloud__enable_cloud_shell_fte_user_flow"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["Cloud__enable_cloud_facet_chat","Search__enable_ai_eligibility_checks","DevPro__enable_cloud_innovators_plus","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__developers_footer_image","Concierge__enable_pushui","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_developer_subscriptions","Search__enable_dynamic_content_confidential_banner","Search__enable_suggestions_from_borg","Cloud__enable_cloudx_experiment_ids","BookNav__enable_tenant_cache_key","Profiles__enable_completecodelab_endpoint","Cloud__enable_llm_concierge_chat","Profiles__enable_recognition_badges","Cloud__enable_cloudx_ping","CloudShell__cloud_shell_button","Cloud__enable_cloud_shell","Cloud__enable_free_trial_server_call","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_dlp_service","Profiles__require_profile_eligibility_for_signin","Cloud__enable_legacy_calculator_redirect","Profiles__enable_awarding_url","MiscFeatureFlags__enable_firebase_utm","Search__enable_page_map","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_project_variables","CloudShell__cloud_code_overflow_menu","Experiments__reqs_query_experiments","Profiles__enable_public_developer_profiles","Profiles__enable_profile_collections","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_page_saving","MiscFeatureFlags__enable_variable_operator","Profiles__enable_release_notes_notifications","MiscFeatureFlags__emergency_css","TpcFeatures__enable_required_headers","Analytics__enable_clearcut_logging","OnSwitch__enable","MiscFeatureFlags__enable_view_transitions","Profiles__enable_developer_profiles_callout","EngEduTelemetry__enable_engedu_telemetry"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>

@@ -2117,20 +2117,6 @@
   
   
   
-    <div class="devsite-banner devsite-banner-announcement nocontent"
-      
-        
-    background="google-blue"
-  
-      >
-      <div class="devsite-banner-message">
-        <div class="devsite-banner-message-text">
-          Grounding with Google Search is now available! <a class="button button-primary"
-   href="https://developers.googleblog.com/en/gemini-api-and-ai-studio-now-offer-grounding-with-google-search">Learn more</a>
-        </div>
-      </div>
-    </div>
-  
   
   
 
@@ -2731,6 +2717,61 @@ generative models and is <a href="/gemini-api/docs/function-calling/tutorial">su
 <span class="devsite-syntax-s1">      ]</span>
 <span class="devsite-syntax-s1">    }"</span>
 <span class="devsite-syntax-s1">'</span>
+</code></pre></devsite-code>
+<h2 id="structured-output" data-text="Structured output" tabindex="-1">Structured output</h2></section>
+</div>
+<p>Gemini models can output JSON objects in any <a href="/gemini-api/docs/structured-output">structure you define</a>.</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 id="python_4" data-text="Python" tabindex="-1">Python</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">pydantic</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">BaseModel</span>
+<span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">openai</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">OpenAI</span>
+
+<span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">OpenAI</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">api_key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"GEMINI_API_KEY"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">base_url</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"https://generativelanguage.googleapis.com/v1beta/openai/"</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-k">class</span> <span class="devsite-syntax-nc">CalendarEvent</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">BaseModel</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span>
+    <span class="devsite-syntax-n">date</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span>
+    <span class="devsite-syntax-n">participants</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">list</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">completion</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">beta</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">chat</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">completions</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">parse</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">messages</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span>
+        <span class="devsite-syntax-p">{</span><span class="devsite-syntax-s2">"role"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"system"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"content"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"Extract the event information."</span><span class="devsite-syntax-p">},</span>
+        <span class="devsite-syntax-p">{</span><span class="devsite-syntax-s2">"role"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"user"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"content"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"John and Susan are going to an AI conference on Friday."</span><span class="devsite-syntax-p">},</span>
+    <span class="devsite-syntax-p">],</span>
+    <span class="devsite-syntax-n">response_format</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">CalendarEvent</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">completion</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">choices</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">parsed</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code></section>
+<section><h3 id="node.js_4" data-text="Node.js" tabindex="-1">Node.js</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">OpenAI</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"openai"</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">zodResponseFormat</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"openai/helpers/zod"</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"zod"</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">openai</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">OpenAI</span><span class="devsite-syntax-p">({</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">apiKey</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"GEMINI_API_KEY"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">baseURL</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"https://generativelanguage.googleapis.com/v1beta/openai"</span>
+<span class="devsite-syntax-p">});</span>
+
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">CalendarEvent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">object</span><span class="devsite-syntax-p">({</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">name</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">string</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">date</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">string</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">participants</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">array</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">z</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">string</span><span class="devsite-syntax-p">()),</span>
+<span class="devsite-syntax-p">});</span>
+
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">completion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">await</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">openai</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">beta</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">chat</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">completions</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">parse</span><span class="devsite-syntax-p">({</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">model</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"gemini-1.5-flash"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">messages</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">role</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"system"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">content</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"Extract the event information."</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">role</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"user"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">content</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"John and Susan are going to an AI conference on Friday"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-nx">response_format</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">zodResponseFormat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">CalendarEvent</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"event"</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-p">});</span>
+
+<span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">completion</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">choices</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mf">0</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-nx">message</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">parsed</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">);</span>
 </code></pre></devsite-code></section>
 </div>
 <h2 id="embeddings" data-text="Embeddings" tabindex="-1">Embeddings</h2>
@@ -2738,7 +2779,7 @@ generative models and is <a href="/gemini-api/docs/function-calling/tutorial">su
 <p>Text embeddings measure the relatedness of text strings and can be generated
 using the <a href="/gemini-api/docs/embeddings">the Gemini API</a>.</p>
 <div class="ds-selector-tabs" data-ds-scope="code-sample">
-<section><h3 id="python_4" data-text="Python" tabindex="-1">Python</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">openai</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">OpenAI</span>
+<section><h3 id="python_5" data-text="Python" tabindex="-1">Python</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span> <span class="devsite-syntax-nn">openai</span> <span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">OpenAI</span>
 
 <span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">OpenAI</span><span class="devsite-syntax-p">(</span>
     <span class="devsite-syntax-n">api_key</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"GEMINI_API_KEY"</span><span class="devsite-syntax-p">,</span>
@@ -2752,7 +2793,7 @@ using the <a href="/gemini-api/docs/embeddings">the Gemini API</a>.</p>
 
 <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">data</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">embedding</span><span class="devsite-syntax-p">)</span>
 </code></pre></devsite-code></section>
-<section><h3 id="node.js_4" data-text="Node.js" tabindex="-1">Node.js</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">OpenAI</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"openai"</span><span class="devsite-syntax-p">;</span>
+<section><h3 id="node.js_5" data-text="Node.js" tabindex="-1">Node.js</h3><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">OpenAI</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"openai"</span><span class="devsite-syntax-p">;</span>
 
 <span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">openai</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">OpenAI</span><span class="devsite-syntax-p">({</span>
 <span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">apiKey</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"GEMINI_API_KEY"</span><span class="devsite-syntax-p">,</span>
@@ -2781,12 +2822,7 @@ using the <a href="/gemini-api/docs/embeddings">the Gemini API</a>.</p>
 </div>
 <h2 id="current-limitations" data-text="Current limitations" tabindex="-1">Current limitations</h2>
 
-<p>Support for the OpenAI libraries is still in beta while we extend feature support.
-The following functionalities are limited:</p>
-
-<ul>
-<li><a href="/gemini-api/docs/structured-output?lang=python">Structured output</a></li>
-</ul>
+<p>Support for the OpenAI libraries is still in beta while we extend feature support.</p>
 
 <p>If you have questions about supported parameters, upcoming features, or run into
 any issues getting started with Gemini, join our <a href="https://discuss.ai.google.dev/c/gemini-api/4">Developer Forum</a>.</p>
@@ -2849,7 +2885,7 @@ any issues getting started with Gemini, join our <a href="https://discuss.ai.goo
 
 <devsite-content-footer class="nocontent">
   <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
-  <p>Last updated 2024-11-20 UTC.</p>
+  <p>Last updated 2024-11-22 UTC.</p>
 </devsite-content-footer>
 
 
@@ -2895,7 +2931,7 @@ any issues getting started with Gemini, join our <a href="https://discuss.ai.goo
   
   
     <template class="devsite-content-data-template">
-      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-11-20 UTC."],[],[]]
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-11-22 UTC."],[],[]]
     </template>
   
 </div>
@@ -3107,12 +3143,12 @@ any issues getting started with Gemini, join our <a href="https://discuss.ai.goo
       <devsite-badger></devsite-badger>
     
     
-    <script nonce="7w3tB6SInjkLSiyNflfH3dOhs6r0Be">
+    <script nonce="e/BL3zZQrYCToY1WGMjn43tCniIma3">
   
   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
     E.parentNode.insertBefore(t,E);})(window, document, 'script',
-    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["DevPro__enable_cloud_innovators_plus","TpcFeatures__enable_mirror_tenant_redirects","Profiles__enable_completecodelab_endpoint","Search__enable_ai_eligibility_checks","CloudShell__cloud_code_overflow_menu","Cloud__enable_legacy_calculator_redirect","Profiles__enable_profile_collections","Profiles__enable_release_notes_notifications","Cloud__enable_free_trial_server_call","Profiles__enable_developer_profiles_callout","Cloud__enable_cloudx_ping","MiscFeatureFlags__enable_project_variables","Profiles__enable_complete_playlist_endpoint","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_public_developer_profiles","Cloud__enable_llm_concierge_chat","Analytics__enable_clearcut_logging","OnSwitch__enable","MiscFeatureFlags__enable_variable_operator","Profiles__enable_recognition_badges","Concierge__enable_pushui","TpcFeatures__enable_required_headers","CloudShell__cloud_shell_button","Profiles__enable_page_saving","Experiments__reqs_query_experiments","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_developer_subscriptions","Search__enable_page_map","Cloud__enable_cloud_shell_fte_user_flow","Profiles__require_profile_eligibility_for_signin","Profiles__enable_awarding_url","Cloud__enable_cloud_dlp_service","Cloud__enable_cloud_facet_chat","BookNav__enable_tenant_cache_key","Cloud__enable_cloud_shell","MiscFeatureFlags__developers_footer_image","Cloud__enable_cloudx_experiment_ids","Search__enable_suggestions_from_borg","MiscFeatureFlags__enable_view_transitions","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__emergency_css","EngEduTelemetry__enable_engedu_telemetry"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
+    'https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/js/app_loader.js', '[59,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai","https://googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,["/_pwa/googledevai/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v870e399c64f7c43c99a3043db4b3a74327bb93d0914e84a0c3dba90bbfd67625/googledevai/images/favicon-new.png","/_static/googledevai/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyCNm9YxQumEXwGJgTDjxoxXK6m1F-9720Q","AIzaSyCc76DZePGtoyUjqKrLdsMGk_ry7sljLbY","ai.google.dev","AIzaSyB9bqgQ2t11WJsOX8qNsCQ6U-w91mmqF-I","AIzaSyAdYnStPdzjcJJtQ0mvIaeaMKj7_t6J_Fg",null,null,null,["MiscFeatureFlags__emergency_css","Profiles__require_profile_eligibility_for_signin","Analytics__enable_clearcut_logging","BookNav__enable_tenant_cache_key","OnSwitch__enable","TpcFeatures__enable_required_headers","Profiles__enable_developer_profiles_callout","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloudx_experiment_ids","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_cloudx_ping","Cloud__enable_cloud_dlp_service","Profiles__enable_page_saving","Search__enable_page_map","Profiles__enable_public_developer_profiles","Cloud__enable_cloud_shell","CloudShell__cloud_shell_button","Search__enable_dynamic_content_confidential_banner","TpcFeatures__enable_mirror_tenant_redirects","MiscFeatureFlags__enable_explain_this_code","Search__enable_suggestions_from_borg","Cloud__enable_free_trial_server_call","Profiles__enable_profile_collections","CloudShell__cloud_code_overflow_menu","Search__enable_ai_eligibility_checks","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__enable_project_variables","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__developers_footer_image","Cloud__enable_llm_concierge_chat","Profiles__enable_release_notes_notifications","DevPro__enable_developer_subscriptions","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_variable_operator","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_cloud_facet_chat","Profiles__enable_recognition_badges","Cloud__enable_legacy_calculator_redirect","Profiles__enable_complete_playlist_endpoint","Concierge__enable_pushui","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_awarding_url","Experiments__reqs_query_experiments"],null,null,"AIzaSyA58TaKli1DculwmAmbpzLVGuWc8eCQgQc","https://developerscontentserving-pa.googleapis.com","AIzaSyDWBU60w0P9hEkr29kkksYs8Z7gvZ8u_wc","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[59,"googledevai","Google AI for Developers","ai.google.dev",null,"googledevai-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1]],null,[73,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,1,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-TC2MQKS8"],null,null,null,null,null,[["GTM-TC2MQKS8",1]],1]],null,4]]')
   
 </script>
     <devsite-a11y-announce></devsite-a11y-announce>
